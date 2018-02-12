@@ -76,7 +76,7 @@ coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
 		--testdox-text test.txt --coverage-text=coverage.txt \
 		--whitelist src/Test src/Test
 
-api: ../doc/api/index.html
+api: ../docs/api/index.html
 ../doc/api/index.html: $(CMSZPK_PHP)
 	$(PHP) $(PHPDOC) update sami.php
 
