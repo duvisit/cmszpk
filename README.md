@@ -11,7 +11,7 @@ sadržajem. Sustav omogućuje korisnicima jednostavno upravljanje sadržajem pre
 Interneta. Sadržaj se prikazuje posjetiteljima web stranice kao html dokument
 koji se sastoji od teksta, slike i veza na druge dokumente.
 
-Dokumentacija programskog koda
+[Dokumentacija programskog koda](https://perob.github.io/cmszpk/)
 
 [Primjer web mjesta](http://perob.webfactional.com/)
 
