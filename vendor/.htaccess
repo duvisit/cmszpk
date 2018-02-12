@@ -1,0 +1,21 @@
+# enable the directives - assuming they're not enabled globally
+ExpiresActive on
+
+# send an Expires: header for each of these mimetypes (as defined by server)
+ExpiresDefault "access plus 1 month"
+
+# Images
+ExpiresByType image/png   "access plus 1 month"
+ExpiresByType image/jpeg  "access plus 1 month"
+
+# Webfonts
+ExpiresByType font/truetype            "access plus 1 month"
+ExpiresByType font/opentype            "access plus 1 month"
+ExpiresByType application/x-font-woff  "access plus 1 month"
+ExpiresByType image/svg+xml            "access plus 1 month"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+
+# CSS and JavaScript
+ExpiresByType text/css                 "access plus 1 seconds"
+ExpiresByType application/javascript   "access plus 1 month"
+ExpiresByType text/javascript          "access plus 1 month"
