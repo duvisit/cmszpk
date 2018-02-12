@@ -4,6 +4,8 @@ Projekt kolegija Programsko inženjerstvo.
 
 Projects in software engineering (croatian language only).
 
+[![Build Status](https://travis-ci.org/perob/cmszpk.svg?branch=master)](https://travis-ci.org/perob/cmszpk)
+
 ## Opis proizvoda
 
 Proizvod u ovom projektu predstavlja programsko rješenje sustava za upravljanje
