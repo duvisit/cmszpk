@@ -25,8 +25,13 @@ TOUCH = touch
 #---------- programski kod -------------------------------
 
 CMSZPK_DIR = src
-CMSZPK_PHP = $(strip $(foreach d,$(CMSZPK_DIR),$(wildcard $(d)/*.php)))
-CMSZPK_RES = src/database/demo.sql src/database/cmszpk.db \
+CMSZPK_PHP = \
+src/cmszpk.php src/Facebook.php src/filter.php src/HTTPStatus.php \
+src/Model.php src/Pogled.php src/Postavke.php src/Sadrzaj.php src/Sesija.php \
+src/sustav.php src/Upravljac.php src/Zahtjev.php
+
+CMSZPK_RES = \
+src/autoload.php src/database/demo.sql src/database/cmszpk.db \
 $(strip $(foreach d,src/template,$(wildcard $(d)/*.php))) \
 $(strip $(foreach d,src/template/admin,$(wildcard $(d)/*.php)))
 
@@ -78,4 +83,3 @@ coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
 api: ../docs/api/index.html
 ../doc/api/index.html: $(CMSZPK_PHP)
 	$(PHP) $(PHPDOC) update sami.php
-
