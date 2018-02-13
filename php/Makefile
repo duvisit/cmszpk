@@ -68,13 +68,12 @@ src/autoload.php: $(CMSZPK_PHP)
 test: test.txt
 test.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--testdox-text test.txt test/
+		--testdox-text test.txt test
 
 coverage: coverage.txt
 coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--testdox-text test.txt --coverage-text=coverage.txt \
-		--whitelist src/Test src/Test
+		--testdox-text test.txt --coverage-text=coverage.txt test
 
 api: ../docs/api/index.html
 ../doc/api/index.html: $(CMSZPK_PHP)
