@@ -1,4 +1,5 @@
 <?php
+namespace UnitTest;
 
 use Sustav\Postavke;
 use Sustav\Model\Model;
