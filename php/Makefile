@@ -68,7 +68,7 @@ src/autoload.php: $(CMSZPK_PHP)
 test: test.txt
 test.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--testdox-text test.txt test
+		--testdox-text test.txt --testdox-html ../docs/test.html test
 
 coverage: coverage.txt
 coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
