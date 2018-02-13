@@ -3,7 +3,7 @@
 return array(
     'lang' => 'hr',
     'timezone' => 'UTC',
-    'development' => false,
+    'development' => true,
     'purifyhtml' => false,
     'database' => array(
         'dsn' => 'sqlite:'.__DIR__.'/database/cmszpk.db',
@@ -21,7 +21,7 @@ return array(
     'uploaddir' => 'upload',
     'facebook_id' => '',
     'facebook_token' => '',
-    'facebook_url' => 'https://www.facebook.com',
+    'facebook_url' => '',
     'googlemap_token' => '',
     'googlemap_latlng' => ''
 );

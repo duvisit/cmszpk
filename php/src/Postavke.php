@@ -97,7 +97,9 @@ class Postavke
 
     public function facebookUrl()
     {
-        return $this->postavke['facebook_url'];
+        if ( !empty( $this->postavke['facebook_url'] ))
+            return $this->postavke['facebook_url'];
+        return 'https://www.facebook.com';
     }
 
     public function googleMapToken()
