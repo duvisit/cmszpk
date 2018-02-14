@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ZahtjevTest extends TestCase
 {
-    public function testHttpHost()
+    public function testAdresaWebMjesta()
     {
         $_SERVER['HTTP_HOST'] = 'example.com';
 
@@ -23,7 +23,7 @@ class ZahtjevTest extends TestCase
         $this->assertEquals('https://example.com', Zahtjev::httphost());
     }
 
-    public function testUri()
+    public function testUpitZahtjeva()
     {
         $_SERVER['REQUEST_URI'] = '/test/uri';
         $this->assertEquals('/test/uri', Zahtjev::uri());

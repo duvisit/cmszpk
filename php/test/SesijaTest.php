@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  */
 class SesijaTest extends TestCase
 {
-    public function testGetUser()
+    public function testDohvatiKorisnika()
     {
         $postavke = new Postavke();
         extract(
@@ -22,7 +22,7 @@ class SesijaTest extends TestCase
         $this->assertTrue(password_verify('3457689', $password));
     }
 
-    public function testIsAdmin()
+    public function testKorisnikJePrijavljen()
     {
         $_SESSION['username'] = 'cmszpk';
         $postavke = new Postavke();

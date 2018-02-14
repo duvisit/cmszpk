@@ -10,13 +10,13 @@ use PHPUnit\Framework\TestCase;
  */
 class ModelTest extends TestCase
 {
-    public function testDbConnect()
+    public function testPovezivanjeSBazomPodataka()
     {
         $postavke = new Postavke();
         $this->assertNotNull(Model::dbConnect($postavke->database()));
     }
 
-    public function testSqlFetch()
+    public function testDohvatiPodatke()
     {
         $postavke = new Postavke();
         $pdo = Model::dbConnect($postavke->database());
