@@ -17,13 +17,14 @@ function echoOutput ( $str ) {
 }
 
 function purifyHtml ( $html ) {
-    // TODO HtmlPurifier PHP biblioteka
-    return $html;
+    // HtmlPurifier PHP biblioteka
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier( $config );
+    return $purifier->purify( $html );
 }
 
 function echoHtml ( $html ) {
-    // TODO HtmlPurifier PHP biblioteka
-    echo $html;
+    echo purifyHtml( $html );
 }
 
 function getLangName ( $langcode ) {
