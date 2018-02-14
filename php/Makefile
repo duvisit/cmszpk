@@ -7,7 +7,7 @@ DEP = $(MAK).dep
 
 PHP = php
 PHPAB = bin/phpab-1.24.1.phar
-PHPUNIT = bin/phpunit-6.5.5.phar
+PHPUNIT = bin/phpunit-7.0.1.phar
 PHPDOC = bin/sami.phar
 
 #---------- makefile postavke ----------------------------
@@ -67,19 +67,19 @@ help:
 check: autoload test api
 
 autoload: src/autoload.php
-src/autoload.php: $(CMSZPK_PHP)
-	$(PHP) $(PHPAB) -n -o src/autoload.php src/
+src/autoload.php: $(CMSZPK_PHP) $(HTMLPUR_PHP)
+	$(PHP) $(PHPAB) -n -o src/autoload.php src
 
 test: test.txt
 test.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--testdox-text test.txt --testdox-html ../docs/test.html test
+		--testdox-txt test.txt test
 
-coverage: coverage.txt
-coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
+coverage: ../docs/coverage.html
+../docs/coverage.html: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--testdox-text test.txt --coverage-text=coverage.txt test
+		--coverage-txt=coverage.txt test
 
 api: ../docs/api/index.html
-../doc/api/index.html: $(CMSZPK_PHP)
+../docs/api/index.html: $(CMSZPK_PHP)
 	$(PHP) $(PHPDOC) update sami.php
