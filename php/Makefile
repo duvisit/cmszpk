@@ -7,7 +7,7 @@ DEP = $(MAK).dep
 
 PHP = php
 PHPAB = bin/phpab-1.24.1.phar
-PHPUNIT = bin/phpunit-7.0.1.phar
+PHPUNIT = bin/phpunit-6.5.6.phar
 PHPDOC = bin/sami.phar
 
 #---------- makefile postavke ----------------------------
@@ -73,12 +73,12 @@ src/autoload.php: $(CMSZPK_PHP) $(HTMLPUR_PHP)
 test: test.txt
 test.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--testdox-txt test.txt test
+		--testdox-text test.txt test
 
 coverage: ../docs/coverage.html
 ../docs/coverage.html: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--coverage-txt=coverage.txt test
+		--coverage-text=coverage.txt test
 
 api: ../docs/api/index.html
 ../docs/api/index.html: $(CMSZPK_PHP)
