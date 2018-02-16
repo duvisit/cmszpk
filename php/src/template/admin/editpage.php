@@ -53,7 +53,7 @@
 <div class="uk-form-row">
 <label class="uk-form-label" for="media">Featured image</label>
 <div class="uk-form-controls">
-<select id="media" name="media" onchange="changeImage()">
+<select id="mediasel" name="media" onchange="changeImage()">
 <?php
 $imgsrc = $page['media'];
 if ( empty( $page['media'] )) {
