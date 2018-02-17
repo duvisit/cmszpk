@@ -2,6 +2,7 @@
 namespace Sustav\Model;
 
 use PDO;
+use Ausi\SlugGenerator\SlugGenerator;
 
 /**
  * Model sadržaja.
@@ -243,12 +244,21 @@ class Model
             $sqlcol[] = 'slug';
             $params[':slug'] = '/';
             if ( $table === 'page' ) {
-                if ( $params[':template'] !== 'home' )
+                if ( $params[':template'] !== 'home' ) {
+                    /*
                     $params[':slug'] .= preg_replace( '/[[:space:]]+/u', '-',
                         mb_strtolower( trim( $params[':title'] ), 'UTF-8' ));
+                     */
+                    $generator = new SlugGenerator();
+                    $params[':slug'] .= $generator->generate( $params[':title'] );
+                }
             } else {
+                /*
                 $params[':slug'] .= preg_replace( '/[[:space:]]+/u', '-',
                     mb_strtolower( trim( $params[':title'] ), 'UTF-8' ));
+                 */
+                $generator = new SlugGenerator();
+                $params[':slug'] .= $generator->generate( $params[':title'] );
             }
         }
         if ( isset( $_POST['content'] )) {

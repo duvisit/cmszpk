@@ -7,6 +7,8 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'Ausi\\SlugGenerator\\SlugGenerator' => '/sluggenerator/SlugGenerator.php',
+                'Ausi\\SlugGenerator\\SlugOptions' => '/sluggenerator/SlugOptions.php',
                 'HTML5' => '/htmlpurifier/standalone/HTMLPurifier/Lexer/PH5P.php',
                 'HTML5TreeConstructer' => '/htmlpurifier/standalone/HTMLPurifier/Lexer/PH5P.php',
                 'HTMLPurifier' => '/htmlpurifier/HTMLPurifier.standalone.php',
