@@ -1,4 +1,5 @@
 docs/cache/
+src/htmlpurifier/standalone/HTMLPurifier/DefinitionCache/
 docs/api/renderer.index
 php/test.txt
 php/coverage.txt
