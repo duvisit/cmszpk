@@ -14,7 +14,8 @@ Powered by <a class="uk-link" href="/admin/login">CMSZPK</a>
 ?>
 <p>
 <a class="uk-button uk-button-small uk-button-primary" href="#"
-    data-uk-smooth-scroll=""><i class="uk-icon-chevron-up"></i></a>
+    title="To top" data-uk-smooth-scroll="">
+<span class="uk-icon-chevron-up"></span></a>
 </p>
 </div>
 
