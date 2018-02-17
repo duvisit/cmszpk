@@ -10,6 +10,8 @@ PHPAB = bin/phpab-1.24.1.phar
 PHPUNIT = bin/phpunit-6.5.6.phar
 PHPDOC = bin/sami.phar
 
+SQLITE = sqlite3
+
 #---------- makefile postavke ----------------------------
 
 SHELL = /bin/sh
@@ -20,6 +22,7 @@ SHELL = /bin/sh
 #---------- pomoćni programi -----------------------------
 
 RM  = rm -f
+CAT = cat
 TOUCH = touch
 
 #---------- programski kod -------------------------------
@@ -63,6 +66,10 @@ help:
 	@echo "    make coverage  - provjeri pokrivenost programskog koda testovima"
 	@echo "    make api       - generiraj api dokumentaciju"
 	@echo "    make check     - make autoload test api"
+
+database:
+	$(RM) src/database/cmszpk.db
+	$(CAT) src/database/demo.sql | $(SQLITE) src/database/cmszpk.db
 
 check: autoload test api
 
