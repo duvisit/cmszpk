@@ -98,11 +98,11 @@ class Sadrzaj
 
         if ( $table === 'page' ) {
             $menucurr = $page['menuid'];
-            if ( $page['template'] === 'bloglist' ) {
+            if ( $page['template'] === 'bloglist' || $page['template'] === 'blogonly' ) {
                 $list = Model::sqlFetchAll( $conn,
                     "SELECT * FROM blog WHERE lang = ?", array( $lang ));
                 $listhref .= "/blog";
-            } else if ( $page['template'] === 'articlelist' ) {
+            } else if ( $page['template'] === 'articlelist' || $page['template'] === 'articleonly' ) {
                 $list = Model::sqlFetchAll( $conn,
                     "SELECT * FROM article WHERE lang = ?", array( $lang ));
                 $listhref .= "/article";

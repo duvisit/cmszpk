@@ -16,7 +16,8 @@ class Postavke
         ),
         'templates' => array(
             'home', 'page', 'blog', 'article', 'staff', 'product', 'gallery',
-            'about', 'contact', 'bloglist', 'articlelist', 'stafflist'
+            'about', 'contact', 'bloglist', 'articlelist', 'stafflist',
+            'blogonly', 'articleonly'
         ),
         'mediadirs' => array(
             'media', 'upload'
