@@ -1,3 +1,4 @@
-doc/cache/
+docs/cache/
+docs/api/renderer.index
 php/test.txt
 php/coverage.txt
