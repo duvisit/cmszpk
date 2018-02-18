@@ -2,8 +2,14 @@
 <html lang="<?php echoOutput( $page['lang'] ); ?>">
 <head>
 <meta charset="UTF-8">
-<meta content="IE=edge" http-equiv="X-UA-Compatible">
-<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php if ( !empty( $page['summary'] )) {
+echo '<meta name="description" content="', echoOutput( $page['summary'] ), '">' . PHP_EOL;
+} ?>
+<?php if ( !empty( $page['keywords'] )) {
+echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">' . PHP_EOL;
+} ?>
 <title><?php echoOutput( $page['title'] ); ?></title>
 <link rel="alternate" hreflang="<?= $lang ?>" href="<?= $vars['url'] . $uri ?>">
 <?php if ( isset( $langnav )) {

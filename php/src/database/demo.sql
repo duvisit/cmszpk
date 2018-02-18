@@ -35,9 +35,10 @@ CREATE TABLE page (
     media       VARCHAR(255) NOT NULL,  -- Featured image of the page
     title       VARCHAR(255) NOT NULL,  -- Full title of the page
     summary     TEXT NOT NULL,          -- A short summary of the page
+    keywords    TEXT NOT NULL,          -- Page keywords
     content     TEXT NOT NULL           -- The HTML content of the page
 );
-INSERT INTO "page" VALUES(1,0,1,'2018-02-12','hr','/','home','/media/trippy.jpg','Naslovnica','Naslovna stranica','<div class="uk-block uk-padding-top-remove"><div class="uk-container uk-container-center"><h1>Primjer CMS sadržaja</h1><h2>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div></div>');
+INSERT INTO "page" VALUES(1,0,1,'2018-02-12','hr','/','home','/media/trippy.jpg','Naslovnica','Naslovna stranica','naslov, stranica','<div class="uk-block uk-padding-top-remove"><div class="uk-container uk-container-center"><h1>Primjer CMS sadržaja</h1><h2>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div></div>');
 CREATE TABLE blog (
     id          INTEGER PRIMARY KEY,
     sourceid    INTEGER NOT NULL,
@@ -47,6 +48,7 @@ CREATE TABLE blog (
     media       VARCHAR(255) NOT NULL,  -- Featured image of the post
     title       VARCHAR(255) NOT NULL,  -- Full title of the post
     summary     TEXT NOT NULL,          -- A short summary of the post
+    keywords    TEXT NOT NULL,          -- Post keywords
     content     TEXT NOT NULL           -- The HTML content of the post
 );
 CREATE TABLE article (
@@ -58,6 +60,7 @@ CREATE TABLE article (
     media       VARCHAR(255) NOT NULL,  -- Featured image of the article
     title       VARCHAR(255) NOT NULL,  -- Full title of the article
     summary     TEXT NOT NULL,          -- A short summary of the article
+    keywords    TEXT NOT NULL,          -- Article keywords
     content     TEXT NOT NULL           -- The HTML content of the article
 );
 CREATE TABLE staff (

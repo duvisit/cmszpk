@@ -207,6 +207,7 @@ class Model
         //     display     VARCHAR(255) NOT NULL
         //     email       VARCHAR(255) NOT NULL 
         //     enabled     CHAR(4) NOT NULL
+        //     keywords    TEXT NOT NULL
         //     lang        CHAR(2) NOT NULL
         //     logo        VARCHAR(255) NOT NULL
         //     media       VARCHAR(255) NOT NULL
@@ -223,10 +224,10 @@ class Model
         //     zipcode     VARCHAR(255) NOT NULL
         $records = array(
             'address', 'city', 'comment', /*'content',*/ 'country',
-            /*'datum',*/ 'description', 'display', 'email', 'enabled', 'lang',
-            'logo', 'media', 'menuid', 'name', /*'password',*/ 'phone',
-            /*'slug',*/ 'summary', 'sourceid', 'template', 'title', 'username',
-            'zipcode'
+            /*'datum',*/ 'description', 'display', 'email', 'enabled',
+            'keywords', 'lang', 'logo', 'media', 'menuid', 'name',
+            /*'password',*/ 'phone', /*'slug',*/ 'summary', 'sourceid',
+            'template', 'title', 'username', 'zipcode'
         );
         $sqlcol = array();
         $params = array();

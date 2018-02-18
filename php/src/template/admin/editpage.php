@@ -122,6 +122,15 @@ if ( empty( $page['media'] )) {
 </div>
 
 <div class="uk-form-row">
+<label class="uk-form-label" for="keywords">Keywords</label>
+<div class="uk-form-controls">
+<input class="uk-form-width-large"
+    type="text" id="keywords" name="keywords"
+    value="<?php echoOutput( $page['keywords'] ); ?>">
+</div>
+</div>
+
+<div class="uk-form-row">
 <label class="uk-form-label" for="content">Content</label>
 </div>
 
