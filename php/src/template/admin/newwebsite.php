@@ -54,6 +54,16 @@
 </div>
 
 <div class="uk-form-row">
+<label class="uk-form-label" for="enabled">Enabled</label>
+<div class="uk-form-controls">
+<select id="enabled" name="enabled">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+</div>
+</div>
+
+<div class="uk-form-row">
 <label class="uk-form-label" for="name">Name</label>
 <div class="uk-form-controls">
 <input class="uk-form-width-large" required
