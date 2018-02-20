@@ -46,8 +46,6 @@ class Postavke
 
     public function mediadirs()
     {
-        if ( isset( $this->postavke['mediadirs'] ))
-            return $this->postavke['mediadirs'];
         return $this->default['mediadirs'];
     }
 
@@ -78,12 +76,12 @@ class Postavke
 
     public function timezone()
     {
-        return $this->postavke['timezone'];
+        return 'UTC';
     }
 
     public function purifyhtml()
     {
-        return $this->postavke['purifyhtml'];
+        return true;
     }
 
     public function facebookID()

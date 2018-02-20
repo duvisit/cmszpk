@@ -2,9 +2,7 @@
 
 return array(
     'lang' => 'hr',
-    'timezone' => 'UTC',
     'development' => true,
-    'purifyhtml' => false,
     'database' => array(
         'dsn' => 'sqlite:'.__DIR__.'/database/cmszpk.db',
         'user' => null,
@@ -15,13 +13,9 @@ return array(
             PDO::ATTR_CASE => PDO::CASE_LOWER
         ),
     ),
-    'mediadirs' => array(
-        'media', 'upload'
-    ),
-    'uploaddir' => 'upload',
+    'facebook_url' => '',
     'facebook_id' => '',
     'facebook_token' => '',
-    'facebook_url' => '',
     'googlemap_token' => '',
     'googlemap_latlng' => ''
 );
