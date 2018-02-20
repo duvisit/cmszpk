@@ -1,6 +1,6 @@
 docs/cache/
-php/src/htmlpurifier/standalone/HTMLPurifier/DefinitionCache/
-docs/api/renderer.index
 php/test.txt
 php/coverage.txt
 *.swp
+*.ser
+*.index
