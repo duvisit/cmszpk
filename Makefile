@@ -41,8 +41,20 @@ help:
 	@echo "    make update      - azuriraj izvorni kod"
 
 development:
-	git checkout -b razvoj
+	@if git show-ref --quiet refs/heads/razvoj; then \
+		git checkout razvoj; \
+	else \
+		git checkout -b razvoj; \
+		(cd php && make database); \
+	fi
+	(cd php && make test)
 
 production:
-	git checkout -b proizvodnja
+	@if git show-ref --quiet refs/heads/proizvodnja; then \
+		git checkout proizvodnja; \
+	else \
+		git checkout -b proizvodnja; \
+		(cd php && make database); \
+	fi
+	(cd php && make test)
 
