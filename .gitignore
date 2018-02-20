@@ -1,6 +1,7 @@
 docs/cache/
 php/test.txt
 php/coverage.txt
+*.db
 *.swp
 *.ser
 *.index
