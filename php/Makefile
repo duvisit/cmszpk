@@ -82,8 +82,8 @@ test.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
 		--testdox-text test.txt test
 
-coverage: ../docs/coverage.html
-../docs/coverage.html: $(TEST_PHP) $(CMSZPK_PHP)
+coverage: coverage.txt
+coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
 		--coverage-text=coverage.txt test
 
