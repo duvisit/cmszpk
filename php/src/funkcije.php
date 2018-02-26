@@ -1,4 +1,24 @@
 <?php
+//############################################################################
+// Translate
+
+function translate ( $str, $lang ) {
+    $data = [
+        'News' => [ 'hr' => 'Novosti', 'en' => 'News' ],
+        'Where to find us' => [ 'hr' => 'Gdje se nalazimo', 'en' => 'Where to find us' ],
+        'Powered by' => [ 'hr' => 'Omogućuje', 'en' => 'Powered by' ]
+    ];
+    if ( !empty( $data[$str][$lang] ))
+        return $data[$str][$lang];
+    return $str;
+}
+
+//############################################################################
+// Facebook feed
+
+function facebookFeed ( $num ) {
+    return \Sustav\Model\Facebook::feed( $num );
+}
 
 //############################################################################
 // Utility functions

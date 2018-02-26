@@ -4,19 +4,18 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php if ( !empty( $page['summary'] )) {
-echo '<meta name="description" content="', echoOutput( $page['summary'] ), '">' . PHP_EOL;
+<?php
+if ( !empty( $page['summary'] )) {
+echo '<meta name="description" content="', echoOutput( $page['summary'] ), '">', PHP_EOL;
+}
+if ( !empty( $page['keywords'] )) {
+echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">', PHP_EOL;
 } ?>
-<?php if ( !empty( $page['keywords'] )) {
-echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">' . PHP_EOL;
-} ?>
-<title><?php echoOutput( $page['title'] ); ?></title>
+<title><?php echoOutput( $page['title'].' | '.$site['logo'] ); ?></title>
 <link rel="alternate" hreflang="<?= $lang ?>" href="<?= $vars['url'] . $uri ?>">
-<?php if ( isset( $langnav )) {
-    foreach ( $langnav as $item )
-        echo '<link rel="alternate" hreflang="'
-        . $item['lang'] . '" href="' . $vars['url'] . $item['slug'] . '">' . PHP_EOL;
-} ?>
+<?php foreach ( $langnav as $item ) { ?>
+<link rel="alternate" hreflang="<?= $item['lang'] ?>" href="<?= escapeOutput( $vars['url'].$item['slug'] ) ?>">
+<?php } ?>
 <link rel="icon" href="/favicon.ico">
 <link href="/vendor/uikit/dist/css/uikit.css" rel="stylesheet">
 <script src="/vendor/js/jquery.js"></script>
@@ -28,7 +27,6 @@ echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">' . 
 <script src="/vendor/uikit/dist/js/components/lightbox.js"></script>
 </head>
 <body>
-
 <!-- header -->
 <div class="uk-block uk-padding-bottom-remove uk-contrast uk-hidden-small">
 <div class="uk-container uk-container-center">
@@ -45,4 +43,3 @@ echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">' . 
 </div>
 </div>
 </div>
-

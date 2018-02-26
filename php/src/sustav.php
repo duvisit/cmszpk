@@ -18,7 +18,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 try {
 require __DIR__.'/autoload.php';
-require __DIR__.'/filter.php';
+require __DIR__.'/funkcije.php';
     $zahtjev   = new Zahtjev();
     $upravljac = new Upravljac($zahtjev);
     $sadrzaj   = new Sadrzaj($upravljac);
@@ -30,5 +30,5 @@ require __DIR__.'/filter.php';
     error_log($e->getMessage(), 3, __DIR__.'/error.log');
     error_log(PHP_EOL, 3, __DIR__.'/error.log');
     http_response_code(500);
-    exit;
 }
+exit;

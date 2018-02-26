@@ -29,14 +29,19 @@ TOUCH = touch
 
 CMSZPK_DIR = src
 CMSZPK_PHP = \
-src/cmszpk.php src/Facebook.php src/filter.php src/HTTPStatus.php \
-src/Model.php src/Pogled.php src/Postavke.php src/Sadrzaj.php src/Sesija.php \
-src/sustav.php src/Upravljac.php src/Zahtjev.php
+src/cmszpk-razvoj.php src/cmszpk-proizvod.php \
+src/sustav.php src/funkcije.php \
+src/Postavke.php src/HTTPStatus.php \
+src/Model.php src/Facebook.php \
+src/Pogled.php src/Sadrzaj.php \
+src/Upravljac.php src/Sesija.php src/Zahtjev.php
 
 CMSZPK_RES = \
-src/autoload.php src/database/demo.sql src/database/cmszpk.db \
+src/autoload.php src/database/demo.sql \
 $(strip $(foreach d,src/template,$(wildcard $(d)/*.php))) \
-$(strip $(foreach d,src/template/admin,$(wildcard $(d)/*.php)))
+$(strip $(foreach d,src/template/snip,$(wildcard $(d)/*.php))) \
+$(strip $(foreach d,src/template/admin,$(wildcard $(d)/*.php))) \
+$(strip $(foreach d,src/template/admin/snip,$(wildcard $(d)/*.php)))
 
 TEST_DIR  = test
 TEST_PHP  = $(strip $(foreach d,$(TEST_DIR),$(wildcard $(d)/*.php)))
@@ -74,8 +79,8 @@ database:
 check: autoload test api
 
 autoload: src/autoload.php
-src/autoload.php: $(CMSZPK_PHP) $(HTMLPUR_PHP)
-	$(PHP) $(PHPAB) -n -o src/autoload.php src
+src/autoload.php: $(CMSZPK_PHP) $(HTMLPUR_PHP) $(SLUGGEN_PHP)
+	$(PHP) $(PHPAB) -n --tolerant -o src/autoload.php src
 
 test: test.txt
 test.txt: $(TEST_PHP) $(CMSZPK_PHP)

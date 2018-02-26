@@ -7,6 +7,9 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
+                'Adminer' => '/adminer/adminer.php',
+                'AdminerLoginSqlite' => '/adminer/loginSqlite.php',
+                'AdminerPlugin' => '/adminer/plugin.php',
                 'Ausi\\SlugGenerator\\SlugGenerator' => '/sluggenerator/SlugGenerator.php',
                 'Ausi\\SlugGenerator\\SlugOptions' => '/sluggenerator/SlugOptions.php',
                 'HTML5' => '/htmlpurifier/standalone/HTMLPurifier/Lexer/PH5P.php',
@@ -245,6 +248,10 @@ spl_autoload_register(
                 'HTMLPurifier_VarParser_Flexible' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_VarParser_Native' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_Zipper' => '/htmlpurifier/HTMLPurifier.standalone.php',
+                'Min_Driver' => '/adminer/adminer.php',
+                'Min_PDOStatement' => '/adminer/adminer.php',
+                'Min_Result' => '/adminer/adminer.php',
+                'Min_SQL' => '/adminer/adminer.php',
                 'Sustav\\HTTPStatus' => '/HTTPStatus.php',
                 'Sustav\\Model\\Facebook' => '/Facebook.php',
                 'Sustav\\Model\\Model' => '/Model.php',
@@ -253,7 +260,8 @@ spl_autoload_register(
                 'Sustav\\Postavke' => '/Postavke.php',
                 'Sustav\\Upravljac\\Sesija' => '/Sesija.php',
                 'Sustav\\Upravljac\\Upravljac' => '/Upravljac.php',
-                'Sustav\\Upravljac\\Zahtjev' => '/Zahtjev.php'
+                'Sustav\\Upravljac\\Zahtjev' => '/Zahtjev.php',
+                'TmpFile' => '/adminer/adminer.php'
             );
         }
         if (isset($classes[$class])) {

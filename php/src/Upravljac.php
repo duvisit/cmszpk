@@ -43,8 +43,12 @@ class Upravljac
     function route ( $sadrzaj, $uri, $cfg ) {
 
         $urlp = parse_url( 'http://example.com' . rawurldecode( $uri ));
-        if ( isset( $urlp['query'] ))
+        if ( isset( $urlp['query'] )) {
+            if ( $urlp['path'] == '/admin/sqlite' ) {
+                return $sadrzaj->renderSqlite( $cfg );
+            }
             return array( 'code' => 404 );
+        }
         if ( !isset( $urlp['path'] ))
             return $sadrzaj->renderTemplate( $uri, null, null, null, $cfg );
 
@@ -72,7 +76,7 @@ class Upravljac
             // Homepage
             '/^\/?$/u' => function ( $uri, $vars ) use ($sadrzaj)
             { return $sadrzaj->renderTemplate( $uri, null, null, null, $vars ); },
-            '/^\/([a-z][a-z])\/$/u' => function ( $uri, $lang, $vars ) use ($sadrzaj)
+            '/^\/([a-z][a-z])$/u' => function ( $uri, $lang, $vars ) use ($sadrzaj)
             { return $sadrzaj->renderTemplate( $uri, $lang, null, null, $vars ); },
 
             // Template primary language
