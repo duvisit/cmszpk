@@ -162,7 +162,10 @@ src/sluggenerator/LICENSE \
 src/sluggenerator/SlugGenerator.php \
 src/sluggenerator/SlugOptions.php
 
+ADMINER_PHP = \
+adminer.php sqlite.php loginSqlite.php plugin.php
+
 LIB_PHP =
-LIB_RES = $(HTMLPUR_PHP) $(SLUGGEN_PHP)
+LIB_RES = $(HTMLPUR_PHP) $(SLUGGEN_PHP) $(ADMINER_PHP)
 
 #-----------------------------------------------------------------------------
