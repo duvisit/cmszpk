@@ -92,6 +92,6 @@ coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
 		--coverage-text=coverage.txt test
 
-api: ../docs/api/index.html
+api: sami.php ../docs/api/index.html
 ../docs/api/index.html: $(CMSZPK_PHP)
 	$(PHP) $(PHPDOC) update sami.php

@@ -55,6 +55,7 @@ window.projectVersion = 'master';
                     {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderCreate", "name": "Sustav\\Pogled\\Sadrzaj::renderCreate", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderUpload", "name": "Sustav\\Pogled\\Sadrzaj::renderUpload", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderCleanup", "name": "Sustav\\Pogled\\Sadrzaj::renderCleanup", "doc": "&quot;&quot;"},
+                    {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderSqlite", "name": "Sustav\\Pogled\\Sadrzaj::renderSqlite", "doc": "&quot;&quot;"},
             
             {"type": "Class", "fromName": "Sustav", "fromLink": "Sustav.html", "link": "Sustav/Postavke.html", "name": "Sustav\\Postavke", "doc": "&quot;Postavke sustava.&quot;"},
                                                         {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method___construct", "name": "Sustav\\Postavke::__construct", "doc": "&quot;&quot;"},
