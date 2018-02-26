@@ -547,4 +547,14 @@ class Sadrzaj
         }
         return [ 'code' => 302, 'path' => "/admin/media" ];
     }
+
+    public function renderSqlite( $vars ) {
+
+        if ( !Sesija::isAdmin( $vars['database'] ))
+            return [ 'code' => 302, 'path' => '/admin/login' ];
+
+        include __DIR__.'/adminer/sqlite.php';
+
+        return [ 'code' => 200 ];
+    }
 }
