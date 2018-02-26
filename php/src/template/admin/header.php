@@ -20,6 +20,9 @@
 function changeImage () {
     var e = document.getElementById("mediasel");
     var uri = e.options[e.selectedIndex].value;
+    if (uri == '') {
+        uri = '/media/placeholder.svg';
+    }
     var img = document.getElementById("mediaimg");
     img.src = uri;
 }

@@ -1,5 +1,5 @@
 <!-- home -->
-<?php include __DIR__.'/snip/media.php'; ?>
+<?php include __DIR__.'/snip/featimage.php'; ?>
 <div class="uk-block-content">
 <div class="uk-block uk-block-default">
 <?php
