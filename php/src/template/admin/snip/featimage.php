@@ -7,13 +7,13 @@
 $imgsrc = $page['media'];
 if ( empty( $page['media'] )) {
     $imgsrc = '/media/placeholder.svg';
-    echo '<option value="" selected>None</option>';
+    echo '<option value="/media/placeholder.svg" selected>None</option>';
     foreach ( $medialist as $item ) {
         $str = escapeOutput( $item );
         echo '<option value="', $str, '">', $str, '</option>';
     }
 } else {
-    echo '<option value="">None</option>';
+    echo '<option value="/media/placeholder.svg">None</option>';
     foreach ( $medialist as $item ) {
         $str = escapeOutput( $item );
         if ( $item === $page['media'] )
