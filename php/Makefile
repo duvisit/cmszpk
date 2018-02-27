@@ -70,13 +70,13 @@ help:
 	@echo "    make test      - testiraj programski kod"
 	@echo "    make coverage  - provjeri pokrivenost programskog koda testovima"
 	@echo "    make api       - generiraj api dokumentaciju"
-	@echo "    make check     - make autoload test api"
+	@echo "    make check     - make database autoload test api"
 
 database:
 	$(RM) src/database/cmszpk.db
 	$(CAT) src/database/demo.sql | $(SQLITE) src/database/cmszpk.db
 
-check: autoload test api
+check: database autoload test api
 
 autoload: src/autoload.php
 src/autoload.php: $(CMSZPK_PHP) $(HTMLPUR_PHP) $(SLUGGEN_PHP)
