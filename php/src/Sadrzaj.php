@@ -171,10 +171,19 @@ class Sadrzaj
             return [ 'code' => 405 ];
 
         $menulang = "";
-        if ( $lang !== $vars['lang'] )
+        $listhref = "/blog";
+        if ( $lang !== $vars['lang'] ) {
             $menulang = "/$lang";
+            $listhref = "/$lang/blog";
+        }
 
         $table = 'blog';
+        $page = [
+            'lang' => $lang,
+            'summary' => 'Blog list.',
+            'keywords' => 'blog, list',
+            'title' => 'Blog'
+        ];
 
         $conn = Model::dbConnect( $vars['database'] );
         $site = Model::sqlFetch( $conn, 
@@ -187,7 +196,6 @@ class Sadrzaj
 
         $list = Model::sqlFetchAll( $conn,
             "SELECT * FROM blog WHERE lang = ?", array( $lang ));
-        $listhref = "/blog";
         $menucurr = 0;
 
         $conn = null;
@@ -218,10 +226,19 @@ class Sadrzaj
             return [ 'code' => 405 ];
 
         $menulang = "";
-        if ( $lang !== $vars['lang'] )
+        $listhref = "/article";
+        if ( $lang !== $vars['lang'] ) {
             $menulang = "/$lang";
+            $listhref = "/$lang/article";
+        }
 
         $table = 'article';
+        $page = [
+            'lang' => $lang,
+            'description' => 'Article list.',
+            'keywords' => 'article, list',
+            'title' => 'Article'
+        ];
 
         $conn = Model::dbConnect( $vars['database'] );
         $site = Model::sqlFetch( $conn, 
@@ -234,7 +251,6 @@ class Sadrzaj
 
         $list = Model::sqlFetchAll( $conn,
             "SELECT * FROM article WHERE lang = ?", array( $lang ));
-        $listhref = "/article";
         $menucurr = 0;
 
         $conn = null;
