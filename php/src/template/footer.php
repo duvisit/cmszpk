@@ -8,9 +8,6 @@
 <?= translate( 'Powered by', $page['lang'] ) ?>
 &nbsp;<a class="uk-link" href="/admin/login">CMSZPK</a>
 </p>
-<?php if ( $vars['development'] )
-printf( "<p>Response completed in %.4f seconds</p>", microtime( true ) - $_SERVER['REQUEST_TIME'] );
-?>
 <p>
 <a class="uk-button uk-button-small uk-button-primary" href="#"
 title="<?= translate( 'To top', $page['lang'] ) ?>" data-uk-smooth-scroll="">

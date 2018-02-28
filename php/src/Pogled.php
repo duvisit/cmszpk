@@ -3,6 +3,7 @@ namespace Sustav\Pogled;
 
 use Sustav\Postavke;
 use Sustav\Pogled\Sadrzaj;
+use Sustav\Model\Spremnik;
 use Sustav\Upravljac\Zahtjev;
 
 /**
@@ -28,6 +29,16 @@ class Pogled
 
         switch ( $status['code'] ) {
         case 200:
+            if ( isset( $status['cache'] )) {
+                $cache = $status['cache'];
+                echo $cache->html();
+            } else {
+                $html = ob_get_clean();
+                $cfg = new Postavke();
+                $cache = new Spremnik( $status['path'], $cfg->database() );
+                $cache->save( $html );
+                echo $html;
+            }
             break;
         case 301:
             $this->redirectPerm( Zahtjev::httphost().$status['path'] );

@@ -2,6 +2,7 @@
 namespace Sustav\Pogled;
 
 use Sustav\Model\Model;
+use Sustav\Model\Spremnik;
 use Sustav\Upravljac\Sesija;
 use Sustav\Upravljac\Upravljac;
 
@@ -162,7 +163,7 @@ class Sadrzaj
         include( $vars['htmldir'] . $page['template'] . '.php' );
         include( $vars['htmldir'] . 'footer.php' );
 
-        return [ 'code' => 200 ];
+        return [ 'code' => 200, 'path' => $uri ];
     }
 
     function renderBlogList ( $uri, $lang, $vars ) {
@@ -217,7 +218,7 @@ class Sadrzaj
         include( $vars['htmldir'] . 'blogonly.php' );
         include( $vars['htmldir'] . 'footer.php' );
 
-        return [ 'code' => 200 ];
+        return [ 'code' => 200, 'path' => $uri ];
     }
 
     function renderArticleList ( $uri, $lang, $vars ) {
@@ -272,7 +273,7 @@ class Sadrzaj
         include( $vars['htmldir'] . 'articleonly.php' );
         include( $vars['htmldir'] . 'footer.php' );
 
-        return [ 'code' => 200 ];
+        return [ 'code' => 200, 'path' => $uri ];
     }
 
     function renderLogin ( $uri, $vars ) {

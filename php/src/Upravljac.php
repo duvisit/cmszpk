@@ -3,6 +3,7 @@ namespace Sustav\Upravljac;
 
 use Sustav\Postavke;
 use Sustav\Pogled\Sadrzaj;
+use Sustav\Model\Spremnik;
 use Sustav\Upravljac\Zahtjev;
 
 /**
@@ -55,6 +56,13 @@ class Upravljac
         $path = mb_strtolower( $urlp['path'], 'UTF-8' );
         if ( $path !== $urlp['path'] )
             return array( 'code' => 301, 'path' => $path );
+
+        $cache = new Spremnik( $path, $cfg['database'] );
+        if ( $cache->ready() ) {
+            return [ 'code' => 200, 'cache' => $cache ];
+        } else {
+            ob_start();
+        }
 
         $www = array(
             // Blog listing

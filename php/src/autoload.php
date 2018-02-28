@@ -255,6 +255,7 @@ spl_autoload_register(
                 'Sustav\\HTTPStatus' => '/HTTPStatus.php',
                 'Sustav\\Model\\Facebook' => '/Facebook.php',
                 'Sustav\\Model\\Model' => '/Model.php',
+                'Sustav\\Model\\Spremnik' => '/Spremnik.php',
                 'Sustav\\Pogled\\Pogled' => '/Pogled.php',
                 'Sustav\\Pogled\\Sadrzaj' => '/Sadrzaj.php',
                 'Sustav\\Postavke' => '/Postavke.php',

@@ -289,6 +289,11 @@ class Model
         $conn = self::dbConnect( $db );
         $st = $conn->prepare( $sql );
         $result = $st->execute( $params );
+
+        $sql = 'UPDATE servercache SET valid=0';
+        $st = $conn->prepare( $sql );
+        $st->execute();
+
         $conn = null;
         return $result;
     }
