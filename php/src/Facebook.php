@@ -25,14 +25,16 @@ class Facebook
 
         $postavke = new Postavke();
         $database = $postavke->database();
-        $page_id = $postavke->facebookID();
-        $access_token = $postavke->FacebookToken();
+        $page_id = $postavke->facebookPageId();
+        $app_id = $postavke->facebookAppId();
+        $app_secret = $postavke->facebookAppSecret();
+        $api_version = $postavke->facebookApiVersion();
 
         $conn = Model::dbConnect( $database );
         $data = Model::sqlFetchAll( $conn, "SELECT * FROM fbfeed ORDER BY id ASC LIMIT 9" );
         $conn = null;
 
-        if ( empty( $page_id ) || empty( $access_token ))
+        if ( empty( $page_id ) || empty( $app_id ) || empty( $app_secret ))
             return $data;
 
         if ( !empty( $data ) && $data !== false ) {
@@ -41,11 +43,21 @@ class Facebook
                 return $data;
         }
 
+        $response = file_get_contents(
+            "https://graph.facebook.com/oauth/access_token?client_id={$app_id}&client_secret={$app_secret}&grant_type=client_credentials"
+        );
+        if ( $response === false )
+            return $data;
+
+        $json_token = json_decode( $response, true );
+        $access_token = empty( $json_token['access_token'] ) ? false : $json_token['access_token'];
+        if ( $access_token === false )
+            return $data;
+
         $fields = 'id,type,message,picture,link,name,caption,created_time,object_id';
         $json_data = file_get_contents(
-            "https://graph.facebook.com/v2.9/{$page_id}/feed?access_token={$access_token}&fields={$fields}&limit=9"
+            "https://graph.facebook.com/{$api_version}/{$page_id}/feed?access_token={$access_token}&fields={$fields}&limit=9"
         );
-
         if ( $json_data === false )
             return $data;
 

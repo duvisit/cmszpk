@@ -1,6 +1,7 @@
 docs/cache/
 php/test.txt
 php/coverage.txt
+php/src/cmszpk.php
 *.db
 *.swp
 *.ser

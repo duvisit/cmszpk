@@ -84,21 +84,31 @@ class Postavke
         return true;
     }
 
-    public function facebookID()
-    {
-        return $this->postavke['facebook_id'];
-    }
-
-    public function facebookToken()
-    {
-        return $this->postavke['facebook_token'];
-    }
-
     public function facebookUrl()
     {
         if ( !empty( $this->postavke['facebook_url'] ))
             return $this->postavke['facebook_url'];
         return 'https://www.facebook.com';
+    }
+
+    public function facebookPageId()
+    {
+        return $this->postavke['facebook_page_id'];
+    }
+
+    public function facebookAppId()
+    {
+        return $this->postavke['facebook_app_id'];
+    }
+
+    public function facebookAppSecret()
+    {
+        return $this->postavke['facebook_app_secret'];
+    }
+
+    public function facebookApiVersion()
+    {
+        return $this->postavke['facebook_api_version'];
     }
 
     public function googleMapToken()

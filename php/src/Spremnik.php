@@ -3,6 +3,7 @@ namespace Sustav\Model;
 
 use PDO;
 use Sustav\Model\Model;
+use Sustav\Upravljac\Sesija;
 
 /**
  * Spremnik sadržaja.
@@ -21,7 +22,7 @@ class Spremnik
         $this->db = $db;
         $this->uri = $uri;
         $this->html = '';
-        $this->admin = isAdmin($db);
+        $this->admin = Sesija::isAdmin($db);
         $this->exists = false;
         $this->cached = false;
 

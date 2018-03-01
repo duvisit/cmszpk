@@ -25,8 +25,9 @@ class PostavkeTest extends TestCase
         $this->assertNotEmpty($postavke->timezone());
 
         if ($postavke->development() == true) {
-            $this->assertEmpty($postavke->facebookID());
-            $this->assertEmpty($postavke->facebookToken());
+            $this->assertEmpty($postavke->facebookPageId());
+            $this->assertEmpty($postavke->facebookAppId());
+            $this->assertEmpty($postavke->facebookAppSecret());
             $this->assertEquals(
                 'https://www.facebook.com',
                 $postavke->facebookUrl()
@@ -34,8 +35,9 @@ class PostavkeTest extends TestCase
             $this->assertEmpty($postavke->googleMapToken());
             $this->assertNotEmpty($postavke->googleMapLatLng());
         } else {
-            $this->assertNotEmpty($postavke->facebookID());
-            $this->assertNotEmpty($postavke->facebookToken());
+            $this->assertEmpty($postavke->facebookPageId());
+            $this->assertEmpty($postavke->facebookAppId());
+            $this->assertEmpty($postavke->facebookAppSecret());
             $this->assertNotEquals(
                 'https://www.facebook.com',
                 $postavke->facebookUrl()

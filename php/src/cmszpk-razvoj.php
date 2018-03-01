@@ -14,8 +14,10 @@ return array(
         ),
     ),
     'facebook_url' => '',
-    'facebook_id' => '',
-    'facebook_token' => '',
+    'facebook_page_id' => '',
+    'facebook_app_id' => '',
+    'facebook_app_secret' => '',
+    'facebook_api_version' => '',
     'googlemap_token' => '',
     'googlemap_latlng' => ''
 );
