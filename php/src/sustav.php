@@ -29,6 +29,8 @@ require __DIR__.'/funkcije.php';
     error_log(PHP_EOL, 3, __DIR__.'/error.log');
     error_log($e->getMessage(), 3, __DIR__.'/error.log');
     error_log(PHP_EOL, 3, __DIR__.'/error.log');
+    error_log(print_r($e->getTrace(), true), 3, __DIR__.'/error.log');
+    error_log(PHP_EOL, 3, __DIR__.'/error.log');
     http_response_code(500);
 }
 exit;
