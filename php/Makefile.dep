@@ -165,7 +165,27 @@ src/sluggenerator/SlugOptions.php
 ADMINER_PHP = \
 adminer.php sqlite.php loginSqlite.php plugin.php
 
+MINIFY_PHP = \
+src/minify/minify/LICENSE \
+src/minify/minify/data/js/keywords_after.txt \
+src/minify/minify/data/js/keywords_before.txt \
+src/minify/minify/data/js/keywords_reserved.txt \
+src/minify/minify/data/js/operators_after.txt \
+src/minify/minify/data/js/operators_before.txt \
+src/minify/minify/data/js/operators.txt \
+src/minify/minify/src/CSS.php \
+src/minify/minify/src/Exception.php \
+src/minify/minify/src/Exceptions/BasicException.php \
+src/minify/minify/src/Exceptions/FileImportException.php \
+src/minify/minify/src/Exceptions/IOException.php \
+src/minify/minify/src/JS.php \
+src/minify/minify/src/Minify.php \
+src/minify/pathconv/LICENSE \
+src/minify/pathconv/src/ConverterInterface.php \
+src/minify/pathconv/src/Converter.php \
+src/minify/pathconv/src/NoConverter.php
+
 LIB_PHP =
-LIB_RES = $(HTMLPUR_PHP) $(SLUGGEN_PHP) $(ADMINER_PHP)
+LIB_RES = $(HTMLPUR_PHP) $(SLUGGEN_PHP) $(ADMINER_PHP) $(MINIFY_PHP)
 
 #-----------------------------------------------------------------------------
