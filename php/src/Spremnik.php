@@ -58,7 +58,7 @@ class Spremnik
         if ($this->cached) {
             $this->cached = false;
             $conn = Model::dbConnect($this->db);
-            $result = sqlFetchSingle(
+            $result = Model::sqlFetchSingle(
                 $conn,
                 'SELECT stamp FROM fbfeed WHERE id=1'
             );
