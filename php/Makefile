@@ -5,7 +5,7 @@ VERZIJA = 1.0.0
 MAK = Makefile
 DEP = $(MAK).dep
 
-PHP = php
+PHP = php72
 PHPAB = bin/phpab-1.24.1.phar
 PHPUNIT = bin/phpunit-6.5.6.phar
 PHPDOC = bin/sami.phar
