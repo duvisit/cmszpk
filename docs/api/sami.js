@@ -76,6 +76,7 @@ window.projectVersion = 'master';
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_database", "name": "Sustav\\Postavke::database", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_development", "name": "Sustav\\Postavke::development", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_cache", "name": "Sustav\\Postavke::cache", "doc": "&quot;&quot;"},
+                    {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_cachelog", "name": "Sustav\\Postavke::cachelog", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_timezone", "name": "Sustav\\Postavke::timezone", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_purifyhtml", "name": "Sustav\\Postavke::purifyhtml", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_facebookUrl", "name": "Sustav\\Postavke::facebookUrl", "doc": "&quot;&quot;"},
