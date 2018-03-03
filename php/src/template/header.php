@@ -17,6 +17,7 @@ echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">', P
 <link rel="alternate" hreflang="<?= $item['lang'] ?>" href="<?= escapeOutput( $vars['url'].$item['slug'] ) ?>">
 <?php } ?>
 <link rel="icon" href="/favicon.ico">
+<!--
 <link href="/vendor/uikit/dist/css/uikit.css" rel="stylesheet">
 <script src="/vendor/js/jquery.js"></script>
 <script src="/vendor/uikit/dist/js/uikit.min.js"></script>
@@ -25,6 +26,9 @@ echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">', P
 <link href="/vendor/uikit/dist/css/components/slideshow.css" rel="stylesheet">
 <script src="/vendor/uikit/dist/js/components/slideshow.js"></script>
 <script src="/vendor/uikit/dist/js/components/lightbox.js"></script>
+-->
+<link href="/vendor/minify.css" rel="stylesheet">
+<script src="/vendor/minify.js"></script>
 </head>
 <body>
 <!-- header -->

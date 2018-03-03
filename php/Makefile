@@ -72,15 +72,15 @@ help:
 	@echo "    make api       - generiraj api dokumentaciju"
 	@echo "    make check     - make database autoload test api"
 
+check: database autoload test api
+
 database:
 	$(RM) src/database/cmszpk.db
 	$(CAT) src/database/demo.sql | $(SQLITE) src/database/cmszpk.db
 
-check: database autoload test api
-
 autoload: src/autoload.php
-src/autoload.php: $(CMSZPK_PHP) $(HTMLPUR_PHP) $(SLUGGEN_PHP)
-	$(PHP) $(PHPAB) -n --tolerant -o src/autoload.php src
+src/autoload.php: $(CMSZPK_PHP) $(HTMLPUR_PHP) $(SLUGGEN_PHP) $(MINIFY_PHP)
+	$(PHP) $(PHPAB) -n --tolerant -o src/autoload.php src/
 
 test: test.txt
 test.txt: $(TEST_PHP) $(CMSZPK_PHP)
