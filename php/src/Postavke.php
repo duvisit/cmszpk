@@ -74,6 +74,11 @@ class Postavke
         return $this->postavke['development'];
     }
 
+    public function cache()
+    {
+        return $this->postavke['cache'];
+    }
+
     public function timezone()
     {
         return 'UTC';

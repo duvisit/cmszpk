@@ -3,6 +3,8 @@
 return array(
     'lang' => 'hr',
     'development' => false,
+    'cache' => true,
+    'cache' => false,
     'database' => array(
         'dsn' => 'sqlite:'.__DIR__.'/database/cmszpk.db',
         'user' => null,

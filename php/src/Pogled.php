@@ -13,11 +13,17 @@ class Pogled
 {
     private $sadrzaj;
     private $htmldir;
+    private $cache;
+    private $cachelog;
 
     public function __construct(Sadrzaj $sadrzaj)
     {
         $this->sadrzaj = $sadrzaj;
         $this->htmldir = Postavke::htmldir();
+
+        $postavke = new Postavke();
+        $this->cache = $postavke->cache();
+        $this->cache = $postavke->cachelog();
     }
 
     //############################################################################
@@ -29,21 +35,41 @@ class Pogled
 
         switch ( $status['code'] ) {
         case 200:
-            if ( isset( $status['cache'] )) {
-                $cache = $status['cache'];
-                echo $cache->html();
-                $restime = sprintf( "%s\tCache completed in %.4f seconds\n",
-                    Zahtjev::uri(), microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'], E_USER_NOTICE );
-                error_log( $restime, 3, __DIR__.'/cache.log' );
+            if ( $this->cache ) {
+                if ( isset( $status['cache'] )) {
+                    $cache = $status['cache'];
+                    echo $cache->html();
+                    if ( $this->cachelog ) {
+                        $restime = sprintf( "%s\tCache completed in %.4f seconds\n",
+                            Zahtjev::uri(), microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'], E_USER_NOTICE );
+                        error_log( $restime, 3, __DIR__.'/cache.log' );
+                    }
+                } else {
+                    $html = ob_get_clean();
+                    if ( isset( $status['path'] )) {
+                        $cfg = new Postavke();
+                        $cache = new Spremnik( $status['path'], $cfg->database() );
+                        $cache->save( $html );
+                        if ( $this->cachelog ) {
+                            $restime = sprintf( "%s\tOutput buffer completed in %.4f seconds\n",
+                                $status['path'], microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'], E_USER_NOTICE );
+                            error_log( $restime, 3, __DIR__.'/cache.log' );
+                        }
+                    } else {
+                        if ( $this->cachelog ) {
+                            $restime = sprintf( "%s\tResponse completed in %.4f seconds\n",
+                                Zahtjev::uri(), microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'], E_USER_NOTICE );
+                            error_log( $restime, 3, __DIR__.'/cache.log' );
+                        }
+                    }
+                    echo $html;
+                }
             } else {
-                $html = ob_get_clean();
-                $cfg = new Postavke();
-                $cache = new Spremnik( $status['path'], $cfg->database() );
-                $cache->save( $html );
-                echo $html;
-                $restime = sprintf( "%s\tOutput buffer completed in %.4f seconds\n",
-                    $status['path'], microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'], E_USER_NOTICE );
-                error_log( $restime, 3, __DIR__.'/cache.log' );
+                if ( $this->cachelog ) {
+                    $restime = sprintf( "%s\tResponse completed in %.4f seconds\n",
+                        Zahtjev::uri(), microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'], E_USER_NOTICE );
+                    error_log( $restime, 3, __DIR__.'/cache.log' );
+                }
             }
             break;
         case 301:

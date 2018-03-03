@@ -94,7 +94,7 @@ CREATE TABLE media (
 );
 INSERT INTO "media" VALUES(1,'2018-02-12','hr','gallery','/media/trippy.jpg','Trippy street art bristol','Photo by Mec Rawlings on Unsplash');
 CREATE TABLE fbfeed (
-    id                  PRIMARY KEY,
+    id                  INTEGER PRIMARY KEY,
     stamp               INTEGER NOT NULL,
     fb_id               TEXT,
     fb_type             TEXT NOT NULL,
@@ -116,10 +116,10 @@ INSERT INTO "fbfeed" VALUES(7,0,'','demo','<p>Photo by Mec Rawlings on Unsplash<
 INSERT INTO "fbfeed" VALUES(8,0,'','demo','<p>Photo by Mec Rawlings on Unsplash</p>','/media/trippy.jpg','','','','','');
 INSERT INTO "fbfeed" VALUES(9,0,'','demo','<p>Photo by Mec Rawlings on Unsplash</p>','/media/trippy.jpg','','','','','');
 CREATE TABLE servercache (
-    id                  PRIMARY KEY,
-    uri                 VARCHAR(512) NOT NULL,  -- Uri
-    valid               INTEGER DEFAULT 0,      -- Content is valid
-    html                TEXT NOT NULL           -- Content
+    id                  INTEGER PRIMARY KEY,
+    uri                 VARCHAR(255) NOT NULL,      -- Uri
+    valid               INTEGER NOT NULL DEFAULT 0, -- Content is valid
+    html                TEXT NOT NULL               -- Content
 );
 CREATE UNIQUE INDEX uri_index ON servercache (uri);
 COMMIT;

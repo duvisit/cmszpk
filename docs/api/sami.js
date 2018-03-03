@@ -61,6 +61,7 @@ window.projectVersion = 'master';
                     {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderCreate", "name": "Sustav\\Pogled\\Sadrzaj::renderCreate", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderUpload", "name": "Sustav\\Pogled\\Sadrzaj::renderUpload", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderCleanup", "name": "Sustav\\Pogled\\Sadrzaj::renderCleanup", "doc": "&quot;&quot;"},
+                    {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderLog", "name": "Sustav\\Pogled\\Sadrzaj::renderLog", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Pogled\\Sadrzaj", "fromLink": "Sustav/Pogled/Sadrzaj.html", "link": "Sustav/Pogled/Sadrzaj.html#method_renderSqlite", "name": "Sustav\\Pogled\\Sadrzaj::renderSqlite", "doc": "&quot;&quot;"},
             
             {"type": "Class", "fromName": "Sustav", "fromLink": "Sustav.html", "link": "Sustav/Postavke.html", "name": "Sustav\\Postavke", "doc": "&quot;Postavke sustava.&quot;"},
@@ -74,6 +75,7 @@ window.projectVersion = 'master';
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_lang", "name": "Sustav\\Postavke::lang", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_database", "name": "Sustav\\Postavke::database", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_development", "name": "Sustav\\Postavke::development", "doc": "&quot;&quot;"},
+                    {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_cache", "name": "Sustav\\Postavke::cache", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_timezone", "name": "Sustav\\Postavke::timezone", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_purifyhtml", "name": "Sustav\\Postavke::purifyhtml", "doc": "&quot;&quot;"},
                     {"type": "Method", "fromName": "Sustav\\Postavke", "fromLink": "Sustav/Postavke.html", "link": "Sustav/Postavke.html#method_facebookUrl", "name": "Sustav\\Postavke::facebookUrl", "doc": "&quot;&quot;"},
