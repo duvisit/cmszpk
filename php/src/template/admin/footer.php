@@ -11,7 +11,7 @@ Powered by CMSZPK
 <p>
 <?php
 printf( "Response completed in %.4f seconds\n",
-    microtime( true ) - $_SERVER['REQUEST_TIME'] );
+    microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'] );
 ?>
 </p>
 <p>

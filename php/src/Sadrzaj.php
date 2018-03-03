@@ -565,6 +565,34 @@ class Sadrzaj
         return [ 'code' => 302, 'path' => "/admin/media" ];
     }
 
+    public function renderLog( $uri, $vars ) {
+
+        if ( !Sesija::isAdmin( $vars['database'] ))
+            return [ 'code' => 302, 'path' => '/admin/login' ];
+
+        if ( $_SERVER['REQUEST_METHOD'] === 'GET' ) {
+
+            $menu = array();
+            foreach ( $vars['tables'] as $m )
+                $menu[] = array( 'slug' => "/admin/$m", 'title' => $m );
+
+            $alertmsg = null;
+            if ( isset( $_SESSION['alertmsg'] )) {
+                $alertmsg = $_SESSION['alertmsg'];
+                unset( $_SESSION['alertmsg'] );
+            }
+
+            $table = 'log';
+            $username = $_SESSION['username'];
+            include( $vars['htmldir'] . "admin/header.php" );
+            include( $vars['htmldir'] . "admin/viewlog.php" );
+            include( $vars['htmldir'] . "admin/footer.php" );
+
+            return [ 'code' => 200 ];
+        }
+        return [ 'code' => 405 ];
+    }
+
     public function renderSqlite( $vars ) {
 
         if ( !Sesija::isAdmin( $vars['database'] ))

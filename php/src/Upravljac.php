@@ -23,6 +23,7 @@ class Upravljac
         $postavke = new Postavke();
         $cfg = [
             'development' => $postavke->development(),
+            'cache' => $postavke->cache(),
             'url' => $postavke->url(),
             'database' => $postavke->database(),
             'htmldir' => $postavke->htmldir(),
@@ -57,11 +58,13 @@ class Upravljac
         if ( $path !== $urlp['path'] )
             return array( 'code' => 301, 'path' => $path );
 
-        $cache = new Spremnik( $path, $cfg['database'] );
-        if ( $cache->ready() ) {
-            return [ 'code' => 200, 'cache' => $cache ];
-        } else {
-            ob_start();
+        if ( $cfg['cache'] ) {
+            $cache = new Spremnik( $path, $cfg['database'] );
+            if ( $cache->ready() ) {
+                return [ 'code' => 200, 'cache' => $cache ];
+            } else {
+                ob_start();
+            }
         }
 
         $www = array(
@@ -135,6 +138,11 @@ class Upravljac
             '/^\/admin\/logout$/u'
             => function ( $uri, $vars ) use ($sadrzaj)
             { return $sadrzaj->renderLogout( $uri, $vars ); },
+
+            // Admin log
+            '/^\/admin\/log$/u'
+            => function ( $uri, $vars ) use ($sadrzaj)
+            { return $sadrzaj->renderLog( $uri, $vars ); },
 
             // Admin help
             '/^\/admin\/help$/u'

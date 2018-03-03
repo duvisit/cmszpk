@@ -84,6 +84,7 @@ foreach ( $menu as $item ) {
 <?= $menulist ?>
 </ul>
 <ul class="uk-navbar-nav uk-hidden-small uk-navbar-flip">
+<li><a href="/admin/log">Log</a></li>
 <li><a href="/admin/sqlite?login">Adminer</a></li>
 <li><a href="/admin/help">Help</a></li>
 </ul>
