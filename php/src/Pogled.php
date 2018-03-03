@@ -32,12 +32,18 @@ class Pogled
             if ( isset( $status['cache'] )) {
                 $cache = $status['cache'];
                 echo $cache->html();
+                $restime = sprintf( "%s\tCache completed in %.4f seconds\n",
+                    Zahtjev::uri(), microtime( true ) - $_SERVER['REQUEST_TIME'], E_USER_NOTICE );
+                error_log( $restime, 3, __DIR__.'/cache.log' );
             } else {
                 $html = ob_get_clean();
                 $cfg = new Postavke();
                 $cache = new Spremnik( $status['path'], $cfg->database() );
                 $cache->save( $html );
                 echo $html;
+                $restime = sprintf( "%s\tOutput buffer completed in %.4f seconds\n",
+                    $status['path'], microtime( true ) - $_SERVER['REQUEST_TIME'], E_USER_NOTICE );
+                error_log( $restime, 3, __DIR__.'/cache.log' );
             }
             break;
         case 301:

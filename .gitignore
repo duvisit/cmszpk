@@ -6,3 +6,4 @@ php/src/cmszpk.php
 *.swp
 *.ser
 *.index
+*.log
