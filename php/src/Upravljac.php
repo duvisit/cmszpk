@@ -58,9 +58,7 @@ class Upravljac
             return array( 'code' => 301, 'path' => $path );
 
         $cache = new Spremnik( $path, $cfg['database'] );
-        if ( $path == '/' && $cache->feedReady() ) {
-            return [ 'code' => 200, 'cache' => $cache ];
-        } elseif ( $cache->ready() ) {
+        if ( $cache->ready() ) {
             return [ 'code' => 200, 'cache' => $cache ];
         } else {
             ob_start();

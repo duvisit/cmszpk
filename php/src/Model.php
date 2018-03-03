@@ -290,9 +290,9 @@ class Model
         $st = $conn->prepare( $sql );
         $result = $st->execute( $params );
 
-        $sql = 'UPDATE servercache SET valid=0';
+        $sql = 'UPDATE servercache SET valid=?';
         $st = $conn->prepare( $sql );
-        $st->execute();
+        $st->execute([0]);
 
         $conn = null;
         return $result;

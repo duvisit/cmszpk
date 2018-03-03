@@ -40,8 +40,10 @@ class Spremnik
         $conn = null;
         if ($data !== false) {
             $this->exists = true;
-            $valid = intval($data['valid']);
-            if ($valid > 0) {
+            $cachestamp = intval($data['valid']);
+            if ($cachestamp > 0
+                && (($this->stamp - $cachestamp) < (4 * 60 * 60)))
+            {
                 $this->html = $data['html'];
                 $this->cached = true;
             }
@@ -50,26 +52,6 @@ class Spremnik
 
     public function ready()
     {
-        return $this->cached;
-    }
-
-    public function feedReady()
-    {
-        if ($this->cached) {
-            $this->cached = false;
-            $conn = Model::dbConnect($this->db);
-            $result = Model::sqlFetchSingle(
-                $conn,
-                'SELECT stamp FROM fbfeed WHERE id=1'
-            );
-            $conn = null;
-            if ($result !== false) {
-                $diff = $this->stamp - $result;
-                if ($diff < (4 * 60 * 60)) {
-                    $this->cached = true;
-                }
-            }
-        }
         return $this->cached;
     }
 
@@ -83,7 +65,7 @@ class Spremnik
         if ($this->admin)
             return;
 
-        $sql = 'UPDATE servercache SET (valid=:valid,html=:html) WHERE uri=:uri';
+        $sql = 'UPDATE servercache SET valid=:valid, html=:html WHERE uri=:uri';
         if ($this->exists == false) {
             $sql = 'INSERT INTO servercache (id,uri,valid,html) VALUES (NULL,:uri,:valid,:html)';
         }
