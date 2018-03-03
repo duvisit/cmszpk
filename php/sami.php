@@ -8,6 +8,7 @@ $iterator = Finder::create()
     ->name('/[A-Z][a-z]*.php$/')
     ->exclude('adminer')
     ->exclude('database')
+    ->exclude('minify')
     ->exclude('htmlpurifier')
     ->exclude('sluggenerator')
     ->in(__DIR__ . '/src');
