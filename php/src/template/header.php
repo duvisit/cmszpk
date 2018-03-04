@@ -19,12 +19,11 @@ echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">', P
 <link rel="icon" href="/favicon.ico">
 <!--
 <link href="/vendor/uikit/dist/css/uikit.css" rel="stylesheet">
+<link href="/vendor/uikit/dist/css/components/sticky.css" rel="stylesheet">
+<link href="/vendor/uikit/dist/css/components/slideshow.css" rel="stylesheet">
 <script src="/vendor/js/jquery.js"></script>
 <script src="/vendor/uikit/dist/js/uikit.min.js"></script>
-<link href="/vendor/uikit/dist/css/components/sticky.css" rel="stylesheet">
 <script src="/vendor/uikit/dist/js/components/sticky.js"></script>
-<link href="/vendor/uikit/dist/css/components/slideshow.css" rel="stylesheet">
-<script src="/vendor/uikit/dist/js/components/slideshow.js"></script>
 <script src="/vendor/uikit/dist/js/components/lightbox.js"></script>
 -->
 <link href="/vendor/minify.css" rel="stylesheet">

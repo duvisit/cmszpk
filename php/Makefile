@@ -95,3 +95,7 @@ coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
 api: sami.php ../docs/api/index.html
 ../docs/api/index.html: $(CMSZPK_PHP)
 	$(PHP) $(PHPDOC) update sami.php
+
+minify:
+	$(PHP) bin/minify.php
+

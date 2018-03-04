@@ -148,7 +148,7 @@ Aenean vel nulla quis mi aliquam fermentum. Duis vitae molestie dui.</p>
 <p>Za prikaz slika od ruba do ruba potrebno je koristiti sljedeće <em>div</em> 
 oznake i pripadajuće klase (<em>class</em>) i stilove (<em>style</em>):</p>
 
-<div>
+<div
     class="uk-cover-background"
     style="height:400px;background-image:url('/media/trippy.jpg');">
 </div>
