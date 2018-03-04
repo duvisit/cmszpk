@@ -23,7 +23,7 @@ foreach ( $menu as $item ) {
 <?php } ?>
 </ul>
 <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""
-href="#offcanvas"></a>
+href="#offcanvas" title="Offcanvas"></a>
 <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
 <span class="uk-h2 uk-contrast"><?= escapeOutput( $site['logo'] ) ?></span>
 </div>
