@@ -152,7 +152,7 @@ class Upravljac
             // Redirect
             '/^(\/.*)\/$/u'
             => function ( $uri, $path, $vars )
-            { return [ 'code' => 302, 'path' => $path ]; },
+            { return [ 'code' => 301, 'path' => $path ]; },
 
             // Not found
             '/^.*$/u'
