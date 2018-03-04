@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Login page">
+<meta name="keywords" content="login, page">
 <title>Login</title>
 <link rel="stylesheet" href="/vendor/uikit/dist/css/uikit.css">
 <script src="/vendor/js/jquery.js"></script>
