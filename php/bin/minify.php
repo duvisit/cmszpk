@@ -10,7 +10,6 @@ $javascript = [
     $vendordir.'/js/jquery.js',
     $vendordir.'/uikit/dist/js/uikit.min.js',
     $vendordir.'/uikit/dist/js/components/sticky.js',
-    $vendordir.'/uikit/dist/js/components/slideshow.js',
     $vendordir.'/uikit/dist/js/components/lightbox.js'
 ];
 $minifier = new Minify\JS();
@@ -23,7 +22,7 @@ $minifier->minify( $vendordir.'/minify.js' );
 $stylesheet = [
     $vendordir.'/uikit/dist/css/uikit.css',
     $vendordir.'/uikit/dist/css/components/sticky.css',
-    $vendordir.'/uikit/dist/css/components/slideshow.css',
+    $vendordir.'/uikit/dist/css/components/slidenav.css',
 ];
 $minifier = new Minify\CSS();
 foreach ($stylesheet as $css) {
