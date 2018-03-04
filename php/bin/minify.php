@@ -23,7 +23,7 @@ $minifier->minify( $vendordir.'/minify.js' );
 $stylesheet = [
     $vendordir.'/uikit/dist/css/uikit.css',
     $vendordir.'/uikit/dist/css/components/sticky.css',
-    $vendordir.'/uikit/dist/css/components/slideshow.css'
+    $vendordir.'/uikit/dist/css/components/slideshow.css',
 ];
 $minifier = new Minify\CSS();
 foreach ($stylesheet as $css) {
