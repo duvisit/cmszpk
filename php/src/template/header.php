@@ -16,11 +16,11 @@ echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">', P
 <?php foreach ( $langnav as $item ) { ?>
 <link rel="alternate" hreflang="<?= $item['lang'] ?>" href="<?= escapeOutput( $vars['url'].$item['slug'] ) ?>">
 <?php } ?>
-<link rel="icon" href="/favicon.ico">
 <!--
+<link rel="icon" href="/favicon.ico">
 <link href="/vendor/uikit/dist/css/uikit.css" rel="stylesheet">
 <link href="/vendor/uikit/dist/css/components/sticky.css" rel="stylesheet">
-<link href="/vendor/uikit/dist/css/components/slideshow.css" rel="stylesheet">
+<link href="/vendor/uikit/dist/css/components/slidenav.css" rel="stylesheet">
 <script src="/vendor/js/jquery.js"></script>
 <script src="/vendor/uikit/dist/js/uikit.min.js"></script>
 <script src="/vendor/uikit/dist/js/components/sticky.js"></script>
