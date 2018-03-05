@@ -16,8 +16,8 @@ echo '<meta name="keywords" content="', echoOutput( $page['keywords'] ), '">', P
 <?php foreach ( $langnav as $item ) { ?>
 <link rel="alternate" hreflang="<?= $item['lang'] ?>" href="<?= escapeOutput( $vars['url'].$item['slug'] ) ?>">
 <?php } ?>
-<!--
 <link rel="icon" href="/favicon.ico">
+<!--
 <link href="/vendor/uikit/dist/css/uikit.css" rel="stylesheet">
 <link href="/vendor/uikit/dist/css/components/sticky.css" rel="stylesheet">
 <link href="/vendor/uikit/dist/css/components/slidenav.css" rel="stylesheet">

@@ -23,7 +23,7 @@ class Pogled
 
         $postavke = new Postavke();
         $this->cache = $postavke->cache();
-        $this->cache = $postavke->cachelog();
+        $this->cachelog = $postavke->cachelog();
     }
 
     //############################################################################
