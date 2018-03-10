@@ -1,7 +1,7 @@
 <!-- Google Map -->
 <?php
 if ( !empty( $vars['googlemap_token'] )) { ?>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $vars['googlemap_token'] ?>&callback=initMap" type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?= $vars['googlemap_token'] ?>&amp;callback=initMap" type="text/javascript"></script>
 <?php } else { ?>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <?php } ?>
