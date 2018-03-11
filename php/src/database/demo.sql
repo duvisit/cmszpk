@@ -16,7 +16,7 @@ CREATE TABLE website (
     comment     VARCHAR(255) NOT NULL   -- Comment of the website
 );
 INSERT INTO "website" VALUES(1,'2018-02-12','hr','yes','Primjer CMS sadržaja','Ulica BB','20000','Dubrovnik','Hrvatska','345 7689','Primjer','Sustav za upravljanje sadržajem','Programsko inženjerstvo');
-INSERT INTO "website" VALUES(2,'2018-02-12','en','yes','Example CMS content','Street BB','20000','London','England','345 7689','Example','Content Management System','Software engineering');
+INSERT INTO "website" VALUES(2,'2018-02-12','en','yes','Example CMS content','Street BB','20000','Dubrovnik','Croatia','345 7689','Example','Content Management System','Software engineering');
 CREATE TABLE users (
     id          INTEGER PRIMARY KEY,
     datum       TEXT NOT NULL,
