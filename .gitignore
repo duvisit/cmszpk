@@ -6,6 +6,7 @@ php/test.txt
 php/coverage.txt
 php/src/cmszpk.php
 php/src/database/data-*.sql
+.well-known/
 *.db
 *.swp
 *.ser
