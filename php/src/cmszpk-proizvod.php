@@ -4,7 +4,7 @@ return array(
     'lang' => 'hr',
     'development' => false,
     'cache' => true,
-    'cache' => false,
+    'cachelog' => false,
     'database' => array(
         'dsn' => 'sqlite:'.__DIR__.'/database/cmszpk.db',
         'user' => null,
@@ -23,4 +23,3 @@ return array(
     'googlemap_token' => '',
     'googlemap_latlng' => ''
 );
-

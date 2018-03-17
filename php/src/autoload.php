@@ -262,6 +262,7 @@ spl_autoload_register(
                 'Min_PDOStatement' => '/adminer/adminer.php',
                 'Min_Result' => '/adminer/adminer.php',
                 'Min_SQL' => '/adminer/adminer.php',
+                'Sustav\\Funkcije' => '/Funkcije.php',
                 'Sustav\\HTTPStatus' => '/HTTPStatus.php',
                 'Sustav\\Model\\Facebook' => '/Facebook.php',
                 'Sustav\\Model\\Model' => '/Model.php',

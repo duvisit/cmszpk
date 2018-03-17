@@ -18,7 +18,7 @@ use Sustav\HTTPStatus;
  * metoda     = GET
  * protokol   = HTTP/1.0
  * domena     = example.com
- * upit       = /primjer/http/zahtjeva
+ * upit       = /primjer/http/zahtjev
  * kategorija = primjer
  * poruka     = [ http, zahtjev ]
  * podaci     = [ projekt => cmszpk, verzija => 1 ]
@@ -51,5 +51,4 @@ class Zahtjev
     {
         return $_SERVER['REQUEST_URI'];
     }
-
 }

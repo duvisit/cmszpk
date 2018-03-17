@@ -23,4 +23,3 @@ return array(
     'googlemap_token' => '',
     'googlemap_latlng' => ''
 );
-
