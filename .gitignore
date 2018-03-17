@@ -1,7 +1,11 @@
 docs/cache/
+docs/.htaccess
+media/*/
+upload/
 php/test.txt
 php/coverage.txt
 php/src/cmszpk.php
+php/src/database/data-*.sql
 *.db
 *.swp
 *.ser
