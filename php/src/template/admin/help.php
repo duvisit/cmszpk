@@ -130,20 +130,20 @@ Klikom na <em>Delete unused</em> brišu se nekorištene slike.</p>
 
 <textarea id="text-content" name="text-content"
     data-uk-htmleditor="{mode:'tab'}">
-<div class="uk-block">
-<div class="uk-container uk-container-center">
+&lt;div class="uk-block"&gt;
+&lt;div class="uk-container uk-container-center"&gt;
 
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci 
+    &lt;h1&gt;Heading 1&lt;/h1&gt;
+    &lt;h2&gt;Heading 2&lt;/h2&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci 
 risus, eleifend id nisl at, sollicitudin aliquam lectus. Nunc lobortis at metus 
 eget tristique. Aenean sagittis eleifend diam, sit amet pretium arcu. Ut diam 
 ante, aliquam et ligula vitae, varius efficitur nisl. Aenean quis hendrerit 
 dolor, convallis molestie felis. Quisque blandit nunc a elit tristique commodo. 
-Aenean vel nulla quis mi aliquam fermentum. Duis vitae molestie dui.</p>
+Aenean vel nulla quis mi aliquam fermentum. Duis vitae molestie dui.&lt;/p&gt;
 
-</div>
-</div>
+&lt;/div&gt;
+&lt;/div&gt;
 </textarea>
 
 <p>Za prikaz slika od ruba do ruba potrebno je koristiti sljedeće <em>div</em> 
@@ -151,10 +151,10 @@ oznake i pripadajuće klase (<em>class</em>) i stilove (<em>style</em>):</p>
 
 <textarea id="media-content" name="media-content"
     data-uk-htmleditor="{mode:'tab'}">
-<div
+&lt;div
     class="uk-cover-background"
-    style="height:400px;background-image:url('/media/trippy.jpg');">
-</div>
+    style="height:400px;background-image:url('/media/trippy.jpg');"&gt;
+&lt;/div&gt;
 </textarea>
 
 </div>
