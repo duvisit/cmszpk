@@ -3,16 +3,18 @@
 <?php include __DIR__.'/snip/googlemap.php'; ?>
 <div class="uk-block uk-block-default">
 <div class="uk-text-center">
-<h1><?= escapeOutput( $site[name] ) ?></h1>
-<h2><?= escapeOutput( $site[description] ) ?></h2>
+<h1><?= \Sustav\Funkcije::escapeOutput( $site[name] ) ?></h1>
+<h2><?= \Sustav\Funkcije::escapeOutput( $site[description] ) ?></h2>
 <p>
-<?= escapeOutput( $site[address] ) ?><br>
-<?= escapeOutput( $site[zipcode] ) ?>, <?= escapeOutput( $site[city] ) ?><br>
-<?= escapeOutput( $site[country] ) ?></p>
+<?= \Sustav\Funkcije::escapeOutput( $site[address] ) ?><br>
+<?= \Sustav\Funkcije::escapeOutput( $site[zipcode] ) ?>,
+<?= \Sustav\Funkcije::escapeOutput( $site[city] ) ?><br>
+<?= \Sustav\Funkcije::escapeOutput( $site[country] ) ?></p>
 <?php if ( !empty( $site[phone] )) ?>
-<p><span class="uk-icon-phone"></span><?= escapeOutput( $site[phone] ) ?></p>
+<p><span class="uk-icon-phone"></span>
+<?= \Sustav\Funkcije::escapeOutput( $site[phone] ) ?></p>
 <?php endif; ?>
 </div>
-<?php echoHtml( $page['content'] ); ?>
+<?= \Sustav\Funkcije::escapeHtml( $page['content'] ) ?>
 </div>
 </div>

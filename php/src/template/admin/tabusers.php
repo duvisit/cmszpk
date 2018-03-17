@@ -14,26 +14,25 @@
 <tfoot>
 <tr>
 <td><a class="uk-link" href="/admin/users/new">Add new</a></td>
-<td></td>
 </tr>
 </tfoot>
 
 <tbody>
-<?php foreach ( $list as $item ) {
+<?php
+use Sustav\Funkcije;
+foreach ( $list as $item ) {
     echo '<tr>'
-        . '<td>'
-        . '<a class="uk-link" href="/admin/users/'
-        . escapeOutput( $item['id'] ) . '">'
-        . escapeOutput( $item['username'] ) . '</a>'
-        . '</td>'
-        . '<td>' . escapeOutput( $item['email'] ) . '</td>'
-        . '</tr>' . "\n";
+        , '<td>'
+        , '<a class="uk-link" href="/admin/users/'
+        , Funkcije::escapeOutput( $item['id'] ), '">'
+        , Funkcije::escapeOutput( $item['username'] ), '</a>'
+        , '</td>'
+        , '<td>', Funkcije::escapeOutput( $item['email'] ), '</td>'
+        , '</tr>', PHP_EOL;
 } ?>
 </tbody>
-
 </table>
 
 </div>
 </div>
 </div>
-

@@ -13,33 +13,32 @@
 <a class="uk-button uk-width-1-1" href="/admin/cleanup">Delete unused</a>
 </div>
 </div>
-<?php foreach ( $typelist as $typegroup ) {
-    echo '<h2>Display type: ' . escapeOutput( $typegroup ) . '</h2>' . "\n";
+<?php
+use Sustav\Funkcije;
+foreach ( $typelist as $typegroup ) {
+    echo '<h2>Display type: ', Funkcije::escapeOutput( $typegroup ), '</h2>', PHP_EOL;
     foreach ( $langlist as $langgroup ) {
-        echo '<h3>Language: ' . escapeOutput( $langgroup ) . '</h3>' . "\n"
-            . '<div class="uk-grid" data-uk-grid-margin="">' . "\n";
+        echo '<h3>Language: ', Funkcije::escapeOutput( $langgroup ), '</h3>', PHP_EOL
+            , '<div class="uk-grid" data-uk-grid-margin="">', PHP_EOL;
         foreach ( $list as $item ) {
-            if ( $item['display'] === $typegroup
-                && $item['lang'] === $langgroup )
+            if ( $item['display'] === $typegroup && $item['lang'] === $langgroup )
                 echo '<div class="uk-width-medium-1-4">'
-                . '<div class="uk-panel uk-panel-box">'
-                . '<div class="uk-panel-teaser">'
-                . '<img src="' . escapeOutput( $item['media'] ) . '">'
-                . '</div>'
-                . '<p class="uk-text-bold">'
-                . escapeOutput( $item['title'] ) . '</h3>'
-                . '<p>' . escapeOutput( $item['media'] ) . '</p>'
-                . '<p>' . escapeOutput( $item['summary'] ) . '</p>'
-                . '<a class="uk-link" href="/admin/media/'
-                . escapeOutput( $item['id'] ) . '">Edit</a>'
-                . '</div>'
-                . '</div>';
+                , '<div class="uk-panel uk-panel-box">'
+                , '<div class="uk-panel-teaser">'
+                , '<img src="', Funkcije::escapeOutput( $item['media'] ), '">'
+                , '</div>'
+                , '<p class="uk-text-bold">'
+                , Funkcije::escapeOutput( $item['title'] ), '</h3>'
+                , '<p>', Funkcije::escapeOutput( $item['media'] ), '</p>'
+                , '<p>', Funkcije::escapeOutput( $item['summary'] ), '</p>'
+                , '<a class="uk-link" href="/admin/media/'
+                , Funkcije::escapeOutput( $item['id'] ), '">Edit</a>'
+                , '</div>'
+                , '</div>';
         }
-        echo '</div>' . "\n"
-            . '<hr class="uk-grid-divider">' . "\n";
+        echo '</div>', PHP_EOL, '<hr class="uk-grid-divider">', PHP_EOL;
     }
 } ?>
 </div>
 </div>
 </div>
-

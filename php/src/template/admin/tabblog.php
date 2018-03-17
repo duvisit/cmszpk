@@ -14,32 +14,32 @@
 </tr>
 </thead>
 <tfoot>
+<tr>
 <td><a class="uk-link" href="/admin/blog/new">Add new</a></td>
-<td></td>
-<td></td>
+</tr>
 </tfoot>
 
 <tbody>
 <?php
+use Sustav\Funkcije;
+use Sustav\Model\Model;
 foreach ( $list as $item ) {
     echo '<tr>'
-        . '<td>' . escapeOutput( $item['lang'] ) . '</td>'
-        . '<td>' . escapeOutput( $item['datum'] ) . '</td>'
-        . '<td>'
-        . '<a class="uk-link" href="/admin/blog/'
-        . escapeOutput( $item['id'] ) . '">'
-        . escapeOutput( $item['title'] ) . '</a>'
-        . '</td>'
-        . '<td>' . escapeOutput(
-            \Sustav\Model\Model::getSourceTitle(
-            $vars['database'], 'blog', $item['sourceid'] )) . '</td>'
-        . '</tr>' . PHP_EOL;
+       , '<td>', Funkcije::escapeOutput( $item['lang'] ), '</td>'
+       , '<td>', Funkcije::escapeOutput( $item['datum'] ), '</td>'
+       , '<td>'
+       , '<a class="uk-link" href="/admin/blog/'
+       , Funkcije::escapeOutput( $item['id'] ), '">'
+       , Funkcije::escapeOutput( $item['title'] ), '</a>'
+       , '</td>'
+       , '<td>'
+       , Funkcije::escapeOutput( Model::getSourceTitle( $vars['database'], 'blog', $item['sourceid'] ))
+       , '</td>'
+       , '</tr>', PHP_EOL;
 } ?>
 </tbody>
-
 </table>
 
 </div>
 </div>
 </div>
-

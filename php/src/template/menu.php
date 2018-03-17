@@ -19,13 +19,14 @@ foreach ( $menu as $item ) {
 </ul>
 <ul class="uk-navbar-nav uk-hidden-small uk-navbar-flip">
 <?php foreach ( $langnav as $item ) { ?>
-<li><a href="<?= escapeOutput( $item['slug'] ) ?>"><?= escapeOutput( $item['lang'] ) ?></a></li>
+<li><a href="<?= \Sustav\Funkcije::escapeOutput( $item['slug'] ) ?>">
+<?= \Sustav\Funkcije::escapeOutput( $item['lang'] ) ?></a></li>
 <?php } ?>
 </ul>
 <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""
 href="#offcanvas" title="Offcanvas"></a>
 <div class="uk-navbar-brand uk-navbar-center uk-visible-small">
-<span class="uk-h2 uk-contrast"><?= escapeOutput( $site['logo'] ) ?></span>
+<span class="uk-h2 uk-contrast"><?= \Sustav\Funkcije::escapeOutput( $site['logo'] ) ?></span>
 </div>
 </div>
 </nav>

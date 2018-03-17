@@ -6,8 +6,8 @@
 <?php
     echo '<option value="0">None</option>';
     foreach ( $sourcelist as $item ) {
-        $id = escapeOutput( $item['id'] );
-        $title = escapeOutput( $item['title'] );
+        $id = \Sustav\Funkcije::escapeOutput( $item['id'] );
+        $title = \Sustav\Funkcije::escapeOutput( $item['title'] );
         if ( $item['id'] === $page['sourceid'] )
             echo '<option value="', $id, '" selected>', $title, '</option>';
         else

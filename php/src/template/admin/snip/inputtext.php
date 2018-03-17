@@ -4,6 +4,6 @@
 <div class="uk-form-controls">
 <input class="uk-form-width-large" required
 type="text" id="<?= $input['name'] ?>" name="<?= $input['name'] ?>"
-value="<?php echoOutput( $input['value'] ); ?>">
+value="<?= \Sustav\Funkcije::escapeOutput( $input['value'] ) ?>">
 </div>
 </div>

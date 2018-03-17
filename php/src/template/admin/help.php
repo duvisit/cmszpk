@@ -4,7 +4,7 @@
 <div class="uk-container uk-container-center">
 
 <h1>Sustav za upravljanje sadržajem</h1>
-<h2>Help</h2>
+<h2>Opis sustava i upute za korisnike</h2>
 
 <p>Sustav omogućuje upravljanje sadržajem preko baze podataka koja sadrži sljedeće tablice:</p>
 <dl class="uk-description-list-horizontal">
@@ -75,12 +75,13 @@ Klikom na <em>Add new</em> otvara se formular za definiranje novog korisnika.</p
 <dt>template</dt><dd>Predlošci za prezentaciju</dd>
 <dt>featured image</dt><dd>Naslovna slika, preporučene dimenzije su 1200x700 ili 1200x400</dd>
 <dt>title</dt><dd>Naslov, prikazan u izborniku</dd>
-<dt>summary</dt><dd>Kratki opis</dd>
+<dt>summary</dt><dd>Kratki opis stranice (meta podatak)</dd>
+<dt>keywords</dt><dd>Ključne riječi stranice (meta podatak)</dd>
 <dt>content</dt><dd>Html sadržaj</dd>
 </dl>
 
 <p>Klikom na <em>Naslov</em> otvara se formular za uređivanje podataka stranice.<br>
-Klikom na <em>Add new</em> otvara se formular za definiranje nove stranice.</p>
+Klikom na <em>Add new</em> otvara se formular za stvaranje nove stranice.</p>
 
 <p><strong>Predlošci</strong></p>
 <ul>
@@ -123,13 +124,12 @@ Klikom na <em>Delete unused</em> brišu se nekorištene slike.</p>
 
 <h2>Html editor</h2>
 
-<textarea id="content" name="content"
-    data-uk-htmleditor="{mode:'tab'}">
-
 <p>Za ispravan prikaz tekstualnog sadržaja potrebno je koristiti sljedeće 
 <em>div</em> oznake i pripadajuće klase (<em>class</em>):
 </p>
 
+<textarea id="text-content" name="text-content"
+    data-uk-htmleditor="{mode:'tab'}">
 <div class="uk-block">
 <div class="uk-container uk-container-center">
 
@@ -144,15 +144,17 @@ Aenean vel nulla quis mi aliquam fermentum. Duis vitae molestie dui.</p>
 
 </div>
 </div>
+</textarea>
 
 <p>Za prikaz slika od ruba do ruba potrebno je koristiti sljedeće <em>div</em> 
 oznake i pripadajuće klase (<em>class</em>) i stilove (<em>style</em>):</p>
 
+<textarea id="media-content" name="media-content"
+    data-uk-htmleditor="{mode:'tab'}">
 <div
     class="uk-cover-background"
     style="height:400px;background-image:url('/media/trippy.jpg');">
 </div>
-
 </textarea>
 
 </div>

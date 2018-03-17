@@ -6,6 +6,7 @@
 <?php
 include __DIR__.'/snip/list.php';
 include __DIR__.'/snip/media.php';
+$fbnum = 9;
 include __DIR__.'/snip/fbfeed.php';
 ?>
 </div>

@@ -7,7 +7,7 @@
 $imgsrc = $page['media'];
 if ( empty( $page['media'] )) {
     $imgsrc = '/media/placeholder.svg';
-    $str = escapeOutput( $item );
+    $str = \Sustav\Funkcije::escapeOutput( $item );
     echo '<option value="/media/placeholder.svg" selected>None</option>';
     foreach ( $medialist as $item ) {
         echo '<option value="', $str, '">', $str, '</option>';
@@ -15,7 +15,7 @@ if ( empty( $page['media'] )) {
 } else {
     echo '<option value="/media/placeholder.svg">None</option>';
     foreach ( $medialist as $item ) {
-        $str = escapeOutput( $item );
+        $str = \Sustav\Funkcije::escapeOutput( $item );
         if ( $item === $page['media'] )
             echo '<option value="', $str, '" selected>', $str, '</option>';
         else
@@ -30,6 +30,6 @@ if ( empty( $page['media'] )) {
 <div class="uk-form-row">
 <div class="uk-form-controls">
 <img class="uk-thumbnail uk-thumbnail-small"
-    id="mediaimg" src="<?php echoOutput( $imgsrc ); ?>">
+    id="mediaimg" src="<?= \Sustav\Funkcije::escapeOutput( $imgsrc ) ?>">
 </div>
 </div>

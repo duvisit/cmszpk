@@ -4,16 +4,8 @@
 <footer class="uk-text-center">
 
 <div class="uk-panel">
-<p>
-<?php echoOutput( "Admin $table" ); ?><br>
-Powered by CMSZPK
-</p>
-<p>
-<?php
-printf( "Response completed in %.4f seconds\n",
-    microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'] );
-?>
-</p>
+<p><?= \Sustav\Funkcije::escapeOutput( "Admin $table" ) ?><br>
+<?php printf( "~%.4f~\n", microtime( true ) - $_SERVER['REQUEST_TIME_FLOAT'] ); ?></p>
 <p>
 <a class="uk-button uk-button-small uk-button-primary" href="#"
     data-uk-smooth-scroll=""><i class="uk-icon-chevron-up"></i></a>

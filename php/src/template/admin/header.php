@@ -1,9 +1,10 @@
+<?php use Sustav\Funkcije; ?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php echoOutput( "Admin $table" ); ?></title>
+<title><?= Funkcije::escapeOutput( "Admin $table" ) ?></title>
 <link rel="icon" href="/admin.ico">
 <link rel="stylesheet" href="/vendor/uikit/dist/css/uikit.css">
 <link rel="stylesheet" href="/vendor/uikit/vendor/highlight/highlight.css">
@@ -37,14 +38,14 @@ function changeImage () {
 
 <div class="uk-width-1-2">
 <div class="uk-panel">
-<h1><?php echoOutput( $table ); ?></h1>
+<h1><?= Funkcije::escapeOutput( $table ) ?></h1>
 </div>
 </div>
 
 <div class="uk-width-1-2">
 <div class="uk-panel">
 <p class="uk-text-right">
-<?php echoOutput( $username ); ?><br>
+<?= Funkcije::escapeOutput( $username ) ?><br>
 <a class="uk-link" href="/admin/logout">logout</a>
 </p>
 </div>
@@ -55,7 +56,7 @@ function changeImage () {
 if (isset( $alertmsg )) {
     echo '<div class="uk-alert" data-uk-alert>'
         . '<a href="" class="uk-alert-close uk-close"></a>'
-        . '<p>' . escapeOutput( $alertmsg ) . '</p>'
+        . '<p>' . Funkcije::escapeOutput( $alertmsg ) . '</p>'
         . '</div>' . "\n";
 } ?>
 </div>
@@ -67,13 +68,13 @@ $menulist = '';
 foreach ( $menu as $item ) {
     if ( $item['title'] === $table ) {
         $menulist .= '<li class="uk-active"><a class="" href="'
-            . escapeOutput( $item['slug'] ) . '">'
-            . escapeOutput( $item['title'] )
+            . Funkcije::escapeOutput( $item['slug'] ) . '">'
+            . Funkcije::escapeOutput( $item['title'] )
             . '</a></li>' . "\n";
     } else {
         $menulist .= '<li class=""><a class="" href="'
-            . escapeOutput( $item['slug'] ) . '">'
-            . escapeOutput( $item['title'] )
+            . Funkcije::escapeOutput( $item['slug'] ) . '">'
+            . Funkcije::escapeOutput( $item['title'] )
             . '</a></li>' . "\n";
     }
 } ?>
@@ -91,9 +92,8 @@ foreach ( $menu as $item ) {
 <a class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""
     href="#offcanvas"></a>
 <div class="uk-navbar-content uk-navbar-center uk-visible-small">
-<span class="uk-h2"><?php echoOutput( $table ) ?></span>
+<span class="uk-h2"><?= Funkcije::escapeOutput( $table ) ?></span>
 </div>
 
 </div>
 </nav>
-

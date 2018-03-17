@@ -15,33 +15,33 @@
 </tr>
 </thead>
 <tfoot>
+<tr>
 <td><a class="uk-link" href="/admin/page/new">Add new</a></td>
-<td></td>
-<td></td>
+</tr>
 </tfoot>
 
 <tbody>
 <?php
+use Sustav\Funkcije;
+use Sustav\Model\Model;
 foreach ( $list as $item ) {
     echo '<tr>'
-        . '<td>' . escapeOutput( $item['menuid'] ) . '</td>'
-        . '<td>' . escapeOutput( $item['lang'] ) . '</td>'
-        . '<td>' . escapeOutput( $item['datum'] ) . '</td>'
-        . '<td>'
-        . '<a class="uk-link" href="/admin/page/'
-        . escapeOutput( $item['id'] ) . '">'
-        . escapeOutput( $item['title'] ) . '</a>'
-        . '</td>'
-        . '<td>' . escapeOutput(
-            \Sustav\Model\Model::getSourceTitle(
-            $vars['database'], 'page', $item['sourceid'] )) . '</td>'
-        . '</tr>' . PHP_EOL;
+        , '<td>', Funkcije::escapeOutput( $item['menuid'] ), '</td>'
+        , '<td>', Funkcije::escapeOutput( $item['lang'] ), '</td>'
+        , '<td>', Funkcije::escapeOutput( $item['datum'] ), '</td>'
+        , '<td>'
+        , '<a class="uk-link" href="/admin/page/'
+        , Funkcije::escapeOutput( $item['id'] ), '">'
+        , Funkcije::escapeOutput( $item['title'] ), '</a>'
+        , '</td>'
+        , '<td>'
+        , Funkcije::escapeOutput( Model::getSourceTitle( $vars['database'], 'page', $item['sourceid'] ))
+        , '</td>'
+        , '</tr>', PHP_EOL;
 } ?>
 </tbody>
-
 </table>
 
 </div>
 </div>
 </div>
-

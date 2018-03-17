@@ -4,7 +4,7 @@
 <div class="uk-form-controls">
 <select id="template" name="template">
 <?php foreach ( $vars['templates'] as $item ) {
-    $str = escapeOutput( $item );
+    $str = \Sustav\Funkcije::escapeOutput( $item );
     if ( $item === $page['template'] )
         echo '<option value="', $str, '" selected>', $str, '</option>';
     else

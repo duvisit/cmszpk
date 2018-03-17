@@ -7,7 +7,8 @@
     enctype="multipart/form-data"
     action="/admin/upload" method="post">
 
-<input type="hidden" name="csrf" value="<?php echoOUtput( $csrf ); ?>">
+<input type="hidden" name="csrf"
+value="<?= \Sustav\Funkcije::escapeOUtput( $csrf ) ?>">
 
 <fieldset>
 <legend>Record</legend>
@@ -17,7 +18,7 @@
 <div class="uk-form-controls">
 <select name="lang">
 <?php foreach ( $langlist as $item ) {
-    $str = escapeOUtput( $item );
+    $str = \Sustav\Funkcije::escapeOUtput( $item );
     echo '<option value="', $str, '">', $str, '</option>';
 } ?>
 </select>
@@ -29,7 +30,7 @@
 <div class="uk-form-controls">
 <select name="display">
 <?php foreach ( ['media','gallery','product'] as $item ) {
-    echo '<option value="' . $item . '">' . $item . '</option>';
+    echo '<option value="', $item, '">', $item, '</option>';
 } ?>
 </select>
 </div>
@@ -70,8 +71,7 @@
     type="submit" name="upload" value="Upload">
 </div>
 <div class="uk-width-medium-1-5">
-<a class="uk-button uk-button-secondary uk-width-1-1"
-    href="<?php echoOutput( "/admin/media" ); ?>">Cancel</a>
+<a class="uk-button uk-button-secondary uk-width-1-1" href="/admin/media">Cancel</a>
 </div>
 </div>
 </div>
@@ -81,4 +81,3 @@
 </div>
 </div>
 </div>
-
