@@ -1,7 +1,5 @@
 parameters:
     bootstrap: %rootDir%/../../src/autoload.php
-    autoload_files:
-        - %rootDir%/../../src/funkcije.php
     excludes_analyse:
         - %rootDir%/../../src/database/*
         - %rootDir%/../../src/template/*
