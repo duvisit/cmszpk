@@ -13,6 +13,10 @@ PHPAB = bin/phpab-1.24.1.phar
 PHPUNIT = bin/phpunit-6.5.6.phar
 PHPDOC = bin/sami.phar
 
+PHPCS = bin/phpcs.phar
+PHPCBF = bin/phpcbf.phar
+PHPSTAN = bin/phpstan.phar
+
 SQLITE = sqlite3
 
 #---------- makefile postavke ----------------------------
@@ -33,9 +37,9 @@ TOUCH = touch
 CMSZPK_DIR = src
 CMSZPK_PHP = \
 src/cmszpk-razvoj.php src/cmszpk-proizvod.php \
-src/sustav.php src/funkcije.php \
+src/sustav.php src/Funkcije.php \
 src/Postavke.php src/HTTPStatus.php \
-src/Model.php src/Facebook.php \
+src/Model.php src/Spremnik.php src/Facebook.php \
 src/Pogled.php src/Sadrzaj.php \
 src/Upravljac.php src/Sesija.php src/Zahtjev.php
 
@@ -102,3 +106,21 @@ api: sami.php ../docs/api/index.html
 minify:
 	$(PHP) bin/minify.php
 
+psr2: $(CMSZPK_PHP)
+	$(PHP) $(PHPCS) --standard=psr2 $(CMSZPK_PHP)
+
+psr2fix: $(CMSZPK_PHP)
+	$(PHP) $(PHPCBF) --standard=psr2 $(CMSZPK_PHP)
+
+stan: phpstan.neon
+phpstan.neon: $(CMSZPK_PHP)
+	$(PHP) $(PHPSTAN) analyse --level 0 -c phpstan.neon src
+	$(TOUCH) phpstan.neon
+
+stan4:
+	$(PHP) $(PHPSTAN) analyse --level 4 -c phpstan.neon src
+	$(TOUCH) phpstan.neon
+
+stan7:
+	$(PHP) $(PHPSTAN) analyse --level 7 -c phpstan.neon src
+	$(TOUCH) phpstan.neon

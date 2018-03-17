@@ -5,8 +5,9 @@ use Symfony\Component\Finder\Finder;
 
 $iterator = Finder::create()
     ->files()
-    ->name('/[A-Z][a-z]*.php$/')
+    ->name('*.php')
     ->exclude('adminer')
+    ->exclude('template')
     ->exclude('database')
     ->exclude('minify')
     ->exclude('htmlpurifier')
