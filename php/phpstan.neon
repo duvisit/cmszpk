@@ -1,0 +1,13 @@
+parameters:
+    bootstrap: %rootDir%/../../src/autoload.php
+    autoload_files:
+        - %rootDir%/../../src/funkcije.php
+    excludes_analyse:
+        - %rootDir%/../../src/database/*
+        - %rootDir%/../../src/template/*
+        - %rootDir%/../../src/adminer/*
+        - %rootDir%/../../src/minify/*
+        - %rootDir%/../../src/htmlpurifier/*
+        - %rootDir%/../../src/sluggenerator/*
+    ignoreErrors:
+        - '#Function tidy_get_output invoked with 1 parameter, 0 required.#'
