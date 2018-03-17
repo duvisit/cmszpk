@@ -10,10 +10,10 @@
 <?= \Sustav\Funkcije::escapeOutput( $site[zipcode] ) ?>,
 <?= \Sustav\Funkcije::escapeOutput( $site[city] ) ?><br>
 <?= \Sustav\Funkcije::escapeOutput( $site[country] ) ?></p>
-<?php if ( !empty( $site[phone] )) ?>
+<?php if ( !empty( $site[phone] )) { ?>
 <p><span class="uk-icon-phone"></span>
 <?= \Sustav\Funkcije::escapeOutput( $site[phone] ) ?></p>
-<?php endif; ?>
+<?php } ?>
 </div>
 <?= \Sustav\Funkcije::escapeHtml( $page['content'] ) ?>
 </div>
