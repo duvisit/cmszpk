@@ -8,73 +8,92 @@ use Sustav\Upravljac\Upravljac;
 
 /**
  * Odgovor modela na upit.
+ *
+ * URI: Uniform Resource Identifier
  */
 class Sadrzaj
 {
     private $upravljac;
 
+    /**
+     * Konstruktor.
+     *
+     * @param Upravljac $upravljac Upravljač.
+     */
     public function __construct(Upravljac $upravljac)
     {
         $this->upravljac = $upravljac;
     }
 
-    public function pogledaj()
+    /**
+     * Pogledaj sadržaj preko upravljača.
+     *
+     * @return array Status.
+     */
+    public function pogledaj() : array
     {
         return $this->upravljac->pokreni($this);
     }
 
-    //############################################################################
-    // HTML output functions
-
-    public function renderHelp($uri, $vars)
+    /**
+     * Prikaži upute za urednike sadržaja.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderHelp(string $uri, array $vars) : array
     {
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => '/admin/login' ];
+            return ['code' => 302, 'path' => '/admin/login'];
         }
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $menu = array();
+            $menu = [];
             foreach ($vars['tables'] as $m) {
-                $menu[] = array( 'slug' => "/admin/$m", 'title' => $m );
+                $menu[] = ['slug' => "/admin/$m", 'title' => $m];
             }
-
             $alertmsg = null;
             if (isset($_SESSION['alertmsg'])) {
                 $alertmsg = $_SESSION['alertmsg'];
                 unset($_SESSION['alertmsg']);
             }
-
             $table = 'help';
             $username = $_SESSION['username'];
             include($vars['htmldir'] . "admin/header.php");
             include($vars['htmldir'] . "admin/help.php");
             include($vars['htmldir'] . "admin/footer.php");
-
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         }
-        return [ 'code' => 405 ];
+        return ['code' => 405];
     }
 
-    public function renderTemplate($uri, $lang, $table, $slug, $vars)
+    /**
+     * Prikaži predložak.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param string $lang Jezik predloška.
+     * @param string $table Naziv tablice.
+     * @param string $slug Naziv zapisa u bazi podataka.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderTemplate(string $uri, string $lang, string $table, string $slug, array $vars) : array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [ 'code' => 405 ];
+            return ['code' => 405];
         }
-
         $menulang = "";
-        if (!isset($lang)) {
+        if (empty($lang)) {
             $lang = $vars['lang'];
         } elseif ($lang === $vars['lang']) {
-            return [ 'code' => 404 ];
+            return ['code' => 404];
         } else {
             $menulang = "/$lang";
         }
-
-        if (!isset($table)) {
+        if (empty($table)) {
             $table = 'page';
         }
-
-        if (!isset($slug)) {
+        if (empty($slug)) {
             $slug = '/';
         }
 
@@ -82,144 +101,156 @@ class Sadrzaj
         $site = Model::sqlFetch(
             $conn,
             'SELECT * FROM website WHERE lang = ?',
-            array( $lang )
+            [$lang]
         );
         $menu = Model::sqlFetchAll(
             $conn,
             'SELECT menuid, slug, title FROM page WHERE lang = ? ORDER BY menuid',
-            array( $lang )
+            [$lang]
         );
-
         $page = Model::sqlFetch(
             $conn,
             "SELECT * FROM $table WHERE slug = ? AND lang = ?",
-            array( $slug, $lang )
+            [$slug, $lang]
         );
-
-        if ($page === false) {
+        if (empty($page)) {
             $conn = null;
-            return [ 'code' => 404 ];
+            return ['code' => 404];
         }
         $langnav = Model::getLangnav($conn, $vars['lang'], $lang, $table, $page['id'], $page['sourceid']);
-
         $featstaff = Model::sqlFetchSingle(
             $conn,
             'SELECT media FROM page WHERE template = ?',
-            array( 'stafflist' )
+            ['stafflist']
         );
-
         $list = null;
         $listhref = $menulang;
         $menucurr = null;
 
-        if ($table === 'page') {
-            $menucurr = $page['menuid'];
-            if ($page['template'] === 'bloglist' || $page['template'] === 'blogonly') {
-                $list = Model::sqlFetchAll(
+        switch ($table) {
+            case 'page':
+                $menucurr = $page['menuid'];
+                switch ($page['template']) {
+                    case 'bloglist':
+                    case 'blogonly':
+                        $list = Model::sqlFetchAll(
+                            $conn,
+                            "SELECT * FROM blog WHERE lang = ?",
+                            [$lang]
+                        );
+                        $listhref .= "/blog";
+                        break;
+                    case 'articlelist':
+                    case 'articleonly':
+                        $list = Model::sqlFetchAll(
+                            $conn,
+                            "SELECT * FROM article WHERE lang = ?",
+                            [$lang]
+                        );
+                        $listhref .= "/article";
+                        break;
+                    case 'stafflist':
+                        $list = Model::sqlFetchAll(
+                            $conn,
+                            "SELECT * FROM staff WHERE lang = ?",
+                            [$lang]
+                        );
+                        $listhref .= "/staff";
+                        break;
+                    case 'gallery':
+                        $list = Model::sqlFetchAll(
+                            $conn,
+                            "SELECT * FROM media WHERE lang = ? AND display = ?",
+                            [$lang, 'gallery']
+                        );
+                        $listhref .= "/media";
+                        break;
+                    case 'product':
+                        $list = Model::sqlFetchAll(
+                            $conn,
+                            "SELECT * FROM media WHERE lang = ? AND display = ?",
+                            [$lang, 'product']
+                        );
+                        $listhref .= "/media";
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 'blog':
+                $menucurr = Model::sqlFetchSingle(
                     $conn,
-                    "SELECT * FROM blog WHERE lang = ?",
-                    array( $lang )
+                    "SELECT menuid FROM page WHERE template = ?",
+                    ['bloglist']
                 );
-                $listhref .= "/blog";
-            } elseif ($page['template'] === 'articlelist' || $page['template'] === 'articleonly') {
-                $list = Model::sqlFetchAll(
+                break;
+            case 'article':
+                $menucurr = Model::sqlFetchSingle(
                     $conn,
-                    "SELECT * FROM article WHERE lang = ?",
-                    array( $lang )
+                    "SELECT menuid FROM page WHERE template = ?",
+                    ['articlelist']
                 );
-                $listhref .= "/article";
-            } elseif ($page['template'] === 'stafflist') {
-                $list = Model::sqlFetchAll(
+                break;
+            case 'media':
+                $menucurr = Model::sqlFetchSingle(
                     $conn,
-                    "SELECT * FROM staff WHERE lang = ?",
-                    array( $lang )
+                    "SELECT menuid FROM page WHERE template = ?",
+                    ['gallery']
                 );
-                $listhref .= "/staff";
-            } elseif ($page['template'] === 'gallery') {
-                $list = Model::sqlFetchAll(
+                break;
+            case 'staff':
+                $menucurr = Model::sqlFetchSingle(
                     $conn,
-                    "SELECT * FROM media WHERE lang = ? AND display = ?",
-                    array( $lang, 'gallery' )
+                    "SELECT menuid FROM page WHERE template = ?",
+                    ['stafflist']
                 );
-                $listhref .= "/media";
-            } elseif ($page['template'] === 'product') {
-                $list = Model::sqlFetchAll(
-                    $conn,
-                    "SELECT * FROM media WHERE lang = ? AND display = ?",
-                    array( $lang, 'product' )
-                );
-                $listhref .= "/media";
-            }
-        } elseif ($table === 'blog') {
-            $menucurr = Model::sqlFetchSingle(
-                $conn,
-                "SELECT menuid FROM page WHERE template = ?",
-                array( 'bloglist' )
-            );
-        } elseif ($table === 'article') {
-            $menucurr = Model::sqlFetchSingle(
-                $conn,
-                "SELECT menuid FROM page WHERE template = ?",
-                array( 'articlelist' )
-            );
-        } elseif ($table === 'media') {
-            $menucurr = Model::sqlFetchSingle(
-                $conn,
-                "SELECT menuid FROM page WHERE template = ?",
-                array( 'gallery' )
-            );
-        } elseif ($table === 'staff') {
-            $menucurr = Model::sqlFetchSingle(
-                $conn,
-                "SELECT menuid FROM page WHERE template = ?",
-                array( 'stafflist' )
-            );
+                break;
+            default:
+                break;
         }
-
         $conn = null;
 
-        //return dumpme( array( 'uri'=>$uri, 'lang'=>$lang, 'table'=>$table,
-        //    'slug'=>$slug, 'menu'=>$menu, 'menulang'=>$menulang, 'list'=>$list,
-        //    'listhref'=>$listhref, 'page'=>$page ));
-
-        if ($site === false || $menu === false) {
-            return [ 'code' => 500 ];
+        if (empty($site) || empty($menu)) {
+            return ['code' => 500];
         }
         if ($lang !== $vars['lang'] && $site['enabled'] === 'no') {
-            return [ 'code' => 404 ];
+            return ['code' => 404];
         }
         if (!isset($page['template'])) {
             $page['template'] = $table;
         }
         if (!in_array($page['template'], $vars['templates'])) {
-            return [ 'code' => 404 ];
+            return ['code' => 404];
         }
-
         if ($lang === 'hr') {
             setlocale(LC_TIME, 'croatian');
         }
-
         include($vars['htmldir'] . 'header.php');
         include($vars['htmldir'] . 'menu.php');
         include($vars['htmldir'] . $page['template'] . '.php');
         include($vars['htmldir'] . 'footer.php');
-
-        return [ 'code' => 200, 'path' => $uri ];
+        return ['code' => 200, 'path' => $uri];
     }
 
-    public function renderBlogList($uri, $lang, $vars)
+    /**
+     * Prikaži listu objava.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param string $lang Jezik predloška.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderBlogList(string $uri, string $lang, array $vars) : array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [ 'code' => 405 ];
+            return ['code' => 405];
         }
-
         $menulang = "";
         $listhref = "/blog";
         if ($lang !== $vars['lang']) {
             $menulang = "/$lang";
             $listhref = "/$lang/blog";
         }
-
         $table = 'blog';
         $page = [
             'lang' => $lang,
@@ -232,61 +263,57 @@ class Sadrzaj
         $site = Model::sqlFetch(
             $conn,
             'SELECT * FROM website WHERE lang = ?',
-            array( $lang )
+            [$lang]
         );
         $menu = Model::sqlFetchAll(
             $conn,
             'SELECT menuid, slug, title FROM page WHERE lang = ? ORDER BY menuid',
-            array( $lang )
+            [$lang]
         );
-
         $langnav = Model::getLangnav($conn, $vars['lang'], $lang, 'blog', -1, -1);
-
         $list = Model::sqlFetchAll(
             $conn,
             "SELECT * FROM blog WHERE lang = ?",
-            array( $lang )
+            [$lang]
         );
-        $menucurr = 0;
-
         $conn = null;
 
-        //return dumpme( array( 'uri'=>$uri, 'lang'=>$lang, 'table'=>$table,
-        //    'slug'=>$slug, 'menu'=>$menu, 'menulang'=>$menulang, 'list'=>$list,
-        //    'listhref'=>$listhref, 'page'=>$page ));
-
-        if ($site === false || $menu === false) {
-            return [ 'code' => 500 ];
+        $menucurr = 0;
+        if (empty($site) || empty($menu)) {
+            return ['code' => 500];
         }
         if ($lang !== $vars['lang'] && $site['enabled'] === 'no') {
-            return [ 'code' => 404 ];
+            return ['code' => 404];
         }
-
         if ($lang === 'hr') {
             setlocale(LC_TIME, 'croatian');
         }
-
         include($vars['htmldir'] . 'header.php');
         include($vars['htmldir'] . 'menu.php');
         include($vars['htmldir'] . 'blogonly.php');
         include($vars['htmldir'] . 'footer.php');
-
-        return [ 'code' => 200, 'path' => $uri ];
+        return ['code' => 200, 'path' => $uri];
     }
 
-    public function renderArticleList($uri, $lang, $vars)
+    /**
+     * Prikaži listu dokumenata.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param string $lang Jezik predloška.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderArticleList(string $uri, string $lang, array $vars) : array
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            return [ 'code' => 405 ];
+            return ['code' => 405];
         }
-
         $menulang = "";
         $listhref = "/article";
         if ($lang !== $vars['lang']) {
             $menulang = "/$lang";
             $listhref = "/$lang/article";
         }
-
         $table = 'article';
         $page = [
             'lang' => $lang,
@@ -299,91 +326,96 @@ class Sadrzaj
         $site = Model::sqlFetch(
             $conn,
             'SELECT * FROM website WHERE lang = ?',
-            array( $lang )
+            [$lang]
         );
         $menu = Model::sqlFetchAll(
             $conn,
             'SELECT menuid, slug, title FROM page WHERE lang = ? ORDER BY menuid',
-            array( $lang )
+            [$lang]
         );
-
         $langnav = Model::getLangnav($conn, $vars['lang'], $lang, 'article', -1, -1);
-
         $list = Model::sqlFetchAll(
             $conn,
             "SELECT * FROM article WHERE lang = ?",
-            array( $lang )
+            [$lang]
         );
-        $menucurr = 0;
-
         $conn = null;
 
-        //return dumpme( array( 'uri'=>$uri, 'lang'=>$lang, 'table'=>$table,
-        //    'slug'=>$slug, 'menu'=>$menu, 'menulang'=>$menulang, 'list'=>$list,
-        //    'listhref'=>$listhref, 'page'=>$page ));
-
-        if ($site === false || $menu === false) {
-            return [ 'code' => 500 ];
+        $menucurr = 0;
+        if (empty($site) || empty($menu)) {
+            return ['code' => 500];
         }
         if ($lang !== $vars['lang'] && $site['enabled'] === 'no') {
-            return [ 'code' => 404 ];
+            return ['code' => 404];
         }
-
         if ($lang === 'hr') {
             setlocale(LC_TIME, 'croatian');
         }
-
         include($vars['htmldir'] . 'header.php');
         include($vars['htmldir'] . 'menu.php');
         include($vars['htmldir'] . 'articleonly.php');
         include($vars['htmldir'] . 'footer.php');
-
-        return [ 'code' => 200, 'path' => $uri ];
+        return ['code' => 200, 'path' => $uri];
     }
 
-    public function renderLogin($uri, $vars)
+    /**
+     * Prikaži stranicu za prijavu u sustav.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderLogin(string $uri, array $vars) : array
     {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $csrf = Sesija::sessionToken();
             $alertmsg = null;
             include($vars['htmldir'] . 'admin/login.php');
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (Sesija::isPassword($vars['database'])) {
-                return [ 'code' => 302, 'path' => '/admin/website' ];
+                return ['code' => 302, 'path' => '/admin/website'];
             }
             $csrf = Sesija::sessionToken();
             $alertmsg = 'Login failed';
             include($vars['htmldir'] . 'admin/login.php');
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         }
-        return [ 'code' => 405 ];
+        return ['code' => 405];
     }
 
-    public function renderLogout($uri, $vars)
+    /**
+     * Odjava sa sustava (preusmjeri na naslovnu stranicu).
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderLogout(string $uri, array $vars) : array
     {
-        if (Sesija::isAdmin($vars['database'])) {
-            // TODO redundant code
-            unset($_SESSION['username']);
-            unset($_SESSION['csrf']);
-            session_unset();
-            session_destroy();
-            session_start();
-            return [ 'code' => 302, 'path' => '/' ];
+        foreach ($_SESSION as $var) {
+            unset($var);
         }
-        return [ 'code' => 302, 'path' => '/' ];
+        session_regenerate_id();
+        return ['code' => 302, 'path' => '/'];
     }
 
-    public function renderAdmin($uri, $table, $vars)
+    /**
+     * Prikaži pregled sadržaja.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param string $table Naziv tablice sadržaja.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderAdmin(string $uri, string $table, array $vars) : array
     {
         if (!in_array($table, $vars['tables'])) {
-            return [ 'code' => 500 ];
+            return ['code' => 500];
         }
-
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => '/admin/login' ];
+            return ['code' => 302, 'path' => '/admin/login'];
         }
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $conn = Model::dbConnect($vars['database']);
             $list = Model::sqlFetchAll($conn, "SELECT * FROM $table");
@@ -393,49 +425,51 @@ class Sadrzaj
             );
             $conn = null;
 
-            if ($list === false) {
-                return [ 'code' => 500 ];
+            if (empty($list)) {
+                return ['code' => 500];
             }
-
-            $menu = array();
+            $menu = [];
             foreach ($vars['tables'] as $m) {
-                $menu[] = array( 'slug' => "/admin/$m", 'title' => $m );
+                $menu[] =['slug' => "/admin/$m", 'title' => $m];
             }
-
-            $typelist = ( $table === 'media' ) ?
-                [ 'gallery', 'product', 'media' ] : null;
-
+            $typelist = ['gallery', 'product', 'media'];
+            $username = $_SESSION['username'];
             $alertmsg = null;
             if (isset($_SESSION['alertmsg'])) {
                 $alertmsg = $_SESSION['alertmsg'];
                 unset($_SESSION['alertmsg']);
             }
-            $username = $_SESSION['username'];
             include($vars['htmldir'] . "admin/header.php");
             include($vars['htmldir'] . "admin/tab$table.php");
             include($vars['htmldir'] . "admin/footer.php");
-
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         }
-        return [ 'code' => 405 ];
+        return ['code' => 405];
     }
 
-    public function renderEdit($uri, $table, $id, $vars)
+    /**
+     * Prikaži stranicu za uređivanje sadržaja.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param string $table Naziv tablice sadržaja.
+     * @param string $id ID sadržaja.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderEdit(string $uri, string $table, string $id, array $vars) : array
     {
         if (!in_array($table, $vars['tables'])) {
-            return [ 'code' => 500 ];
+            return ['code' => 500];
         }
-
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => '/admin/login' ];
+            return ['code' => 302, 'path' => '/admin/login'];
         }
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $conn = Model::dbConnect($vars['database']);
             $page = Model::sqlFetch(
                 $conn,
                 "SELECT * FROM $table WHERE id = ?",
-                array( $id )
+                [$id]
             );
             $langlist = ( $table === 'users' ) ? null :
                 Model::sqlFetchColumn($conn, "SELECT DISTINCT lang FROM website");
@@ -445,28 +479,23 @@ class Sadrzaj
                 Model::sqlFetchAll($conn, "SELECT id, title FROM $table");
             $conn = null;
 
-            if ($page === false) {
-                return [ 'code' => 404 ];
+            if (empty($page)) {
+                return ['code' => 404];
             }
-
-            $menu = array();
+            $menu = [];
             foreach ($vars['tables'] as $m) {
-                $menu[] = array( 'slug' => "/admin/$m", 'title' => $m );
+                $menu[] =['slug' => "/admin/$m", 'title' => $m];
             }
-
-            $csrf = isset($_SESSION['csrf']) ? $_SESSION['csrf'] :
-                $csrf = Sesija::sessionToken();
-
+            $csrf = Sesija::sessionToken();
             $username = $_SESSION['username'];
             include($vars['htmldir'] . "admin/header.php");
             include($vars['htmldir'] . "admin/edit$table.php");
             include($vars['htmldir'] . "admin/footer.php");
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         }
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return [ 'code' => 405 ];
+            return ['code' => 405];
         }
-
         $idval = intval($id);
         $_SESSION['alertmsg'] = "Error editing record from table '$table'";
 
@@ -474,32 +503,38 @@ class Sadrzaj
             && hash_equals($_POST['csrf'], $_SESSION['csrf']) && $idval > 0 ) {
             if (isset($_POST['save'])) {
                 $_SESSION['alertmsg'] = "Error saving record to table '$table'";
-                $result = Model::saveRecord($vars['database'], $table, $idval);
-                if ($result === true) {
+                $done = Model::saveRecord($vars['database'], $table, $idval);
+                if ($done) {
                     $_SESSION['alertmsg'] = "Record saved to table '$table'";
                 }
             } elseif (isset($_POST['delete'])) {
                 $_SESSION['alertmsg'] = "Error deleting record from table '$table'";
-                $result = Model::deleteRecord($vars['database'], $table, $idval);
-                if ($result === 1) {
+                $done = Model::deleteRecord($vars['database'], $table, $idval);
+                if ($done) {
                     $_SESSION['alertmsg'] = "Record deleted from table '$table'";
                 }
             }
         }
         unset($_SESSION['csrf']);
-        return [ 'code' => 302, 'path' => "/admin/$table" ];
+        return ['code' => 302, 'path' => "/admin/$table"];
     }
 
-    public function renderCreate($uri, $table, $vars)
+    /**
+     * Prikaži stranicu za stvaranje sadržaja.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param string $table Naziv tablice sadržaja.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderCreate(string $uri, string $table, array $vars) : array
     {
         if (!in_array($table, $vars['tables'])) {
-            return [ 'code' => 500 ];
+            return ['code' => 500];
         }
-
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => '/admin/login' ];
+            return ['code' => 302, 'path' => '/admin/login'];
         }
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $langlist = null;
             $medialist = null;
@@ -526,23 +561,20 @@ class Sadrzaj
                 }
                 $conn = null;
             }
-            $menu = array();
+            $menu = [];
             foreach ($vars['tables'] as $m) {
-                $menu[] = array( 'slug' => "/admin/$m", 'title' => $m );
+                $menu[] =['slug' => "/admin/$m", 'title' => $m];
             }
-
             $csrf = Sesija::sessionToken();
             $username = $_SESSION['username'];
             include($vars['htmldir'] . "admin/header.php");
             include($vars['htmldir'] . "admin/new$table.php");
             include($vars['htmldir'] . "admin/footer.php");
-
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         }
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return [ 'code' => 405 ];
+            return ['code' => 405];
         }
-
         $_SESSION['alertmsg'] = "Error creating new record for table '$table'";
 
         if (isset($_POST['csrf']) && isset($_SESSION['csrf'])
@@ -554,15 +586,21 @@ class Sadrzaj
             }
         }
         unset($_SESSION['csrf']);
-        return [ 'code' => 302, 'path' => "/admin/$table" ];
+        return ['code' => 302, 'path' => "/admin/$table"];
     }
 
-    public function renderUpload($uri, $vars)
+    /**
+     * Prikaži stranicu za učitavanje datoteka.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderUpload(string $uri, array $vars) : array
     {
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => '/admin/login' ];
+            return ['code' => 302, 'path' => '/admin/login'];
         }
-
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $conn = Model::dbConnect($vars['database']);
             $langlist = Model::sqlFetchColumn(
@@ -571,24 +609,21 @@ class Sadrzaj
             );
             $conn = null;
 
-            $menu = array();
+            $menu = [];
             foreach ($vars['tables'] as $m) {
-                $menu[] = array( 'slug' => "/admin/$m", 'title' => $m );
+                $menu[] =['slug' => "/admin/$m", 'title' => $m];
             }
-
+            $table = 'upload';
             $csrf = Sesija::sessionToken();
             $username = $_SESSION['username'];
-            $table = 'upload';
             include($vars['htmldir'] . "admin/header.php");
             include($vars['htmldir'] . "admin/upload.php");
             include($vars['htmldir'] . "admin/footer.php");
-
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         }
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            return [ 'code' => 405 ];
+            return ['code' => 405];
         }
-
         $_SESSION['alertmsg'] = "Error uploading new image for table 'media'! ";
 
         if (isset($_POST['csrf']) && isset($_SESSION['csrf'])
@@ -630,25 +665,29 @@ class Sadrzaj
             }
         }
         unset($_SESSION['csrf']);
-        return [ 'code' => 302, 'path' => "/admin/media" ];
+        return ['code' => 302, 'path' => "/admin/media"];
     }
 
-    public function renderCleanup($uri, $vars)
+    /**
+     * Izbriši nekorištene datoteke.
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderCleanup(string $uri, array $vars) : array
     {
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => "/admin/login" ];
+            return ['code' => 302, 'path' => "/admin/login"];
         }
-
         $conn = Model::dbConnect($vars['database']);
         $medialist = Model::sqlFetchColumn($conn, 'SELECT DISTINCT media FROM media');
         $conn = null;
 
         $uploadlist = glob($vars['uploaddir'] . '/upload/*');
-
         $_SESSION['alertmsg'] = "No unused images";
         $count = 0;
-        $delfile = array();
-
+        $delfile = [];
         foreach ($uploadlist as $file) {
             if (is_file($file)) {
                 $name = '/upload/' . basename($file);
@@ -666,18 +705,28 @@ class Sadrzaj
                 $_SESSION['alertmsg'] .= ", $file";
             }
         }
-        return [ 'code' => 302, 'path' => "/admin/media" ];
+        return ['code' => 302, 'path' => "/admin/media"];
     }
 
-    public function renderLog($uri, $vars)
+    /**
+     * Prikaži podatke o radu sustava.
+     *
+     * Podaci koji se prate: korištenje spremnika (cache.log) i greške sustava
+     * (error.log).
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderLog(string $uri, array $vars) : array
     {
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => '/admin/login' ];
+            return ['code' => 302, 'path' => '/admin/login'];
         }
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $menu = array();
+            $menu = [];
             foreach ($vars['tables'] as $m) {
-                $menu[] = array( 'slug' => "/admin/$m", 'title' => $m );
+                $menu[] =['slug' => "/admin/$m", 'title' => $m];
             }
             $alertmsg = null;
             if (isset($_SESSION['alertmsg'])) {
@@ -689,12 +738,21 @@ class Sadrzaj
             include($vars['htmldir'] . "admin/header.php");
             include($vars['htmldir'] . "admin/viewlog.php");
             include($vars['htmldir'] . "admin/footer.php");
-            return [ 'code' => 200 ];
+            return ['code' => 200];
         }
-        return [ 'code' => 405 ];
+        return ['code' => 405];
     }
 
-    public function renderLogClean($uri, $vars)
+    /**
+     * Izbriši podatke o radu sustava.
+     *
+     * @see Sadrzaj::renderLog()
+     *
+     * @param string $uri Staza zahtjeva.
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderLogClean(string $uri, array $vars) : array
     {
         $log = [__DIR__.'/cache.log', __DIR__.'/error.log'];
         foreach ($log as $filename) {
@@ -705,12 +763,20 @@ class Sadrzaj
         return $this->renderLog($uri, $vars);
     }
 
-    public function renderSqlite($vars)
+    /**
+     * Prikaži sučelje za rad sa SQLite bazom podataka.
+     *
+     * Metoda koristi [Adminer](https://www.adminer.org/).
+     *
+     * @param array $vars Postavke sustava.
+     * @return array Status.
+     */
+    public function renderSqlite(array $vars) : array
     {
         if (!Sesija::isAdmin($vars['database'])) {
-            return [ 'code' => 302, 'path' => '/admin/login' ];
+            return ['code' => 302, 'path' => '/admin/login'];
         }
         include __DIR__.'/adminer/sqlite.php';
-        return [ 'code' => 200 ];
+        return ['code' => 200];
     }
 }

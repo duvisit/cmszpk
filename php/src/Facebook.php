@@ -22,7 +22,7 @@ class Facebook
         $array = preg_split("/\r\n|\n|\r/", $message);
         foreach ($array as $value) {
             if (!empty($value)) {
-                $msg .= '<p>' . $value . '</p>';
+                $msg .= '<p>'.$value.'</p>';
             }
         }
         return $msg;
@@ -49,13 +49,10 @@ class Facebook
         $data = Model::sqlFetchAll($conn, "SELECT * FROM fbfeed ORDER BY id ASC LIMIT 9");
         $conn = null;
 
-        if ($data === false) {
-            $data = [];
-        }
         if (empty($page_id) || empty($app_id) || empty($app_secret)) {
             return $data;
         }
-        if (!empty($data) && $data !== false) {
+        if (!empty($data)) {
             $timestamp = intval($data[0]['stamp']);
             if (( time() - $timestamp ) < ( 4 * 60 * 60 )) {
                 return $data;
@@ -132,7 +129,10 @@ class Facebook
 
         $data = Model::sqlFetchAll($conn, "SELECT * FROM fbfeed ORDER BY id ASC LIMIT 9");
         $conn = null;
-        return ($data === false) ? [] : $data;
+        if ($data) {
+            return $data;
+        }
+        return [];
     }
 
     /**
@@ -163,8 +163,13 @@ class Facebook
      * @param string $link Veza na objavu.
      * @param string $message Tekst objave.
      */
-    private static function fbPost(string $date, string $type, string $picture, string $link, string $message) : void
-    {
+    private static function fbPost(
+        string $date,
+        string $type,
+        string $picture,
+        string $link,
+        string $message
+    ) : void {
 ?>
 <div class="uk-width-medium-1-3"><div class="uk-panel uk-panel-box uk-panel-box-secondary">
 <?php if ($picture != '') { ?>
@@ -190,7 +195,7 @@ style="height:240px; background-image:url('<?= Funkcije::escapeOutput($picture) 
     {
         $fbfeed = self::fbCache();
 
-        if ($fbfeed === false) {
+        if (empty($fbfeed)) {
             self::fbError($lang);
             return;
         }

@@ -20,7 +20,7 @@ class Pogled
     /**
      * Konstruktor.
      *
-     * @param Sustav\Sadrzaj $sadrzaj Sadržaj.
+     * @param Sadrzaj $sadrzaj Sadržaj.
      */
     public function __construct(Sadrzaj $sadrzaj)
     {
@@ -35,8 +35,6 @@ class Pogled
 
     /**
      * Pošalji sadržaj html pregledniku.
-     *
-     * @return int HTTP status.
      */
     public function posalji()
     {
@@ -98,7 +96,6 @@ class Pogled
                 $this->teapot();
                 break;
         }
-        return $status['code'];
     }
 
     // 301 Moved Permanently

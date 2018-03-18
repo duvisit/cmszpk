@@ -16,7 +16,7 @@ class Upravljac
     /**
      * Konstruktor.
      *
-     * @param Sustav\Zahtjev HTTP zahtjev.
+     * @param Zahtjev $zahtjev HTTP zahtjev.
      */
     public function __construct(Zahtjev $zahtjev)
     {
@@ -26,7 +26,7 @@ class Upravljac
     /**
      * Pokreni upravljač za prikaz sadržaja.
      *
-     * @param Sustav\Sadrzaj Sadržaj.
+     * @param Sadrzaj $sadrzaj Sadržaj.
      * @return array Status.
      */
     public function pokreni(Sadrzaj $sadrzaj) : array
@@ -52,7 +52,7 @@ class Upravljac
     /**
      * Preusmjeri prikaz na željeni sadržaj prema stazi zahtjeva.
      *
-     * @param Sustav\Sadrzaj $sadrzaj Sadržaj.
+     * @param Sadrzaj $sadrzaj Sadržaj.
      * @param string $uri Staza HTTP zahtjeva.
      * @param array $cfg Polje postavki sustava.
      * @return array Status.
@@ -67,7 +67,7 @@ class Upravljac
             return ['code' => 404];
         }
         if (!isset($urlp['path'])) {
-            return $sadrzaj->renderTemplate($uri, null, null, null, $cfg);
+            return $sadrzaj->renderTemplate($uri, '', '', '', $cfg);
         }
         $path = mb_strtolower($urlp['path'], 'UTF-8');
         if ($path !== $urlp['path']) {
@@ -102,24 +102,24 @@ class Upravljac
             },
             // Homepage
             '/^\/?$/u' => function ($uri, $vars) use ($sadrzaj) {
-                return $sadrzaj->renderTemplate($uri, null, null, null, $vars);
+                return $sadrzaj->renderTemplate($uri, '', '', '', $vars);
             },
             '/^\/([a-z][a-z])$/u' => function ($uri, $lang, $vars) use ($sadrzaj) {
-                return $sadrzaj->renderTemplate($uri, $lang, null, null, $vars);
+                return $sadrzaj->renderTemplate($uri, $lang, '', '', $vars);
             },
             // Template primary language
             '/^(\/[^\/[:space:]]+)$/u'
             => function ($uri, $slug, $vars) use ($sadrzaj) {
-                return $sadrzaj->renderTemplate($uri, null, null, $slug, $vars);
+                return $sadrzaj->renderTemplate($uri, '', '', $slug, $vars);
             },
             '/^\/(blog|article)(\/[^\/[:space:]]+)$/u'
             => function ($uri, $table, $slug, $vars) use ($sadrzaj) {
-                return $sadrzaj->renderTemplate($uri, null, $table, $slug, $vars);
+                return $sadrzaj->renderTemplate($uri, '', $table, $slug, $vars);
             },
             // Template secondary language(s)
             '/^\/([a-z][a-z])(\/[^\/[:space:]]+)$/u'
             => function ($uri, $lang, $slug, $vars) use ($sadrzaj) {
-                return $sadrzaj->renderTemplate($uri, $lang, null, $slug, $vars);
+                return $sadrzaj->renderTemplate($uri, $lang, '', $slug, $vars);
             },
             '/^\/([a-z][a-z])\/(blog|article)(\/[^\/[:space:]]+)$/u'
             => function ($uri, $lang, $table, $slug, $vars) use ($sadrzaj) {

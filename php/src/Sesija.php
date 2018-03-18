@@ -13,7 +13,7 @@ class Sesija
      *
      * @return string Token.
      */
-    public static function sessionToken()
+    public static function sessionToken() : string
     {
         session_regenerate_id();
         $_SESSION['csrf'] = bin2hex(random_bytes(32));
@@ -25,9 +25,9 @@ class Sesija
      *
      * @param array $db Veza s bazom podataka.
      * @param string $username Ime korisnika.
-     * @return array Polje podataka o korisniku ili false.
+     * @return array Polje podataka o korisniku ili prazno polje.
      */
-    public static function getUser(array $db, string $username)
+    public static function getUser(array $db, string $username) : array
     {
         $conn = Model::dbConnect($db);
         $sql = 'SELECT username, password FROM users WHERE username = ?';
@@ -35,10 +35,10 @@ class Sesija
         $st->execute([$username]);
         $result = $st->fetch();
         $conn = null;
-        if ($result !== false && !empty($result)) {
+        if ($result) {
             return $result;
         }
-        return false;
+        return [];
     }
 
     /**
@@ -47,10 +47,10 @@ class Sesija
      * @param array $db Veza s bazom podataka.
      * @return bool Ako je korisnik urednik TRUE, inače FALSE.
      */
-    public static function isAdmin($db)
+    public static function isAdmin(array $db) : bool
     {
         if (isset($_SESSION['username'])) {
-            if (self::getUser($db, $_SESSION['username']) !== false) {
+            if (!empty(self::getUser($db, $_SESSION['username']))) {
                 return true;
             }
         }
@@ -71,8 +71,7 @@ class Sesija
             // Validate login form
             if (hash_equals($_POST['csrf'], $_SESSION['csrf'])) {
                 $user = self::getUser($db, $_POST['username']);
-                if ($user !== false
-                    && password_verify($_POST['password'], $user['password'])) {
+                if (!empty($user) && password_verify($_POST['password'], $user['password'])) {
                     unset($_SESSION['csrf']);
                     $_SESSION['username'] = $user['username'];
                     session_regenerate_id();

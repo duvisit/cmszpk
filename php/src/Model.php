@@ -42,7 +42,7 @@ class Model
      * ```
      *
      * @param array $db Postavke baze podataka.
-     * @return \PDO PHP Database Object
+     * @return PDO PHP Database Object
      */
     public static function dbConnect(array $db) : PDO
     {
@@ -52,12 +52,12 @@ class Model
     /**
      * Dohvati jedan redak iz baze podataka prema upitu.
      *
-     * @param \PDO $conn Veza s bazom podataka.
+     * @param PDO $conn Veza s bazom podataka.
      * @param string $sql SQL upit.
      * @param array $params Polje parametara SQL upita.
-     * @return array Polje odgovora na upit ili false.
+     * @return array Polje odgovora na upit ili prazno polje.
      */
-    public static function sqlFetch(PDO $conn, string $sql, array $params = null)
+    public static function sqlFetch(PDO $conn, string $sql, array $params = null) : array
     {
         $st = $conn->prepare($sql);
         if (isset($params)) {
@@ -65,18 +65,22 @@ class Model
         } else {
             $st->execute();
         }
-        return $st->fetch();
+        $result = $st->fetch();
+        if ($result) {
+            return $result;
+        }
+        return [];
     }
 
     /**
      * Dohvati sve retke iz baze podataka prema upitu.
      *
-     * @param \PDO $conn Veza s bazom podataka.
+     * @param PDO $conn Veza s bazom podataka.
      * @param string $sql SQL upit.
      * @param array $params Polje parametara SQL upita.
-     * @return array Polje polja odgovora na upit ili false.
+     * @return array Polje polja odgovora na upit ili prazno polje.
      */
-    public static function sqlFetchAll(PDO $conn, string $sql, array $params = null)
+    public static function sqlFetchAll(PDO $conn, string $sql, array $params = null) : array
     {
         $st = $conn->prepare($sql);
         if (isset($params)) {
@@ -84,18 +88,22 @@ class Model
         } else {
             $st->execute();
         }
-        return $st->fetchAll();
+        $result = $st->fetchAll();
+        if ($result) {
+            return $result;
+        }
+        return [];
     }
 
     /**
      * Dohvati jedan stupac iz baze podataka prema upitu.
      *
-     * @param \PDO $conn Veza s bazom podataka.
+     * @param PDO $conn Veza s bazom podataka.
      * @param string $sql SQL upit.
      * @param array $params Polje parametara SQL upita.
-     * @return array Polje odgovora na upit ili false.
+     * @return array Polje odgovora na upit ili prazno polje.
      */
-    public static function sqlFetchColumn(PDO $conn, string $sql, array $params = null)
+    public static function sqlFetchColumn(PDO $conn, string $sql, array $params = null) : array
     {
         $st = $conn->prepare($sql);
         if (isset($params)) {
@@ -103,18 +111,22 @@ class Model
         } else {
             $st->execute();
         }
-        return $st->fetchAll(PDO::FETCH_COLUMN);
+        $result = $st->fetchAll(PDO::FETCH_COLUMN);
+        if ($result) {
+            return $result;
+        }
+        return [];
     }
 
     /**
      * Dohvati samo jedan podatak iz baze podataka prema upitu.
      *
-     * @param \PDO $conn Veza s bazom podataka.
+     * @param PDO $conn Veza s bazom podataka.
      * @param string $sql SQL upit.
      * @param array $params Polje parametara SQL upita.
-     * @return array Odgovor na upit ili false.
+     * @return string Odgovor na upit ili prazan string.
      */
-    public static function sqlFetchSingle(PDO $conn, string $sql, array $params = null)
+    public static function sqlFetchSingle(PDO $conn, string $sql, array $params = null) : string
     {
         $st = $conn->prepare($sql);
         if (isset($params)) {
@@ -126,19 +138,19 @@ class Model
         if ($result !== false && isset($result[0])) {
             return $result[0];
         }
-        return false;
+        return '';
     }
 
     /**
      * Dohvati dostupne jezike.
      *
-     * @param \PDO $conn Veza s bazom podataka.
+     * @param PDO $conn Veza s bazom podataka.
      * @param string $default Glavni jezik sustava.
      * @param string $lang Trenutni jezik stranice.
      * @param string $table Tablica sadržaja stranice.
      * @param string $recordid ID sadržaja.
      * @param string $sourceid ID izvornog sadržaja.
-     * @return array Polje dostupnih jezika ili null.
+     * @return array Polje dostupnih jezika ili prazno polje.
      */
     public static function getLangnav(
         PDO $conn,
@@ -151,17 +163,17 @@ class Model
         $result = self::sqlFetchAll(
             $conn,
             'SELECT lang FROM website WHERE NOT lang = ? AND enabled = ?',
-            array( $lang, 'yes' )
+            [$lang, 'yes']
         );
-        if ($result === false) {
-            return null;
+        if (empty($result)) {
+            return [];
         }
 
         $recid = intval($recordid);
         $srcid = intval($sourceid);
         $tabslug = "";
 
-        if (in_array($table, [ 'blog', 'article' ])) {
+        if (in_array($table, ['blog', 'article'])) {
             $tabslug = "/$table";
         }
 
@@ -170,9 +182,9 @@ class Model
                 $slug = self::sqlFetch(
                     $conn,
                     "SELECT slug FROM $table WHERE lang = ? AND sourceid = $recid",
-                    array( $item['lang'] )
+                    [$item['lang']]
                 );
-                if ($slug === false) {
+                if (empty($slug)) {
                     if ($item['lang'] === $default) {
                         $item['slug'] = $tabslug;
                     } else {
@@ -191,15 +203,15 @@ class Model
                 $slug = self::sqlFetch(
                     $conn,
                     "SELECT slug FROM $table WHERE lang = ? AND sourceid = $srcid",
-                    array( $item['lang'] )
+                    [$item['lang']]
                 );
-                if ($slug === false) {
+                if (empty($slug)) {
                     $slug = self::sqlFetch(
                         $conn,
                         "SELECT slug FROM $table WHERE lang = ? AND id = $srcid",
-                        array( $item['lang'] )
+                        [$item['lang']]
                     );
-                    if ($slug === false) {
+                    if (empty($slug)) {
                         if ($item['lang'] === $default) {
                             $item['slug'] = $tabslug;
                         } else {
@@ -238,19 +250,21 @@ class Model
      * @param array $db Postavke baze podataka.
      * @param string $table Tablica sadržaja.
      * @param string $id ID izvornog sadržaja.
-     * @return string Naziv sadržaja ili false.
+     * @return string Naziv sadržaja ili prazan string.
      */
     public static function getSourceTitle(array $db, string $table, string $id) : string
     {
         $sourceid = intval($id);
         if ($sourceid == 0) {
-            return '-';
+            return '';
         }
         $conn = self::dbConnect($db);
         $title = self::sqlFetchSingle($conn, "SELECT title FROM $table WHERE id=$sourceid");
         $conn = null;
-
-        return $title;
+        if ($title) {
+            return $title;
+        }
+        return '';
     }
 
     /**
@@ -278,8 +292,8 @@ class Model
      */
     public static function saveUpload(array $db, string $filename) : bool
     {
-        $sqlcol = array();
-        $params = array();
+        $sqlcol = [];
+        $params = [];
 
         $sqlcol[] = 'datum';
         $params[':datum'] = date('Y-m-d', time());
@@ -291,8 +305,8 @@ class Model
             $sqlcol[] = $key;
             $params[":$key"] = Funkcije::filterInput($_POST[$key]);
         }
-        $list = array();
-        $values = array();
+        $list = [];
+        $values = [];
         foreach ($sqlcol as $key) {
             $list[] = $key;
             $values[] = ":$key";
@@ -344,15 +358,15 @@ class Model
         //     title       VARCHAR(255) NOT NULL
         //     username    VARCHAR(255) NOT NULL
         //     zipcode     VARCHAR(255) NOT NULL
-        $records = array(
+        $records = [
             'address', 'city', 'comment', /*'content',*/ 'country',
             /*'datum',*/ 'description', 'display', 'email', 'enabled',
             'keywords', 'lang', 'logo', 'media', 'menuid', 'name',
             /*'password',*/ 'phone', /*'slug',*/ 'summary', 'sourceid',
             'template', 'title', 'username', 'zipcode'
-        );
-        $sqlcol = array();
-        $params = array();
+        ];
+        $sqlcol = [];
+        $params = [];
 
         $sqlcol[] = 'datum';
         $params[':datum'] = date('Y-m-d', time());
@@ -390,15 +404,15 @@ class Model
         $sql = '';
         if (isset($id)) {
             $params[':id'] = $id;
-            $list = array();
+            $list = [];
             foreach ($sqlcol as $key) {
                 $list[] = "$key=:$key";
             }
             $colset = implode(',', $list);
             $sql = "UPDATE $table SET $colset WHERE id=:id";
         } else {
-            $list = array();
-            $values = array();
+            $list = [];
+            $values = [];
             foreach ($sqlcol as $key) {
                 $list[] = $key;
                 $values[] = ":$key";

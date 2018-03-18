@@ -88,7 +88,7 @@ class Spremnik
             [$uri]
         );
         $conn = null;
-        if ($data !== false) {
+        if (!empty($data)) {
             $this->exists = true;
             $cachestamp = intval($data['valid']);
             if ($cachestamp > 0
