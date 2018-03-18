@@ -393,8 +393,8 @@ class Sadrzaj
      */
     public function renderLogout(string $uri, array $vars) : array
     {
-        foreach ($_SESSION as $var) {
-            unset($var);
+        foreach ($_SESSION as $key => $value) {
+            unset($_SESSION[$key]);
         }
         session_regenerate_id();
         return ['code' => 302, 'path' => '/'];
