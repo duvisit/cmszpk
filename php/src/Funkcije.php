@@ -45,8 +45,8 @@ class Funkcije
     }
 
     /**
-     * Promijeni tekst prijevoda za sigurnu upotrebu prema pravilima html
-     * standarda za kodiranje znakova.
+     * Prevedi ulaznu poruku i izmijeni tekst prijevoda za sigurnu upotrebu
+     * prema pravilima html standarda za kodiranje znakova.
      *
      * @see \Sustav\Funkcije::escapeOutput()
      * @see \Sustav\Funkcije::translate()
@@ -77,9 +77,10 @@ class Funkcije
      * Filtriraj ulazni tekst.
      *
      * Dopušteni znakovi:
-     * slova (Unicode), brojevi (0-9), razmak ( ), plus (+), minus (-), točka (.),
-     * zarez (,), jednostruki (') i dvostruki (") navodnici, at (@), zagrade (()),
-     * uskličnik (!), upitnik (?), dvotočka (:).
+     * slova ([Unicode](http://www.unicode.org/)), brojevi (0-9), razmak ( ),
+     * plus (+), minus (-), točka (.), zarez (,), jednostruki (') i dvostruki
+     * (") navodnici, at (@), zagrade (()), uskličnik (!), upitnik (?),
+     * dvotočka (:).
      *
      * @param string $str Ulazni tekst.
      * @param int $length Dopušteni broj znakova teksta.
@@ -109,8 +110,8 @@ class Funkcije
     }
 
     /**
-     * Ispiši tekst za sigurnu upotrebu prema pravilima html standarda za kodiranje
-     * nedopuštenih znakova.
+     * Ispiši tekst prema pravilima html standarda za kodiranje nedopuštenih
+     * znakova.
      *
      * @see \Sustav\Funkcije::escapeOutput()
      *
