@@ -270,7 +270,7 @@ class Sadrzaj
             'SELECT menuid, slug, title FROM page WHERE lang = ? ORDER BY menuid',
             [$lang]
         );
-        $langnav = Model::getLangnav($conn, $vars['lang'], $lang, 'blog', -1, -1);
+        $langnav = Model::getLangnav($conn, $vars['lang'], $lang, 'blog', '-1', '-1');
         $list = Model::sqlFetchAll(
             $conn,
             "SELECT * FROM blog WHERE lang = ?",
@@ -333,7 +333,7 @@ class Sadrzaj
             'SELECT menuid, slug, title FROM page WHERE lang = ? ORDER BY menuid',
             [$lang]
         );
-        $langnav = Model::getLangnav($conn, $vars['lang'], $lang, 'article', -1, -1);
+        $langnav = Model::getLangnav($conn, $vars['lang'], $lang, 'article', '-1', '-1');
         $list = Model::sqlFetchAll(
             $conn,
             "SELECT * FROM article WHERE lang = ?",
