@@ -136,7 +136,7 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;array
+                    static&nbsp;string
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_sqlFetchSingle">sqlFetchSingle</a>(<a target="_blank" href="http://php.net/PDO">PDO</a> $conn, string $sql, array $params = null)
@@ -306,7 +306,7 @@ $conn = null;
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Polje odgovora na upit ili false.</td>
+            <td>Polje odgovora na upit ili prazno polje.</td>
         </tr>
     </table>
 
@@ -318,7 +318,7 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_sqlFetchAll">
-        <div class="location">at         line 79</div>
+        <div class="location">at         line 83</div>
         <code>        static            array
     <strong>sqlFetchAll</strong>(<a target="_blank" href="http://php.net/PDO">PDO</a> $conn, string $sql, array $params = null)
         </code>
@@ -356,7 +356,7 @@ $conn = null;
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Polje polja odgovora na upit ili false.</td>
+            <td>Polje polja odgovora na upit ili prazno polje.</td>
         </tr>
     </table>
 
@@ -368,7 +368,7 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_sqlFetchColumn">
-        <div class="location">at         line 98</div>
+        <div class="location">at         line 106</div>
         <code>        static            array
     <strong>sqlFetchColumn</strong>(<a target="_blank" href="http://php.net/PDO">PDO</a> $conn, string $sql, array $params = null)
         </code>
@@ -406,7 +406,7 @@ $conn = null;
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Polje odgovora na upit ili false.</td>
+            <td>Polje odgovora na upit ili prazno polje.</td>
         </tr>
     </table>
 
@@ -418,8 +418,8 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_sqlFetchSingle">
-        <div class="location">at         line 117</div>
-        <code>        static            array
+        <div class="location">at         line 129</div>
+        <code>        static            string
     <strong>sqlFetchSingle</strong>(<a target="_blank" href="http://php.net/PDO">PDO</a> $conn, string $sql, array $params = null)
         </code>
     </h3>
@@ -455,8 +455,8 @@ $conn = null;
 
                     <table class="table table-condensed">
         <tr>
-            <td>array</td>
-            <td>Odgovor na upit ili false.</td>
+            <td>string</td>
+            <td>Odgovor na upit ili prazan string.</td>
         </tr>
     </table>
 
@@ -468,7 +468,7 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_getLangnav">
-        <div class="location">at         line 143</div>
+        <div class="location">at         line 155</div>
         <code>        static            array
     <strong>getLangnav</strong>(<a target="_blank" href="http://php.net/PDO">PDO</a> $conn, string $default, string $lang, string $table, string $recordid, string $sourceid)
         </code>
@@ -521,7 +521,7 @@ $conn = null;
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Polje dostupnih jezika ili null.</td>
+            <td>Polje dostupnih jezika ili prazno polje.</td>
         </tr>
     </table>
 
@@ -533,7 +533,7 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_getSourceTitle">
-        <div class="location">at         line 243</div>
+        <div class="location">at         line 255</div>
         <code>        static            string
     <strong>getSourceTitle</strong>(array $db, string $table, string $id)
         </code>
@@ -571,7 +571,7 @@ $conn = null;
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Naziv sadržaja ili false.</td>
+            <td>Naziv sadržaja ili prazan string.</td>
         </tr>
     </table>
 
@@ -583,7 +583,7 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_deleteRecord">
-        <div class="location">at         line 264</div>
+        <div class="location">at         line 278</div>
         <code>        static            bool
     <strong>deleteRecord</strong>(array $db, string $table, string $id)
         </code>
@@ -633,7 +633,7 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_saveUpload">
-        <div class="location">at         line 279</div>
+        <div class="location">at         line 293</div>
         <code>        static            bool
     <strong>saveUpload</strong>(array $db, string $filename)
         </code>
@@ -678,7 +678,7 @@ $conn = null;
             </div>
                     <div class="method-item">
                     <h3 id="method_saveRecord">
-        <div class="location">at         line 320</div>
+        <div class="location">at         line 334</div>
         <code>        static            bool
     <strong>saveRecord</strong>(array $db, string $table, string $id = null)
         </code>
