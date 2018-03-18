@@ -121,8 +121,8 @@
                 <div class="col-md-8 type">
                     <a href="#method_escapeTrans">escapeTrans</a>(string $str, string $lang)
         
-                                            <p>Promijeni tekst prijevoda za sigurnu upotrebu prema pravilima html
-standarda za kodiranje znakova.</p>                </div>
+                                            <p>Prevedi ulaznu poruku i izmijeni tekst prijevoda za sigurnu upotrebu
+prema pravilima html standarda za kodiranje znakova.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -163,8 +163,8 @@ kodiranje nedopuštenih znakova.</p>                </div>
                 <div class="col-md-8 type">
                     <a href="#method_echoOutput">echoOutput</a>(string $str)
         
-                                            <p>Ispiši tekst za sigurnu upotrebu prema pravilima html standarda za kodiranje
-nedopuštenih znakova.</p>                </div>
+                                            <p>Ispiši tekst prema pravilima html standarda za kodiranje nedopuštenih
+znakova.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -337,8 +337,8 @@ to change error messages into ErrorException.</td>
     
 
                     <div class="method-description">
-                                    <p>Promijeni tekst prijevoda za sigurnu upotrebu prema pravilima html
-standarda za kodiranje znakova.</p>                                                </div>
+                                    <p>Prevedi ulaznu poruku i izmijeni tekst prijevoda za sigurnu upotrebu
+prema pravilima html standarda za kodiranje znakova.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -437,7 +437,7 @@ standarda za kodiranje znakova.</p>                                             
             </div>
                     <div class="method-item">
                     <h3 id="method_filterInput">
-        <div class="location">at         line 88</div>
+        <div class="location">at         line 89</div>
         <code>        static            string
     <strong>filterInput</strong>(string $str, int $length = 255)
         </code>
@@ -448,9 +448,10 @@ standarda za kodiranje znakova.</p>                                             
 
                     <div class="method-description">
                                     <p>Filtriraj ulazni tekst.</p>                    <p>Dopušteni znakovi:
-slova (Unicode), brojevi (0-9), razmak ( ), plus (+), minus (-), točka (.),
-zarez (,), jednostruki (') i dvostruki (") navodnici, at (@), zagrade (()),
-uskličnik (!), upitnik (?), dvotočka (:).</p>                            </div>
+slova (<a href="http://www.unicode.org/">Unicode</a>), brojevi (0-9), razmak ( ),
+plus (+), minus (-), točka (.), zarez (,), jednostruki (') i dvostruki
+(") navodnici, at (@), zagrade (()), uskličnik (!), upitnik (?),
+dvotočka (:).</p>                            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -485,7 +486,7 @@ uskličnik (!), upitnik (?), dvotočka (:).</p>                            </div
             </div>
                     <div class="method-item">
                     <h3 id="method_escapeOutput">
-        <div class="location">at         line 106</div>
+        <div class="location">at         line 107</div>
         <code>        static            string
     <strong>escapeOutput</strong>(string $str)
         </code>
@@ -537,7 +538,7 @@ kodiranje nedopuštenih znakova.</p>                                            
             </div>
                     <div class="method-item">
                     <h3 id="method_echoOutput">
-        <div class="location">at         line 119</div>
+        <div class="location">at         line 120</div>
         <code>        static            
     <strong>echoOutput</strong>(string $str)
         </code>
@@ -547,8 +548,8 @@ kodiranje nedopuštenih znakova.</p>                                            
     
 
                     <div class="method-description">
-                                    <p>Ispiši tekst za sigurnu upotrebu prema pravilima html standarda za kodiranje
-nedopuštenih znakova.</p>                                                </div>
+                                    <p>Ispiši tekst prema pravilima html standarda za kodiranje nedopuštenih
+znakova.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -580,7 +581,7 @@ nedopuštenih znakova.</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_purifyHtml">
-        <div class="location">at         line 132</div>
+        <div class="location">at         line 133</div>
         <code>        static            string
     <strong>purifyHtml</strong>(string $html)
         </code>
@@ -620,7 +621,7 @@ nedopuštenih znakova.</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_escapeHtml">
-        <div class="location">at         line 147</div>
+        <div class="location">at         line 148</div>
         <code>        static            string
     <strong>escapeHtml</strong>(string $html)
         </code>
@@ -671,7 +672,7 @@ nedopuštenih znakova.</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_echoHtml">
-        <div class="location">at         line 159</div>
+        <div class="location">at         line 160</div>
         <code>        static            
     <strong>echoHtml</strong>(string $html)
         </code>
@@ -713,7 +714,7 @@ nedopuštenih znakova.</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getLangName">
-        <div class="location">at         line 170</div>
+        <div class="location">at         line 171</div>
         <code>        static            string
     <strong>getLangName</strong>(string $langcode)
         </code>
