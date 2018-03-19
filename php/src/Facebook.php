@@ -58,24 +58,33 @@ class Facebook
                 return $data;
             }
         }
-        $response = file_get_contents(
-            "https://graph.facebook.com/oauth/access_token?"
-            ."client_id={$app_id}&client_secret={$app_secret}&grant_type=client_credentials"
-        );
-        if ($response === false) {
-            return $data;
-        }
-        $json_token = json_decode($response, true);
-        $access_token = empty($json_token['access_token']) ? false : $json_token['access_token'];
-        if ($access_token === false) {
-            return $data;
-        }
-        $fields = 'id,type,message,picture,link,name,caption,created_time,object_id';
-        $json_data = file_get_contents(
-            "https://graph.facebook.com/{$api_version}/{$page_id}/feed?"
-            ."access_token={$access_token}&fields={$fields}&limit=9"
-        );
-        if ($json_data === false) {
+        try {
+            $response = file_get_contents(
+                "https://graph.facebook.com/oauth/access_token?"
+                ."client_id={$app_id}&client_secret={$app_secret}&grant_type=client_credentials"
+            );
+            if ($response === false) {
+                return $data;
+            }
+            $json_token = json_decode($response, true);
+            $access_token = empty($json_token['access_token']) ? false : $json_token['access_token'];
+            if ($access_token === false) {
+                return $data;
+            }
+            $fields = 'id,type,message,picture,link,name,caption,created_time,object_id';
+            $json_data = file_get_contents(
+                "https://graph.facebook.com/{$api_version}/{$page_id}/feed?"
+                ."access_token={$access_token}&fields={$fields}&limit=9"
+            );
+            if ($json_data === false) {
+                return $data;
+            }
+        } catch \Exception (e) {
+            $logfile = __DIR__.'/error.log';
+            error_log(date(DATE_ATOM), 3, $logfile);
+            error_log("\t", 3, $logfile);
+            error_log(e->getMessage(), 3, $logfile);
+            error_log(PHP_EOL, 3, $logfile);
             return $data;
         }
         $fbfeed = json_decode($json_data, true);
