@@ -79,11 +79,11 @@ class Facebook
             if ($json_data === false) {
                 return $data;
             }
-        } catch \Exception (e) {
+        } catch (\Exception $e) {
             $logfile = __DIR__.'/error.log';
             error_log(date(DATE_ATOM), 3, $logfile);
             error_log("\t", 3, $logfile);
-            error_log(e->getMessage(), 3, $logfile);
+            error_log($e->getMessage(), 3, $logfile);
             error_log(PHP_EOL, 3, $logfile);
             return $data;
         }
