@@ -30,6 +30,10 @@ try {
     error_log(date(DATE_ATOM), 3, $logfile);
     error_log("\t", 3, $logfile);
     error_log($e->getMessage(), 3, $logfile);
+    error_log("\t", 3, $logfile);
+    error_log($e->getFile(), 3, $logfile);
+    error_log("\t", 3, $logfile);
+    error_log($e->getLine(), 3, $logfile);
     error_log(PHP_EOL, 3, $logfile);
     http_response_code(500);
 }
