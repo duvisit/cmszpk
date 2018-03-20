@@ -80,7 +80,7 @@ class Funkcije
      * slova ([Unicode](http://www.unicode.org/)), brojevi (0-9), razmak ( ),
      * plus (+), minus (-), točka (.), zarez (,), jednostruki (') i dvostruki
      * (") navodnici, at (@), zagrade (()), uskličnik (!), upitnik (?),
-     * dvotočka (:).
+     * dvotočka (:) i kosa crta (/).
      *
      * @param string $str Ulazni tekst.
      * @param int $length Dopušteni broj znakova teksta.
@@ -89,7 +89,7 @@ class Funkcije
     public static function filterInput(string $str, int $length = 255) : string
     {
         return preg_replace(
-            "/[^\pL0-9 \+\-\.\,\'\"\@\(\)\!\?\:]/u",
+            "/[^\pL0-9 \/\+\-\.\,\'\"\@\(\)\!\?\:]/u",
             "",
             mb_substr(trim($str), 0, $length, 'UTF-8')
         );
