@@ -68,7 +68,7 @@ class Spremnik
      * @param string $uri URI sadržaja.
      * @param array $db Postavke baze podataka.
      */
-    public function __construct($uri, $db)
+    public function __construct(string $uri, array $db)
     {
         $this->db = $db;
         $this->uri = $uri;
@@ -122,9 +122,10 @@ class Spremnik
     /**
      * Spremi html sadržaja u spremnik.
      *
+     * @param string $html Html sadržaja.
      * @return bool Ako je sadržaj spremljen TRUE, inače FALSE.
      */
-    public function save($html) : bool
+    public function save(string $html) : bool
     {
         if ($this->admin) {
             return true;
