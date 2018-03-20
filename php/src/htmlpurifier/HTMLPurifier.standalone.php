@@ -12579,7 +12579,7 @@ class HTMLPurifier_AttrDef_CSS_URI extends HTMLPurifier_AttrDef_URI
         // an innerHTML cycle, so a very unlucky query parameter could
         // then change the meaning of the URL.  Unfortunately, there's
         // not much we can do about that...
-        return "url(\"$result\")";
+        return "url('$result')";
     }
 }
 
