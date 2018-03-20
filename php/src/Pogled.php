@@ -51,15 +51,6 @@ class Pogled
                     } else {
                         $type = 'buffer';
                         $html = ob_get_clean();
-                        $options = [
-                            'tidy-mark' => false,
-                            'drop-empty-elements' => false,
-                            'markup' => true,
-                            'wrap' => 8192
-                        ];
-                        $tidy = tidy_parse_string($html, $options, 'utf8');
-                        $tidy->cleanRepair();
-                        $html = tidy_get_output($tidy);
                         if (isset($status['path'])) {
                             $cache = new Spremnik($status['path'], $this->database);
                             $cache->save($html);

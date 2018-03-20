@@ -129,6 +129,16 @@ class Spremnik
         if ($this->admin) {
             return true;
         }
+        $options = [
+            'tidy-mark' => false,
+            'drop-empty-elements' => false,
+            'markup' => true,
+            'wrap' => 8192
+        ];
+        $tidy = tidy_parse_string($html, $options, 'utf8');
+        $tidy->cleanRepair();
+        $html = tidy_get_output($tidy);
+
         $sql = 'UPDATE servercache SET valid=:valid, html=:html WHERE uri=:uri';
         if ($this->exists == false) {
             $sql = 'INSERT INTO servercache (id,uri,valid,html) VALUES (NULL,:uri,:valid,:html)';
