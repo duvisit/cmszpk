@@ -53,7 +53,7 @@ class Pogled
                         $html = ob_get_clean();
                         if (isset($status['path'])) {
                             $cache = new Spremnik($status['path'], $this->database);
-                            $cache->save($html);
+                            $html = $cache->save($html);
                         }
                         echo $html;
                     }

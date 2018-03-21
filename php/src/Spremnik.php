@@ -123,12 +123,12 @@ class Spremnik
      * Spremi html sadržaja u spremnik.
      *
      * @param string $html Html sadržaja.
-     * @return bool Ako je sadržaj spremljen TRUE, inače FALSE.
+     * @return string Html sadržaja.
      */
-    public function save(string $html) : bool
+    public function save(string $html) : string
     {
         if ($this->admin) {
-            return true;
+            return $html;
         }
         $options = [
             'tidy-mark' => false,
@@ -153,6 +153,6 @@ class Spremnik
         $st = $conn->prepare($sql);
         $ok = $st->execute($params);
         $conn = null;
-        return $ok;
+        return $html;
     }
 }
