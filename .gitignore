@@ -2,11 +2,13 @@ docs/cache/
 docs/.htaccess
 media/*/
 upload/
+sitemap.xml
 php/test.txt
 php/coverage.txt
 php/src/cmszpk.php
 php/src/database/data-*.sql
 .well-known/
+google*
 *.db
 *.swp
 *.ser
