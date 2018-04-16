@@ -1,7 +1,7 @@
 <!-- website -->
 <div class="uk-block-content">
 <div class="uk-block uk-block-default">
-<div class="uk-container uk-container-center">
+<div class="uk-container uk-container-center uk-overflow-container">
 
 <table class="uk-table uk-table-striped">
 <caption>Table website</caption>

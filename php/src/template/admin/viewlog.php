@@ -1,7 +1,7 @@
 <!-- view log -->
 <div class="uk-block-content">
 <div class="uk-block uk-block-default">
-<div class="uk-container">
+<div class="uk-container uk-overflow-container">
 <p><a href="/admin/log/clean">Clean logs</a></p>
 <h2>Error log</h2>
 <pre>
