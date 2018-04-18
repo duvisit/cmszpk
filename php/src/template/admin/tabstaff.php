@@ -9,21 +9,21 @@
 <?php
 use Sustav\Funkcije;
 foreach ( $langlist as $group ) {
-    echo '<h2>Language: ', Funkcije::esacpeOutput( $group ), '</h2>', PHP_EOL
+    echo '<h2>Language: ', Funkcije::escapeOutput( $group ), '</h2>', PHP_EOL
         , '<div class="uk-grid" data-uk-grid-margin="">', PHP_EOL;
     foreach ( $list as $item ) {
         if ( $item['lang'] === $group )
             echo '<div class="uk-width-medium-1-4">'
             , '<div class="uk-panel uk-panel-box">'
             , '<div class="uk-panel-teaser">'
-            , '<img src="', Funkcije::esacpeOutput( $item['media'] ), '">'
+            , '<img src="', Funkcije::escapeOutput( $item['media'] ), '">'
             , '</div>'
             , '<p class="uk-text-bold">'
-            , Funkcije::esacpeOutput( $item['title'] ), '</h3>'
-            , '<p>', Funkcije::esacpeOutput( $item['summary'] ), '</p>'
+            , Funkcije::escapeOutput( $item['title'] ), '</h3>'
+            , '<p>', Funkcije::escapeOutput( $item['summary'] ), '</p>'
             , '<p>', purifyHtml( $item['content'] ), '</p>'
             , '<a class="uk-link" href="/admin/staff/'
-            , Funkcije::esacpeOutput( $item['id'] ), '">Edit</a>'
+            , Funkcije::escapeOutput( $item['id'] ), '">Edit</a>'
             , '</div>'
             , '</div>';
     }
