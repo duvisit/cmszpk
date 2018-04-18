@@ -425,9 +425,6 @@ class Sadrzaj
             );
             $conn = null;
 
-            if (empty($list)) {
-                return ['code' => 500];
-            }
             $menu = [];
             foreach ($vars['tables'] as $m) {
                 $menu[] =['slug' => "/admin/$m", 'title' => $m];
