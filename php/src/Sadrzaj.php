@@ -497,7 +497,7 @@ class Sadrzaj
         $_SESSION['alertmsg'] = "Error editing record from table '$table'";
 
         if (isset($_POST['csrf']) && isset($_SESSION['csrf'])
-            && hash_equals($_POST['csrf'], $_SESSION['csrf']) && $idval > 0 ) {
+            && hash_equals($_POST['csrf'], $_SESSION['csrf']) && $idval > 0) {
             if (isset($_POST['save'])) {
                 $_SESSION['alertmsg'] = "Error saving record to table '$table'";
                 $done = Model::saveRecord($vars['database'], $table, $idval);

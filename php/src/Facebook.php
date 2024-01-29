@@ -151,8 +151,8 @@ class Facebook
      */
     private static function fbError($lang) : void
     {
-        $date = date (time());
-?>
+        $date = date(time());
+        ?>
 <div class="uk-width-medium-1-3">
 <div class="uk-panel uk-panel-box uk-panel-box-secondary">
 <h3 class="uk-panel-title">Status</h3>
@@ -160,7 +160,7 @@ class Facebook
 <p><?= Funkcije::escapeTrans("Facebook feed not available", $lang) ?></p>
 </div>
 </div>
-<?php
+        <?php
     }
 
     /**
@@ -179,19 +179,19 @@ class Facebook
         string $link,
         string $message
     ) : void {
-?>
+        ?>
 <div class="uk-width-medium-1-3"><div class="uk-panel uk-panel-box uk-panel-box-secondary">
-<?php if ($picture != '') { ?>
+        <?php if ($picture != '') { ?>
 <div class="uk-panel-teaser uk-cover-background"
 style="height:240px; background-image:url('<?= Funkcije::escapeOutput($picture) ?>');"></div>
-<?php } ?>
+        <?php } ?>
 <h3 class="uk-panel-title">
 <a class="uk-link" href="<?= Funkcije::escapeOutput($link) ?>"><?= Funkcije::escapeOutput($type) ?></a>
 </h3>
 <div class="uk-article-meta"><?= Funkcije::escapeOutput($date) ?></div>
-<?= Funkcije::escapeHtml($message) ?>
+        <?= Funkcije::escapeHtml($message) ?>
 </div></div>
-<?php
+        <?php
     }
 
     /**
@@ -218,7 +218,7 @@ style="height:240px; background-image:url('<?= Funkcije::escapeOutput($picture) 
                 // TODO set date
                 $date = '';
                 if (isset($fbpost['fb_created_time'])) {
-                    $date = date (strtotime($fbpost['fb_created_time']));
+                    $date = date(strtotime($fbpost['fb_created_time']));
                 }
                 $type    = ucfirst($fbpost['fb_type']);
                 $picture = empty($fbpost['fb_picture']) ? '' : $fbpost['fb_picture'];
