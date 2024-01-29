@@ -1,7 +1,6 @@
 <?php
 namespace Sustav;
 
-use Sustav\Postavke;
 use Sustav\Upravljac\Zahtjev;
 
 /**
