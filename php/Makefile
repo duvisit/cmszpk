@@ -1,17 +1,14 @@
 #=============================================================================
 OPIS = Sustav za upravljanje sadržajem
 NAZIV = cmszpk
-VERZIJA = 1.0.0
+VERZIJA = 2.0.0
 MAK = Makefile
 DEP = $(MAK).dep
 
-PHP = $(shell which php72)
-ifeq ($(PHP),)
-	PHP = php
-endif
-PHPAB = bin/phpab-1.24.1.phar
-PHPUNIT = bin/phpunit-6.5.6.phar
-PHPDOC = bin/sami.phar
+PHP = php
+PHPAB = bin/phpab-1.29.0.phar
+PHPUNIT = bin/phpunit-10.5.9.phar
+PHPDOC = bin/doctum.phar
 
 PHPCS = bin/phpcs.phar
 PHPCBF = bin/phpcbf.phar
@@ -93,11 +90,6 @@ test: test.txt
 test.txt: $(TEST_PHP) $(CMSZPK_PHP)
 	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
 		--testdox-text test.txt test
-
-coverage: coverage.txt
-coverage.txt: $(TEST_PHP) $(CMSZPK_PHP)
-	$(PHP) $(PHPUNIT) --bootstrap src/autoload.php \
-		--coverage-text=coverage.txt test
 
 api: sami.php ../docs/api/index.html
 ../docs/api/index.html: $(CMSZPK_PHP)
