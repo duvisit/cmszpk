@@ -7,31 +7,40 @@
 
             <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../../fonts/doctum-font.css">
+        <script src="../../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../../doctum.js"></script>
+        <script async defer src="../../js/bootstrap.min.js"></script>
+        <script async defer src="../../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Sustav_Pogled_Sadrzaj" data-root-path="../../">
+    <body id="class" data-name="class:Sustav_Pogled_Sadrzaj" data-root-path="../../" data-search-index-url="../../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -53,8 +62,8 @@
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
                     <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../namespaces.html">Namespaces</a></li>
+                    <li><a href="../../interfaces.html">Interfaces</a></li>
                     <li><a href="../../traits.html">Traits</a></li>
                     <li><a href="../../doc-index.html">Index</a></li>
                     <li><a href="../../search.html">Search</a></li>
@@ -70,25 +79,24 @@
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Sadrzaj
-                
-        </h1>
+        <h1>Sadrzaj    
+            </h1>
     </div>
 
-    <p>    class
+    
+    <p>        class
     <strong>Sadrzaj</strong>
 </p>
 
         
     
+        
 
             <div class="description">
-            <p>Odgovor modela na upit.</p>            <p>URI: Uniform Resource Identifier</p>                    </div>
-    
-    
+            <p><p>Odgovor modela na upit.</p></p>            <p><p>URI: Uniform Resource Identifier</p></p>        </div>
+            
+        
     
     
             <h2>Methods</h2>
@@ -98,7 +106,7 @@
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___construct">__construct</a>(<a href="../../Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a> $upravljac)
         
                                             <p>Konstruktor.</p>                </div>
@@ -108,150 +116,150 @@
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_pogledaj">pogledaj</a>()
         
-                                            <p>Pogledaj sadržaj preko upravljača.</p>                </div>
+                                            <p><p>Pogledaj sadržaj preko upravljača.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderHelp">renderHelp</a>(string $uri, array $vars)
         
-                                            <p>Prikaži upute za urednike sadržaja.</p>                </div>
+                                            <p><p>Prikaži upute za urednike sadržaja.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderTemplate">renderTemplate</a>(string $uri, string $lang, string $table, string $slug, array $vars)
         
-                                            <p>Prikaži predložak.</p>                </div>
+                                            <p><p>Prikaži predložak.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderBlogList">renderBlogList</a>(string $uri, string $lang, array $vars)
         
-                                            <p>Prikaži listu objava.</p>                </div>
+                                            <p><p>Prikaži listu objava.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderArticleList">renderArticleList</a>(string $uri, string $lang, array $vars)
         
-                                            <p>Prikaži listu dokumenata.</p>                </div>
+                                            <p><p>Prikaži listu dokumenata.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderLogin">renderLogin</a>(string $uri, array $vars)
         
-                                            <p>Prikaži stranicu za prijavu u sustav.</p>                </div>
+                                            <p><p>Prikaži stranicu za prijavu u sustav.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderLogout">renderLogout</a>(string $uri, array $vars)
         
-                                            <p>Odjava sa sustava (preusmjeri na naslovnu stranicu).</p>                </div>
+                                            <p><p>Odjava sa sustava (preusmjeri na naslovnu stranicu).</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderAdmin">renderAdmin</a>(string $uri, string $table, array $vars)
         
-                                            <p>Prikaži pregled sadržaja.</p>                </div>
+                                            <p><p>Prikaži pregled sadržaja.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderEdit">renderEdit</a>(string $uri, string $table, string $id, array $vars)
         
-                                            <p>Prikaži stranicu za uređivanje sadržaja.</p>                </div>
+                                            <p><p>Prikaži stranicu za uređivanje sadržaja.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderCreate">renderCreate</a>(string $uri, string $table, array $vars)
         
-                                            <p>Prikaži stranicu za stvaranje sadržaja.</p>                </div>
+                                            <p><p>Prikaži stranicu za stvaranje sadržaja.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderUpload">renderUpload</a>(string $uri, array $vars)
         
-                                            <p>Prikaži stranicu za učitavanje datoteka.</p>                </div>
+                                            <p><p>Prikaži stranicu za učitavanje datoteka.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderCleanup">renderCleanup</a>(string $uri, array $vars)
         
-                                            <p>Izbriši nekorištene datoteke.</p>                </div>
+                                            <p><p>Izbriši nekorištene datoteke.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderLog">renderLog</a>(string $uri, array $vars)
         
-                                            <p>Prikaži podatke o radu sustava.</p>                </div>
+                                            <p><p>Prikaži podatke o radu sustava.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderLogClean">renderLogClean</a>(string $uri, array $vars)
         
-                                            <p>Izbriši podatke o radu sustava.</p>                </div>
+                                            <p><p>Izbriši podatke o radu sustava.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_renderSqlite">renderSqlite</a>(array $vars)
         
-                                            <p>Prikaži sučelje za rad sa SQLite bazom podataka.</p>                </div>
+                                            <p><p>Prikaži sučelje za rad sa SQLite bazom podataka.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -262,18 +270,19 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 23</div>
+        <div class="location">at line 23</div>
         <code>                    
     <strong>__construct</strong>(<a href="../../Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a> $upravljac)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Konstruktor.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p>Konstruktor.</p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -287,24 +296,26 @@
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_pogledaj">
-        <div class="location">at         line 33</div>
+        <div class="location">at line 33</div>
         <code>                    array
     <strong>pogledaj</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Pogledaj sadržaj preko upravljača.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Pogledaj sadržaj preko upravljača.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -315,6 +326,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -323,30 +335,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderHelp">
-        <div class="location">at         line 45</div>
+        <div class="location">at line 45</div>
         <code>                    array
     <strong>renderHelp</strong>(string $uri, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži upute za urednike sadržaja.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži upute za urednike sadržaja.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -360,6 +373,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -368,45 +382,46 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderTemplate">
-        <div class="location">at         line 80</div>
+        <div class="location">at line 80</div>
         <code>                    array
     <strong>renderTemplate</strong>(string $uri, string $lang, string $table, string $slug, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži predložak.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži predložak.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$lang</td>
-                <td>Jezik predloška.</td>
+                <td><p>Jezik predloška.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$table</td>
-                <td>Naziv tablice.</td>
+                <td><p>Naziv tablice.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$slug</td>
-                <td>Naziv zapisa u bazi podataka.</td>
+                <td><p>Naziv zapisa u bazi podataka.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -420,6 +435,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -428,35 +444,36 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderBlogList">
-        <div class="location">at         line 243</div>
+        <div class="location">at line 243</div>
         <code>                    array
     <strong>renderBlogList</strong>(string $uri, string $lang, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži listu objava.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži listu objava.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$lang</td>
-                <td>Jezik predloška.</td>
+                <td><p>Jezik predloška.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -470,6 +487,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -478,35 +496,36 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderArticleList">
-        <div class="location">at         line 306</div>
+        <div class="location">at line 306</div>
         <code>                    array
     <strong>renderArticleList</strong>(string $uri, string $lang, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži listu dokumenata.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži listu dokumenata.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$lang</td>
-                <td>Jezik predloška.</td>
+                <td><p>Jezik predloška.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -520,6 +539,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -528,30 +548,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderLogin">
-        <div class="location">at         line 368</div>
+        <div class="location">at line 368</div>
         <code>                    array
     <strong>renderLogin</strong>(string $uri, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži stranicu za prijavu u sustav.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži stranicu za prijavu u sustav.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -565,6 +586,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -573,30 +595,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderLogout">
-        <div class="location">at         line 394</div>
+        <div class="location">at line 394</div>
         <code>                    array
     <strong>renderLogout</strong>(string $uri, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Odjava sa sustava (preusmjeri na naslovnu stranicu).</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Odjava sa sustava (preusmjeri na naslovnu stranicu).</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -610,6 +633,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -618,35 +642,36 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderAdmin">
-        <div class="location">at         line 411</div>
+        <div class="location">at line 411</div>
         <code>                    array
     <strong>renderAdmin</strong>(string $uri, string $table, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži pregled sadržaja.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži pregled sadržaja.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$table</td>
-                <td>Naziv tablice sadržaja.</td>
+                <td><p>Naziv tablice sadržaja.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -660,6 +685,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -668,40 +694,41 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderEdit">
-        <div class="location">at         line 459</div>
+        <div class="location">at line 456</div>
         <code>                    array
     <strong>renderEdit</strong>(string $uri, string $table, string $id, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži stranicu za uređivanje sadržaja.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži stranicu za uređivanje sadržaja.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$table</td>
-                <td>Naziv tablice sadržaja.</td>
+                <td><p>Naziv tablice sadržaja.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$id</td>
-                <td>ID sadržaja.</td>
+                <td><p>ID sadržaja.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -715,6 +742,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -723,35 +751,36 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderCreate">
-        <div class="location">at         line 530</div>
+        <div class="location">at line 527</div>
         <code>                    array
     <strong>renderCreate</strong>(string $uri, string $table, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži stranicu za stvaranje sadržaja.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži stranicu za stvaranje sadržaja.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$table</td>
-                <td>Naziv tablice sadržaja.</td>
+                <td><p>Naziv tablice sadržaja.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -765,6 +794,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -773,30 +803,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderUpload">
-        <div class="location">at         line 599</div>
+        <div class="location">at line 596</div>
         <code>                    array
     <strong>renderUpload</strong>(string $uri, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži stranicu za učitavanje datoteka.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži stranicu za učitavanje datoteka.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -810,6 +841,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -818,30 +850,31 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderCleanup">
-        <div class="location">at         line 678</div>
+        <div class="location">at line 675</div>
         <code>                    array
     <strong>renderCleanup</strong>(string $uri, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Izbriši nekorištene datoteke.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Izbriši nekorištene datoteke.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -855,6 +888,7 @@
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -863,31 +897,32 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_renderLog">
-        <div class="location">at         line 721</div>
+        <div class="location">at line 718</div>
         <code>                    array
     <strong>renderLog</strong>(string $uri, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži podatke o radu sustava.</p>                    <p>Podaci koji se prate: korištenje spremnika (cache.log) i greške sustava
-(error.log).</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži podatke o radu sustava.</p></p>                <p><p>Podaci koji se prate: korištenje spremnika (cache.log) i greške sustava
+(error.log).</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -903,36 +938,38 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_renderLogClean">
-        <div class="location">at         line 755</div>
+        <div class="location">at line 752</div>
         <code>                    array
     <strong>renderLogClean</strong>(string $uri, array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Izbriši podatke o radu sustava.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Izbriši podatke o radu sustava.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$uri</td>
-                <td>Staza zahtjeva.</td>
+                <td><p>Staza zahtjeva.</p></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -953,37 +990,40 @@
                     <table class="table table-condensed">
                     <tr>
                 <td>
-                                            <a href="../../Sustav/Pogled/Sadrzaj.html#method_renderLog"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLog</a>
+                                            <a href="../../Sustav/Pogled/Sadrzaj.html#method_renderLog">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLog</a>
                                     </td>
                 <td></td>
             </tr>
             </table>
 
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_renderSqlite">
-        <div class="location">at         line 774</div>
+        <div class="location">at line 771</div>
         <code>                    array
     <strong>renderSqlite</strong>(array $vars)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Prikaži sučelje za rad sa SQLite bazom podataka.</p>                    <p>Metoda koristi <a href="https://www.adminer.org/">Adminer</a>.</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Prikaži sučelje za rad sa SQLite bazom podataka.</p></p>                <p><p>Metoda koristi <a href="https://www.adminer.org/">Adminer</a>.</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$vars</td>
-                <td>Postavke sustava.</td>
+                <td><p>Postavke sustava.</p></td>
             </tr>
             </table>
 
@@ -999,6 +1039,7 @@
 
             
             
+            
                     </div>
     </div>
 
@@ -1006,12 +1047,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
     </div>
     </body>
 

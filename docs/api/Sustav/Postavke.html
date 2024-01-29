@@ -7,31 +7,40 @@
 
             <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/sami.css">
-        <script src="../js/jquery-1.11.1.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/typeahead.min.js"></script>
-        <script src="../sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="../fonts/doctum-font.css">
+        <script src="../js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="../doctum.js"></script>
+        <script async defer src="../js/bootstrap.min.js"></script>
+        <script async defer src="../js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Sustav_Postavke" data-root-path="../">
+    <body id="class" data-name="class:Sustav_Postavke" data-root-path="../" data-search-index-url="../doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="../search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -53,8 +62,8 @@
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
                     <li><a href="../classes.html">Classes</a></li>
-                                            <li><a href="../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../namespaces.html">Namespaces</a></li>
+                    <li><a href="../interfaces.html">Interfaces</a></li>
                     <li><a href="../traits.html">Traits</a></li>
                     <li><a href="../doc-index.html">Index</a></li>
                     <li><a href="../search.html">Search</a></li>
@@ -70,24 +79,22 @@
             </ol>
         </div>
                 <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Postavke
-                
-        </h1>
+        <h1>Postavke    
+            </h1>
     </div>
 
-    <p>    class
+    
+    <p>        class
     <strong>Postavke</strong>
 </p>
 
         
     
+        
 
             <div class="description">
-            <p>Postavke sustava.</p>            <p>Postavke su zapisane u datoteci <code>cmszpk.php</code>.</p>
-
+            <p><p>Postavke sustava.</p></p>            <p><p>Postavke su zapisane u datoteci <code>cmszpk.php</code>.</p>
 <pre><code>'lang' =&gt; 'hr',
 'development' =&gt; true,
 'cache' =&gt; true,
@@ -108,11 +115,9 @@
 'facebook_app_secret' =&gt; '',
 'facebook_api_version' =&gt; '',
 'googlemap_token' =&gt; '',
-'googlemap_latlng' =&gt; ''
-</code></pre>
-</p>                    </div>
-    
-    
+'googlemap_latlng' =&gt; ''</code></pre></p>        </div>
+            
+        
     
     
             <h2>Methods</h2>
@@ -122,7 +127,7 @@
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___construct">__construct</a>()
         
                                             <p>Konstruktor.</p>                </div>
@@ -132,200 +137,200 @@
                 <div class="col-md-2 type">
                     static&nbsp;string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_htmldir">htmldir</a>()
         
-                                            <p>Direktorij u kojem se nalaze html predlošci.</p>                </div>
+                                            <p><p>Direktorij u kojem se nalaze html predlošci.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_tables">tables</a>()
         
-                                            <p>Nazivi tablica u bazi podataka.</p>                </div>
+                                            <p><p>Nazivi tablica u bazi podataka.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_templates">templates</a>()
         
-                                            <p>Nazivi html predložaka.</p>                </div>
+                                            <p><p>Nazivi html predložaka.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_mediadirs">mediadirs</a>()
         
-                                            <p>Direktoriji sa slikama.</p>                </div>
+                                            <p><p>Direktoriji sa slikama.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_uploaddir">uploaddir</a>()
         
-                                            <p>Direktorij za učitavanje datoteka.</p>                </div>
+                                            <p><p>Direktorij za učitavanje datoteka.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_url">url</a>()
         
-                                            <p>Naziv domene na kojoj se sustav nalazi.</p>                </div>
+                                            <p><p>Naziv domene na kojoj se sustav nalazi.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_lang">lang</a>()
         
-                                            <p>Glavni jezik sustava.</p>                </div>
+                                            <p><p>Glavni jezik sustava.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_database">database</a>()
         
-                                            <p>Postavke za PHP Database Object (PDO).</p>                </div>
+                                            <p><p>Postavke za PHP Database Object (PDO).</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_development">development</a>()
         
-                                            <p>Status razvoja sustava.</p>                </div>
+                                            <p><p>Status razvoja sustava.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_cache">cache</a>()
         
-                                            <p>Sustav koristi spremnik?</p>                </div>
+                                            <p><p>Sustav koristi spremnik?</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_cachelog">cachelog</a>()
         
-                                            <p>Sustav čuva podatke o korištenju spremnika?</p>                </div>
+                                            <p><p>Sustav čuva podatke o korištenju spremnika?</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_timezone">timezone</a>()
         
-                                            <p>Vremenska zona za računanje datuma i vremena.</p>                </div>
+                                            <p><p>Vremenska zona za računanje datuma i vremena.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_purifyhtml">purifyhtml</a>()
         
-                                            <p>Sustav koristi pročistač html-a?</p>                </div>
+                                            <p><p>Sustav koristi pročistač html-a?</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_facebookUrl">facebookUrl</a>()
         
-                                            <p>Adresa Facebook stranice s kojom je sustav povezan.</p>                </div>
+                                            <p><p>Adresa Facebook stranice s kojom je sustav povezan.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_facebookPageId">facebookPageId</a>()
         
-                                            <p>ID Facebook stranice s kojom je sustav povezan.</p>                </div>
+                                            <p><p>ID Facebook stranice s kojom je sustav povezan.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_facebookAppId">facebookAppId</a>()
         
-                                            <p>ID Facebook aplikacije s kojom je sustav povezan.</p>                </div>
+                                            <p><p>ID Facebook aplikacije s kojom je sustav povezan.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_facebookAppSecret">facebookAppSecret</a>()
         
-                                            <p>Token Facebook aplikacije s kojom je sustav povezan.</p>                </div>
+                                            <p><p>Token Facebook aplikacije s kojom je sustav povezan.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_facebookApiVersion">facebookApiVersion</a>()
         
-                                            <p>Verzija programskog sučelja koju Facebook aplikacija koristi.</p>                </div>
+                                            <p><p>Verzija programskog sučelja koju Facebook aplikacija koristi.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_googleMapToken">googleMapToken</a>()
         
-                                            <p>Token za prikaz Google karte.</p>                </div>
+                                            <p><p>Token za prikaz Google karte.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_googleMapLatLng">googleMapLatLng</a>()
         
-                                            <p>Geografska širina i dužina mjesta kojeg prikazuje Google karta.</p>                </div>
+                                            <p><p>Geografska širina i dužina mjesta kojeg prikazuje Google karta.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -336,18 +341,20 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 56</div>
+        <div class="location">at line 56</div>
         <code>                    
     <strong>__construct</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Konstruktor.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p>Konstruktor.</p>                        
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -357,28 +364,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_htmldir">
-        <div class="location">at         line 66</div>
+        <div class="location">at line 66</div>
         <code>        static            string
     <strong>htmldir</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Direktorij u kojem se nalaze html predlošci.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Direktorij u kojem se nalaze html predlošci.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Staza do direktorija.</td>
+            <td><p>Staza do direktorija.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -387,28 +396,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_tables">
-        <div class="location">at         line 76</div>
+        <div class="location">at line 76</div>
         <code>                    array
     <strong>tables</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Nazivi tablica u bazi podataka.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Nazivi tablica u bazi podataka.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Polje s nazivima tablica.</td>
+            <td><p>Polje s nazivima tablica.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -417,28 +428,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_templates">
-        <div class="location">at         line 86</div>
+        <div class="location">at line 86</div>
         <code>                    array
     <strong>templates</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Nazivi html predložaka.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Nazivi html predložaka.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Polje s nazivima predložaka.</td>
+            <td><p>Polje s nazivima predložaka.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -447,28 +460,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_mediadirs">
-        <div class="location">at         line 96</div>
+        <div class="location">at line 96</div>
         <code>                    array
     <strong>mediadirs</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Direktoriji sa slikama.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Direktoriji sa slikama.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Polje s nazivima direktorija.</td>
+            <td><p>Polje s nazivima direktorija.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -477,28 +492,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_uploaddir">
-        <div class="location">at         line 106</div>
+        <div class="location">at line 106</div>
         <code>                    string
     <strong>uploaddir</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Direktorij za učitavanje datoteka.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Direktorij za učitavanje datoteka.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Staza do direktorija.</td>
+            <td><p>Staza do direktorija.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -507,28 +524,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_url">
-        <div class="location">at         line 116</div>
+        <div class="location">at line 116</div>
         <code>                    string
     <strong>url</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Naziv domene na kojoj se sustav nalazi.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Naziv domene na kojoj se sustav nalazi.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Naziv domene.</td>
+            <td><p>Naziv domene.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -537,28 +556,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_lang">
-        <div class="location">at         line 126</div>
+        <div class="location">at line 126</div>
         <code>                    string
     <strong>lang</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Glavni jezik sustava.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Glavni jezik sustava.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Naziv glavnog jezika sustava.</td>
+            <td><p>Naziv glavnog jezika sustava.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -567,28 +588,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_database">
-        <div class="location">at         line 136</div>
+        <div class="location">at line 136</div>
         <code>                    array
     <strong>database</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Postavke za PHP Database Object (PDO).</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Postavke za PHP Database Object (PDO).</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>Postavke baze podataka.</td>
+            <td><p>Postavke baze podataka.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -597,28 +620,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_development">
-        <div class="location">at         line 146</div>
+        <div class="location">at line 146</div>
         <code>                    bool
     <strong>development</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Status razvoja sustava.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Status razvoja sustava.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>Ako je sustav u razvoju TRUE, inače FALSE.</td>
+            <td><p>Ako je sustav u razvoju TRUE, inače FALSE.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -627,28 +652,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_cache">
-        <div class="location">at         line 156</div>
+        <div class="location">at line 156</div>
         <code>                    bool
     <strong>cache</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Sustav koristi spremnik?</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Sustav koristi spremnik?</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>Ako se koristi spremnik TRUE, inače FALSE.</td>
+            <td><p>Ako se koristi spremnik TRUE, inače FALSE.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -657,28 +684,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_cachelog">
-        <div class="location">at         line 166</div>
+        <div class="location">at line 166</div>
         <code>                    bool
     <strong>cachelog</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Sustav čuva podatke o korištenju spremnika?</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Sustav čuva podatke o korištenju spremnika?</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>Ako se podaci čuvaju TRUE, inače FALSE.</td>
+            <td><p>Ako se podaci čuvaju TRUE, inače FALSE.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -687,28 +716,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_timezone">
-        <div class="location">at         line 176</div>
+        <div class="location">at line 176</div>
         <code>                    string
     <strong>timezone</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Vremenska zona za računanje datuma i vremena.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Vremenska zona za računanje datuma i vremena.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Naziv vremenske zone.</td>
+            <td><p>Naziv vremenske zone.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -717,28 +748,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_purifyhtml">
-        <div class="location">at         line 186</div>
+        <div class="location">at line 186</div>
         <code>                    bool
     <strong>purifyhtml</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Sustav koristi pročistač html-a?</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Sustav koristi pročistač html-a?</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>Ako se koristi pročistač TRUE, inače FALSE.</td>
+            <td><p>Ako se koristi pročistač TRUE, inače FALSE.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -747,28 +780,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_facebookUrl">
-        <div class="location">at         line 196</div>
+        <div class="location">at line 196</div>
         <code>                    string
     <strong>facebookUrl</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Adresa Facebook stranice s kojom je sustav povezan.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Adresa Facebook stranice s kojom je sustav povezan.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>URL stranice.</td>
+            <td><p>URL stranice.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -777,28 +812,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_facebookPageId">
-        <div class="location">at         line 209</div>
+        <div class="location">at line 209</div>
         <code>                    string
     <strong>facebookPageId</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>ID Facebook stranice s kojom je sustav povezan.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>ID Facebook stranice s kojom je sustav povezan.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>ID stranice.</td>
+            <td><p>ID stranice.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -807,28 +844,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_facebookAppId">
-        <div class="location">at         line 219</div>
+        <div class="location">at line 219</div>
         <code>                    string
     <strong>facebookAppId</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>ID Facebook aplikacije s kojom je sustav povezan.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>ID Facebook aplikacije s kojom je sustav povezan.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>ID aplikacije.</td>
+            <td><p>ID aplikacije.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -837,28 +876,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_facebookAppSecret">
-        <div class="location">at         line 229</div>
+        <div class="location">at line 229</div>
         <code>                    string
     <strong>facebookAppSecret</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Token Facebook aplikacije s kojom je sustav povezan.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Token Facebook aplikacije s kojom je sustav povezan.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Tajni token.</td>
+            <td><p>Tajni token.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -867,28 +908,30 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_facebookApiVersion">
-        <div class="location">at         line 239</div>
+        <div class="location">at line 239</div>
         <code>                    string
     <strong>facebookApiVersion</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Verzija programskog sučelja koju Facebook aplikacija koristi.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Verzija programskog sučelja koju Facebook aplikacija koristi.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>API verzija.</td>
+            <td><p>API verzija.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -897,18 +940,19 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_googleMapToken">
-        <div class="location">at         line 249</div>
+        <div class="location">at line 249</div>
         <code>                    string
     <strong>googleMapToken</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Token za prikaz Google karte.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Token za prikaz Google karte.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -921,34 +965,37 @@
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_googleMapLatLng">
-        <div class="location">at         line 262</div>
+        <div class="location">at line 262</div>
         <code>                    string
     <strong>googleMapLatLng</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Geografska širina i dužina mjesta kojeg prikazuje Google karta.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Geografska širina i dužina mjesta kojeg prikazuje Google karta.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>string</td>
-            <td>Geografska širina i dužina.</td>
+            <td><p>Geografska širina i dužina.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -958,12 +1005,8 @@
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
     </div>
     </body>
 
