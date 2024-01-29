@@ -14,6 +14,6 @@ include __DIR__.'/snip/featstaff.php';
 <h2><?= \Sustav\Funkcije::escapeOutput( $site['city'] ) ?>, <?= \Sustav\Funkcije::escapeOutput( $site['country'] ) ?></h2>
 </div>
 <div class="uk-block-default">
-<?php include __DIR__.'/snip/googlemap.php'; ?>
+<?php if (empty ($vars['googlemap_token'])) { include __DIR__.'/snip/googlemap-embed.php'; } else { include __DIR__.'/snip/googlemap.php'; } ?>
 </div>
 </div>
