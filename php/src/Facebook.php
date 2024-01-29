@@ -151,7 +151,7 @@ class Facebook
      */
     private static function fbError($lang) : void
     {
-        $date = iconv('ISO-8859-2', 'UTF-8', strftime('%e. %B, %Y.', time()));
+        $date = date (time());
 ?>
 <div class="uk-width-medium-1-3">
 <div class="uk-panel uk-panel-box uk-panel-box-secondary">
@@ -218,11 +218,7 @@ style="height:240px; background-image:url('<?= Funkcije::escapeOutput($picture) 
                 // TODO set date
                 $date = '';
                 if (isset($fbpost['fb_created_time'])) {
-                    $date = iconv(
-                        'ISO-8859-2',
-                        'UTF-8',
-                        strftime('%e. %B, %Y.', strtotime($fbpost['fb_created_time']))
-                    );
+                    $date = date (strtotime($fbpost['fb_created_time']));
                 }
                 $type    = ucfirst($fbpost['fb_type']);
                 $picture = empty($fbpost['fb_picture']) ? '' : $fbpost['fb_picture'];
