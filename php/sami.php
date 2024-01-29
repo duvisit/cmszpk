@@ -14,7 +14,7 @@ $iterator = Finder::create()
     ->exclude('sluggenerator')
     ->in(__DIR__ . '/src');
 
-return new Sami($iterator, array(
+return new Doctum($iterator, array(
     'title' => 'Sustav za upravljanje sadržajem',
     'build_dir' => '../docs/api',
     'cache_dir' => '../docs/cache',
