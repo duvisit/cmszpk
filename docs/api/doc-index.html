@@ -7,31 +7,40 @@
 
             <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="css/sami.css">
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/typeahead.min.js"></script>
-        <script src="sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="fonts/doctum-font.css">
+        <script src="js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="doctum.js"></script>
+        <script async defer src="js/bootstrap.min.js"></script>
+        <script async defer src="js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="doc-index" data-name="" data-root-path="">
+    <body id="doc-index" data-name="" data-root-path="" data-search-index-url="doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -53,8 +62,8 @@
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
                     <li><a href="classes.html">Classes</a></li>
-                                            <li><a href="namespaces.html">Namespaces</a></li>
-                                        <li><a href="interfaces.html">Interfaces</a></li>
+                    <li><a href="namespaces.html">Namespaces</a></li>
+                    <li><a href="interfaces.html">Interfaces</a></li>
                     <li><a href="traits.html">Traits</a></li>
                     <li><a href="doc-index.html">Index</a></li>
                     <li><a href="search.html">Search</a></li>
@@ -64,7 +73,6 @@
     </nav>
 
                         <div id="page-content">
-                
     <div class="page-header">
         <h1>Index</h1>
     </div>
@@ -99,114 +107,183 @@
                         </ul>
 
     <h2 id="letterC">C</h2>
-        <dl id="index"><dt><a href="Sustav/Postavke.html#method_cache"><abbr title="Sustav\Postavke">Postavke</abbr>::cache</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Sustav koristi spremnik?</dd><dt><a href="Sustav/Postavke.html#method_cachelog"><abbr title="Sustav\Postavke">Postavke</abbr>::cachelog</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Sustav čuva podatke o korištenju spremnika?</dd>        </dl><h2 id="letterD">D</h2>
-        <dl id="index"><dt><a href="Sustav/Model/Model.html#method_dbConnect"><abbr title="Sustav\Model\Model">Model</abbr>::dbConnect</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Povezivanje s bazom podataka.</dd><dt><a href="Sustav/Model/Model.html#method_deleteRecord"><abbr title="Sustav\Model\Model">Model</abbr>::deleteRecord</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Izbriši zapis u bazi podataka.</dd><dt><a href="Sustav/Postavke.html#method_database"><abbr title="Sustav\Postavke">Postavke</abbr>::database</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Postavke za PHP Database Object (PDO).</dd><dt><a href="Sustav/Postavke.html#method_development"><abbr title="Sustav\Postavke">Postavke</abbr>::development</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Status razvoja sustava.</dd>        </dl><h2 id="letterE">E</h2>
-        <dl id="index"><dt><a href="Sustav/Funkcije.html#method_errorHandler"><abbr title="Sustav\Funkcije">Funkcije</abbr>::errorHandler</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Pretvori grešku u iznimku.</dd><dt><a href="Sustav/Funkcije.html#method_escapeTrans"><abbr title="Sustav\Funkcije">Funkcije</abbr>::escapeTrans</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Prevedi ulaznu poruku i izmijeni tekst prijevoda za sigurnu upotrebu
-prema pravilima html standarda za kodiranje znakova.</dd><dt><a href="Sustav/Funkcije.html#method_escapeOutput"><abbr title="Sustav\Funkcije">Funkcije</abbr>::escapeOutput</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Promijeni tekst za sigurnu upotrebu prema pravilima html standarda za
-kodiranje nedopuštenih znakova.</dd><dt><a href="Sustav/Funkcije.html#method_echoOutput"><abbr title="Sustav\Funkcije">Funkcije</abbr>::echoOutput</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Ispiši tekst prema pravilima html standarda za kodiranje nedopuštenih
-znakova.</dd><dt><a href="Sustav/Funkcije.html#method_escapeHtml"><abbr title="Sustav\Funkcije">Funkcije</abbr>::escapeHtml</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Drugo ime za funkciju purifyHtml().</dd><dt><a href="Sustav/Funkcije.html#method_echoHtml"><abbr title="Sustav\Funkcije">Funkcije</abbr>::echoHtml</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Ispiši pročišćeni html.</dd>        </dl><h2 id="letterF">F</h2>
-        <dl id="index"><dt><a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a> &mdash; <em>Class in namespace <a href="Sustav.html">Sustav</a></em></dt>
-                    <dd>Pomoćne funkcije.</dd><dt><a href="Sustav/Funkcije.html#method_facebookFeed"><abbr title="Sustav\Funkcije">Funkcije</abbr>::facebookFeed</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Pokreni ispis Facebook objava.</dd><dt><a href="Sustav/Funkcije.html#method_filterInput"><abbr title="Sustav\Funkcije">Funkcije</abbr>::filterInput</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Filtriraj ulazni tekst.</dd><dt><a href="Sustav/Model/Facebook.html"><abbr title="Sustav\Model\Facebook">Facebook</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Model.html">Sustav\Model</a></em></dt>
-                    <dd>Facebook Graph API.</dd><dt><a href="Sustav/Model/Facebook.html#method_feed"><abbr title="Sustav\Model\Facebook">Facebook</abbr>::feed</a>() &mdash; <em>Method in class <a href="Sustav/Model/Facebook.html"><abbr title="Sustav\Model\Facebook">Facebook</abbr></a></em></dt>
-                    <dd>Ispis Facebook objava u html formatu.</dd><dt><a href="Sustav/Postavke.html#method_facebookUrl"><abbr title="Sustav\Postavke">Postavke</abbr>::facebookUrl</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Adresa Facebook stranice s kojom je sustav povezan.</dd><dt><a href="Sustav/Postavke.html#method_facebookPageId"><abbr title="Sustav\Postavke">Postavke</abbr>::facebookPageId</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>ID Facebook stranice s kojom je sustav povezan.</dd><dt><a href="Sustav/Postavke.html#method_facebookAppId"><abbr title="Sustav\Postavke">Postavke</abbr>::facebookAppId</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>ID Facebook aplikacije s kojom je sustav povezan.</dd><dt><a href="Sustav/Postavke.html#method_facebookAppSecret"><abbr title="Sustav\Postavke">Postavke</abbr>::facebookAppSecret</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Token Facebook aplikacije s kojom je sustav povezan.</dd><dt><a href="Sustav/Postavke.html#method_facebookApiVersion"><abbr title="Sustav\Postavke">Postavke</abbr>::facebookApiVersion</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Verzija programskog sučelja koju Facebook aplikacija koristi.</dd>        </dl><h2 id="letterG">G</h2>
-        <dl id="index"><dt><a href="Sustav/Funkcije.html#method_getLangName"><abbr title="Sustav\Funkcije">Funkcije</abbr>::getLangName</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Dohvati puni naziv jezika prema skraćenom nazivu.</dd><dt><a href="Sustav/Model/Model.html#method_getLangnav"><abbr title="Sustav\Model\Model">Model</abbr>::getLangnav</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Dohvati dostupne jezike.</dd><dt><a href="Sustav/Model/Model.html#method_getSourceTitle"><abbr title="Sustav\Model\Model">Model</abbr>::getSourceTitle</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Dohvati naziv izvornog sadržaja.</dd><dt><a href="Sustav/Postavke.html#method_googleMapToken"><abbr title="Sustav\Postavke">Postavke</abbr>::googleMapToken</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Token za prikaz Google karte.</dd><dt><a href="Sustav/Postavke.html#method_googleMapLatLng"><abbr title="Sustav\Postavke">Postavke</abbr>::googleMapLatLng</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Geografska širina i dužina mjesta kojeg prikazuje Google karta.</dd><dt><a href="Sustav/Upravljac/Sesija.html#method_getUser"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::getUser</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
-                    <dd>Dohvati podatke o korisniku iz baze podataka.</dd>        </dl><h2 id="letterH">H</h2>
-        <dl id="index"><dt><a href="Sustav/HTTPStatus.html"><abbr title="Sustav\HTTPStatus">HTTPStatus</abbr></a> &mdash; <em>Class in namespace <a href="Sustav.html">Sustav</a></em></dt>
-                    <dd>HTTP status.</dd><dt><a href="Sustav/Model/Spremnik.html#method_html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::html</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
-                    <dd>HTML sadržaja.</dd><dt><a href="Sustav/Postavke.html#method_htmldir"><abbr title="Sustav\Postavke">Postavke</abbr>::htmldir</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Direktorij u kojem se nalaze html predlošci.</dd><dt><a href="Sustav/Upravljac/Zahtjev.html#method_httphost"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr>::httphost</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Zahtjev.html"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr></a></em></dt>
-                    <dd>Vraća adresu web mjesta.</dd>        </dl><h2 id="letterI">I</h2>
-        <dl id="index"><dt><a href="Sustav/Upravljac/Sesija.html#method_isAdmin"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::isAdmin</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
-                    <dd>Korisnik je urednik sadržaja?</dd><dt><a href="Sustav/Upravljac/Sesija.html#method_isPassword"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::isPassword</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
-                    <dd>Provjeri unesenu lozinku korisnika s onom u bazi podataka.</dd>        </dl><h2 id="letterL">L</h2>
-        <dl id="index"><dt><a href="Sustav/Postavke.html#method_lang"><abbr title="Sustav\Postavke">Postavke</abbr>::lang</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Glavni jezik sustava.</dd>        </dl><h2 id="letterM">M</h2>
-        <dl id="index"><dt><a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Model.html">Sustav\Model</a></em></dt>
-                    <dd>Model sadržaja.</dd><dt><a href="Sustav/Postavke.html#method_mediadirs"><abbr title="Sustav\Postavke">Postavke</abbr>::mediadirs</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Direktoriji sa slikama.</dd>        </dl><h2 id="letterP">P</h2>
-        <dl id="index"><dt><a href="Sustav/Funkcije.html#method_purifyHtml"><abbr title="Sustav\Funkcije">Funkcije</abbr>::purifyHtml</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Pročisti html od sigurnosnih grešaka.</dd><dt><a href="Sustav/Pogled/Pogled.html"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Pogled.html">Sustav\Pogled</a></em></dt>
-                    <dd>Pogled na sadržaj.</dd><dt><a href="Sustav/Pogled/Pogled.html#method_posalji"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr>::posalji</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Pogled.html"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr></a></em></dt>
-                    <dd>Pošalji sadržaj html pregledniku.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_pogledaj"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::pogledaj</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Pogledaj sadržaj preko upravljača.</dd><dt><a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a> &mdash; <em>Class in namespace <a href="Sustav.html">Sustav</a></em></dt>
-                    <dd>Postavke sustava.</dd><dt><a href="Sustav/Postavke.html#method_purifyhtml"><abbr title="Sustav\Postavke">Postavke</abbr>::purifyhtml</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Sustav koristi pročistač html-a?</dd><dt><a href="Sustav/Upravljac/Upravljac.html#method_pokreni"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr>::pokreni</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a></em></dt>
-                    <dd>Pokreni upravljač za prikaz sadržaja.</dd>        </dl><h2 id="letterR">R</h2>
-        <dl id="index"><dt><a href="Sustav/Model/Spremnik.html#method_ready"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::ready</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
-                    <dd>Sadržaj je spreman?</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderHelp"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderHelp</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži upute za urednike sadržaja.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderTemplate"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderTemplate</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži predložak.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderBlogList"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderBlogList</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži listu objava.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderArticleList"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderArticleList</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži listu dokumenata.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLogin"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLogin</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži stranicu za prijavu u sustav.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLogout"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLogout</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Odjava sa sustava (preusmjeri na naslovnu stranicu).</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderAdmin"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderAdmin</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži pregled sadržaja.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderEdit"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderEdit</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži stranicu za uređivanje sadržaja.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderCreate"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderCreate</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži stranicu za stvaranje sadržaja.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderUpload"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderUpload</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži stranicu za učitavanje datoteka.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderCleanup"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderCleanup</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Izbriši nekorištene datoteke.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLog"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLog</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži podatke o radu sustava.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLogClean"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLogClean</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Izbriši podatke o radu sustava.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderSqlite"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderSqlite</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Prikaži sučelje za rad sa SQLite bazom podataka.</dd>        </dl><h2 id="letterS">S</h2>
-        <dl id="index"><dt><a href="Sustav/Model/Model.html#method_sqlFetch"><abbr title="Sustav\Model\Model">Model</abbr>::sqlFetch</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Dohvati jedan redak iz baze podataka prema upitu.</dd><dt><a href="Sustav/Model/Model.html#method_sqlFetchAll"><abbr title="Sustav\Model\Model">Model</abbr>::sqlFetchAll</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Dohvati sve retke iz baze podataka prema upitu.</dd><dt><a href="Sustav/Model/Model.html#method_sqlFetchColumn"><abbr title="Sustav\Model\Model">Model</abbr>::sqlFetchColumn</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Dohvati jedan stupac iz baze podataka prema upitu.</dd><dt><a href="Sustav/Model/Model.html#method_sqlFetchSingle"><abbr title="Sustav\Model\Model">Model</abbr>::sqlFetchSingle</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Dohvati samo jedan podatak iz baze podataka prema upitu.</dd><dt><a href="Sustav/Model/Model.html#method_saveUpload"><abbr title="Sustav\Model\Model">Model</abbr>::saveUpload</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Spremi zapis o učitanim datotekama u bazu podataka.</dd><dt><a href="Sustav/Model/Model.html#method_saveRecord"><abbr title="Sustav\Model\Model">Model</abbr>::saveRecord</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
-                    <dd>Spremi zapis u bazu podataka.</dd><dt><a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Model.html">Sustav\Model</a></em></dt>
-                    <dd>Spremnik sadržaja.</dd><dt><a href="Sustav/Model/Spremnik.html#method_save"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::save</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
-                    <dd>Spremi html sadržaja u spremnik.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Pogled.html">Sustav\Pogled</a></em></dt>
-                    <dd>Odgovor modela na upit.</dd><dt><a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Upravljac.html">Sustav\Upravljac</a></em></dt>
-                    <dd>Sesija korisnika sustava.</dd><dt><a href="Sustav/Upravljac/Sesija.html#method_sessionToken"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::sessionToken</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
-                    <dd>Postavi sigurnosni token za sesiju.</dd>        </dl><h2 id="letterT">T</h2>
-        <dl id="index"><dt><a href="Sustav/Funkcije.html#method_translate"><abbr title="Sustav\Funkcije">Funkcije</abbr>::translate</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
-                    <dd>Prijevod poruka sustava.</dd><dt><a href="Sustav/Postavke.html#method_tables"><abbr title="Sustav\Postavke">Postavke</abbr>::tables</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Nazivi tablica u bazi podataka.</dd><dt><a href="Sustav/Postavke.html#method_templates"><abbr title="Sustav\Postavke">Postavke</abbr>::templates</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Nazivi html predložaka.</dd><dt><a href="Sustav/Postavke.html#method_timezone"><abbr title="Sustav\Postavke">Postavke</abbr>::timezone</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Vremenska zona za računanje datuma i vremena.</dd>        </dl><h2 id="letterU">U</h2>
-        <dl id="index"><dt><a href="Sustav/Postavke.html#method_uploaddir"><abbr title="Sustav\Postavke">Postavke</abbr>::uploaddir</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Direktorij za učitavanje datoteka.</dd><dt><a href="Sustav/Postavke.html#method_url"><abbr title="Sustav\Postavke">Postavke</abbr>::url</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Naziv domene na kojoj se sustav nalazi.</dd><dt><a href="Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Upravljac.html">Sustav\Upravljac</a></em></dt>
-                    <dd>Upravljač sadržaja.</dd><dt><a href="Sustav/Upravljac/Zahtjev.html#method_uri"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr>::uri</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Zahtjev.html"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr></a></em></dt>
-                    <dd>Vraća http upit.</dd>        </dl><h2 id="letterZ">Z</h2>
-        <dl id="index"><dt><a href="Sustav/Upravljac/Zahtjev.html"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Upravljac.html">Sustav\Upravljac</a></em></dt>
-                    <dd>HTTP zahtjev.</dd>        </dl><h2 id="letter_">_</h2>
-        <dl id="index"><dt><a href="Sustav/Model/Spremnik.html#method___construct"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
-                    <dd>Konstruktor.</dd><dt><a href="Sustav/Pogled/Pogled.html#method___construct"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Pogled.html"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr></a></em></dt>
-                    <dd>Konstruktor.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method___construct"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
-                    <dd>Konstruktor.</dd><dt><a href="Sustav/Postavke.html#method___construct"><abbr title="Sustav\Postavke">Postavke</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
-                    <dd>Konstruktor.</dd><dt><a href="Sustav/Upravljac/Upravljac.html#method___construct"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a></em></dt>
-                    <dd>Konstruktor.</dd>        </dl>            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+        <dl id="indexC"><dt><a href="Sustav/Postavke.html#method_cache">
+<abbr title="Sustav\Postavke">Postavke</abbr>::cache</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Sustav koristi spremnik?</p></dd><dt><a href="Sustav/Postavke.html#method_cachelog">
+<abbr title="Sustav\Postavke">Postavke</abbr>::cachelog</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Sustav čuva podatke o korištenju spremnika?</p></dd>        </dl><h2 id="letterD">D</h2>
+        <dl id="indexD"><dt><a href="Sustav/Model/Model.html#method_dbConnect">
+<abbr title="Sustav\Model\Model">Model</abbr>::dbConnect</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Povezivanje s bazom podataka.</p></dd><dt><a href="Sustav/Model/Model.html#method_deleteRecord">
+<abbr title="Sustav\Model\Model">Model</abbr>::deleteRecord</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Izbriši zapis u bazi podataka.</p></dd><dt><a href="Sustav/Postavke.html#method_database">
+<abbr title="Sustav\Postavke">Postavke</abbr>::database</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Postavke za PHP Database Object (PDO).</p></dd><dt><a href="Sustav/Postavke.html#method_development">
+<abbr title="Sustav\Postavke">Postavke</abbr>::development</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Status razvoja sustava.</p></dd>        </dl><h2 id="letterE">E</h2>
+        <dl id="indexE"><dt><a href="Sustav/Funkcije.html#method_errorHandler">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::errorHandler</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Pretvori grešku u iznimku.</p></dd><dt><a href="Sustav/Funkcije.html#method_escapeTrans">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::escapeTrans</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Prevedi ulaznu poruku i izmijeni tekst prijevoda za sigurnu upotrebu
+prema pravilima html standarda za kodiranje znakova.</p></dd><dt><a href="Sustav/Funkcije.html#method_escapeOutput">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::escapeOutput</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Promijeni tekst za sigurnu upotrebu prema pravilima html standarda za
+kodiranje nedopuštenih znakova.</p></dd><dt><a href="Sustav/Funkcije.html#method_echoOutput">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::echoOutput</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Ispiši tekst prema pravilima html standarda za kodiranje nedopuštenih
+znakova.</p></dd><dt><a href="Sustav/Funkcije.html#method_escapeHtml">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::escapeHtml</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Drugo ime za funkciju purifyHtml().</p></dd><dt><a href="Sustav/Funkcije.html#method_echoHtml">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::echoHtml</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Ispiši pročišćeni html.</p></dd>        </dl><h2 id="letterF">F</h2>
+        <dl id="indexF"><dt><a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a> &mdash; <em>Class in namespace <a href="Sustav.html">Sustav</a></em></dt>
+                    <dd><p>Pomoćne funkcije.</p></dd><dt><a href="Sustav/Funkcije.html#method_facebookFeed">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::facebookFeed</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Pokreni ispis Facebook objava.</p></dd><dt><a href="Sustav/Funkcije.html#method_filterInput">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::filterInput</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Filtriraj ulazni tekst.</p></dd><dt><a href="Sustav/Model/Facebook.html"><abbr title="Sustav\Model\Facebook">Facebook</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Model.html">Sustav\Model</a></em></dt>
+                    <dd><p>Facebook Graph API.</p></dd><dt><a href="Sustav/Model/Facebook.html#method_feed">
+<abbr title="Sustav\Model\Facebook">Facebook</abbr>::feed</a>() &mdash; <em>Method in class <a href="Sustav/Model/Facebook.html"><abbr title="Sustav\Model\Facebook">Facebook</abbr></a></em></dt>
+                    <dd><p>Ispis Facebook objava u html formatu.</p></dd><dt><a href="Sustav/Postavke.html#method_facebookUrl">
+<abbr title="Sustav\Postavke">Postavke</abbr>::facebookUrl</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Adresa Facebook stranice s kojom je sustav povezan.</p></dd><dt><a href="Sustav/Postavke.html#method_facebookPageId">
+<abbr title="Sustav\Postavke">Postavke</abbr>::facebookPageId</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>ID Facebook stranice s kojom je sustav povezan.</p></dd><dt><a href="Sustav/Postavke.html#method_facebookAppId">
+<abbr title="Sustav\Postavke">Postavke</abbr>::facebookAppId</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>ID Facebook aplikacije s kojom je sustav povezan.</p></dd><dt><a href="Sustav/Postavke.html#method_facebookAppSecret">
+<abbr title="Sustav\Postavke">Postavke</abbr>::facebookAppSecret</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Token Facebook aplikacije s kojom je sustav povezan.</p></dd><dt><a href="Sustav/Postavke.html#method_facebookApiVersion">
+<abbr title="Sustav\Postavke">Postavke</abbr>::facebookApiVersion</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Verzija programskog sučelja koju Facebook aplikacija koristi.</p></dd>        </dl><h2 id="letterG">G</h2>
+        <dl id="indexG"><dt><a href="Sustav/Funkcije.html#method_getLangName">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::getLangName</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Dohvati puni naziv jezika prema skraćenom nazivu.</p></dd><dt><a href="Sustav/Model/Model.html#method_getLangnav">
+<abbr title="Sustav\Model\Model">Model</abbr>::getLangnav</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Dohvati dostupne jezike.</p></dd><dt><a href="Sustav/Model/Model.html#method_getSourceTitle">
+<abbr title="Sustav\Model\Model">Model</abbr>::getSourceTitle</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Dohvati naziv izvornog sadržaja.</p></dd><dt><a href="Sustav/Postavke.html#method_googleMapToken">
+<abbr title="Sustav\Postavke">Postavke</abbr>::googleMapToken</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Token za prikaz Google karte.</p></dd><dt><a href="Sustav/Postavke.html#method_googleMapLatLng">
+<abbr title="Sustav\Postavke">Postavke</abbr>::googleMapLatLng</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Geografska širina i dužina mjesta kojeg prikazuje Google karta.</p></dd><dt><a href="Sustav/Upravljac/Sesija.html#method_getUser">
+<abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::getUser</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
+                    <dd><p>Dohvati podatke o korisniku iz baze podataka.</p></dd>        </dl><h2 id="letterH">H</h2>
+        <dl id="indexH"><dt><a href="Sustav/HTTPStatus.html"><abbr title="Sustav\HTTPStatus">HTTPStatus</abbr></a> &mdash; <em>Class in namespace <a href="Sustav.html">Sustav</a></em></dt>
+                    <dd><p>HTTP status.</p></dd><dt><a href="Sustav/Model/Spremnik.html#method_html">
+<abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::html</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
+                    <dd><p>HTML sadržaja.</p></dd><dt><a href="Sustav/Postavke.html#method_htmldir">
+<abbr title="Sustav\Postavke">Postavke</abbr>::htmldir</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Direktorij u kojem se nalaze html predlošci.</p></dd><dt><a href="Sustav/Upravljac/Zahtjev.html#method_httphost">
+<abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr>::httphost</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Zahtjev.html"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr></a></em></dt>
+                    <dd><p>Vraća adresu web mjesta.</p></dd>        </dl><h2 id="letterI">I</h2>
+        <dl id="indexI"><dt><a href="Sustav/Upravljac/Sesija.html#method_isAdmin">
+<abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::isAdmin</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
+                    <dd><p>Korisnik je urednik sadržaja?</p></dd><dt><a href="Sustav/Upravljac/Sesija.html#method_isPassword">
+<abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::isPassword</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
+                    <dd><p>Provjeri unesenu lozinku korisnika s onom u bazi podataka.</p></dd>        </dl><h2 id="letterL">L</h2>
+        <dl id="indexL"><dt><a href="Sustav/Postavke.html#method_lang">
+<abbr title="Sustav\Postavke">Postavke</abbr>::lang</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Glavni jezik sustava.</p></dd>        </dl><h2 id="letterM">M</h2>
+        <dl id="indexM"><dt><a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Model.html">Sustav\Model</a></em></dt>
+                    <dd><p>Model sadržaja.</p></dd><dt><a href="Sustav/Postavke.html#method_mediadirs">
+<abbr title="Sustav\Postavke">Postavke</abbr>::mediadirs</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Direktoriji sa slikama.</p></dd>        </dl><h2 id="letterP">P</h2>
+        <dl id="indexP"><dt><a href="Sustav/Funkcije.html#method_purifyHtml">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::purifyHtml</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Pročisti html od sigurnosnih grešaka.</p></dd><dt><a href="Sustav/Pogled/Pogled.html"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Pogled.html">Sustav\Pogled</a></em></dt>
+                    <dd><p>Pogled na sadržaj.</p></dd><dt><a href="Sustav/Pogled/Pogled.html#method_posalji">
+<abbr title="Sustav\Pogled\Pogled">Pogled</abbr>::posalji</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Pogled.html"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr></a></em></dt>
+                    <dd><p>Pošalji sadržaj html pregledniku.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_pogledaj">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::pogledaj</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Pogledaj sadržaj preko upravljača.</p></dd><dt><a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a> &mdash; <em>Class in namespace <a href="Sustav.html">Sustav</a></em></dt>
+                    <dd><p>Postavke sustava.</p></dd><dt><a href="Sustav/Postavke.html#method_purifyhtml">
+<abbr title="Sustav\Postavke">Postavke</abbr>::purifyhtml</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Sustav koristi pročistač html-a?</p></dd><dt><a href="Sustav/Upravljac/Upravljac.html#method_pokreni">
+<abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr>::pokreni</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a></em></dt>
+                    <dd><p>Pokreni upravljač za prikaz sadržaja.</p></dd>        </dl><h2 id="letterR">R</h2>
+        <dl id="indexR"><dt><a href="Sustav/Model/Spremnik.html#method_ready">
+<abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::ready</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
+                    <dd><p>Sadržaj je spreman?</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderHelp">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderHelp</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži upute za urednike sadržaja.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderTemplate">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderTemplate</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži predložak.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderBlogList">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderBlogList</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži listu objava.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderArticleList">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderArticleList</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži listu dokumenata.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLogin">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLogin</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži stranicu za prijavu u sustav.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLogout">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLogout</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Odjava sa sustava (preusmjeri na naslovnu stranicu).</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderAdmin">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderAdmin</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži pregled sadržaja.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderEdit">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderEdit</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži stranicu za uređivanje sadržaja.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderCreate">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderCreate</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži stranicu za stvaranje sadržaja.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderUpload">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderUpload</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži stranicu za učitavanje datoteka.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderCleanup">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderCleanup</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Izbriši nekorištene datoteke.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLog">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLog</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži podatke o radu sustava.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderLogClean">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderLogClean</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Izbriši podatke o radu sustava.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method_renderSqlite">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::renderSqlite</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd><p>Prikaži sučelje za rad sa SQLite bazom podataka.</p></dd>        </dl><h2 id="letterS">S</h2>
+        <dl id="indexS"><dt><a href="Sustav/Model/Model.html#method_sqlFetch">
+<abbr title="Sustav\Model\Model">Model</abbr>::sqlFetch</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Dohvati jedan redak iz baze podataka prema upitu.</p></dd><dt><a href="Sustav/Model/Model.html#method_sqlFetchAll">
+<abbr title="Sustav\Model\Model">Model</abbr>::sqlFetchAll</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Dohvati sve retke iz baze podataka prema upitu.</p></dd><dt><a href="Sustav/Model/Model.html#method_sqlFetchColumn">
+<abbr title="Sustav\Model\Model">Model</abbr>::sqlFetchColumn</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Dohvati jedan stupac iz baze podataka prema upitu.</p></dd><dt><a href="Sustav/Model/Model.html#method_sqlFetchSingle">
+<abbr title="Sustav\Model\Model">Model</abbr>::sqlFetchSingle</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Dohvati samo jedan podatak iz baze podataka prema upitu.</p></dd><dt><a href="Sustav/Model/Model.html#method_saveUpload">
+<abbr title="Sustav\Model\Model">Model</abbr>::saveUpload</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Spremi zapis o učitanim datotekama u bazu podataka.</p></dd><dt><a href="Sustav/Model/Model.html#method_saveRecord">
+<abbr title="Sustav\Model\Model">Model</abbr>::saveRecord</a>() &mdash; <em>Method in class <a href="Sustav/Model/Model.html"><abbr title="Sustav\Model\Model">Model</abbr></a></em></dt>
+                    <dd><p>Spremi zapis u bazu podataka.</p></dd><dt><a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Model.html">Sustav\Model</a></em></dt>
+                    <dd><p>Spremnik sadržaja.</p></dd><dt><a href="Sustav/Model/Spremnik.html#method_save">
+<abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::save</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
+                    <dd><p>Spremi html sadržaja u spremnik.</p></dd><dt><a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Pogled.html">Sustav\Pogled</a></em></dt>
+                    <dd><p>Odgovor modela na upit.</p></dd><dt><a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Upravljac.html">Sustav\Upravljac</a></em></dt>
+                    <dd><p>Sesija korisnika sustava.</p></dd><dt><a href="Sustav/Upravljac/Sesija.html#method_sessionToken">
+<abbr title="Sustav\Upravljac\Sesija">Sesija</abbr>::sessionToken</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Sesija.html"><abbr title="Sustav\Upravljac\Sesija">Sesija</abbr></a></em></dt>
+                    <dd><p>Postavi sigurnosni token za sesiju.</p></dd>        </dl><h2 id="letterT">T</h2>
+        <dl id="indexT"><dt><a href="Sustav/Funkcije.html#method_translate">
+<abbr title="Sustav\Funkcije">Funkcije</abbr>::translate</a>() &mdash; <em>Method in class <a href="Sustav/Funkcije.html"><abbr title="Sustav\Funkcije">Funkcije</abbr></a></em></dt>
+                    <dd><p>Prijevod poruka sustava.</p></dd><dt><a href="Sustav/Postavke.html#method_tables">
+<abbr title="Sustav\Postavke">Postavke</abbr>::tables</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Nazivi tablica u bazi podataka.</p></dd><dt><a href="Sustav/Postavke.html#method_templates">
+<abbr title="Sustav\Postavke">Postavke</abbr>::templates</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Nazivi html predložaka.</p></dd><dt><a href="Sustav/Postavke.html#method_timezone">
+<abbr title="Sustav\Postavke">Postavke</abbr>::timezone</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Vremenska zona za računanje datuma i vremena.</p></dd>        </dl><h2 id="letterU">U</h2>
+        <dl id="indexU"><dt><a href="Sustav/Postavke.html#method_uploaddir">
+<abbr title="Sustav\Postavke">Postavke</abbr>::uploaddir</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Direktorij za učitavanje datoteka.</p></dd><dt><a href="Sustav/Postavke.html#method_url">
+<abbr title="Sustav\Postavke">Postavke</abbr>::url</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd><p>Naziv domene na kojoj se sustav nalazi.</p></dd><dt><a href="Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Upravljac.html">Sustav\Upravljac</a></em></dt>
+                    <dd><p>Upravljač sadržaja.</p></dd><dt><a href="Sustav/Upravljac/Zahtjev.html#method_uri">
+<abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr>::uri</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Zahtjev.html"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr></a></em></dt>
+                    <dd><p>Vraća http upit.</p></dd>        </dl><h2 id="letterZ">Z</h2>
+        <dl id="indexZ"><dt><a href="Sustav/Upravljac/Zahtjev.html"><abbr title="Sustav\Upravljac\Zahtjev">Zahtjev</abbr></a> &mdash; <em>Class in namespace <a href="Sustav/Upravljac.html">Sustav\Upravljac</a></em></dt>
+                    <dd><p>HTTP zahtjev.</p></dd>        </dl><h2 id="letter_">_</h2>
+        <dl id="index_"><dt><a href="Sustav/Model/Spremnik.html#method___construct">
+<abbr title="Sustav\Model\Spremnik">Spremnik</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Model/Spremnik.html"><abbr title="Sustav\Model\Spremnik">Spremnik</abbr></a></em></dt>
+                    <dd>Konstruktor.</dd><dt><a href="Sustav/Pogled/Pogled.html#method___construct">
+<abbr title="Sustav\Pogled\Pogled">Pogled</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Pogled.html"><abbr title="Sustav\Pogled\Pogled">Pogled</abbr></a></em></dt>
+                    <dd>Konstruktor.</dd><dt><a href="Sustav/Pogled/Sadrzaj.html#method___construct">
+<abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Pogled/Sadrzaj.html"><abbr title="Sustav\Pogled\Sadrzaj">Sadrzaj</abbr></a></em></dt>
+                    <dd>Konstruktor.</dd><dt><a href="Sustav/Postavke.html#method___construct">
+<abbr title="Sustav\Postavke">Postavke</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Postavke.html"><abbr title="Sustav\Postavke">Postavke</abbr></a></em></dt>
+                    <dd>Konstruktor.</dd><dt><a href="Sustav/Upravljac/Upravljac.html#method___construct">
+<abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Sustav/Upravljac/Upravljac.html"><abbr title="Sustav\Upravljac\Upravljac">Upravljac</abbr></a></em></dt>
+                    <dd>Konstruktor.</dd>        </dl></div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
     </div>
     </body>
 
