@@ -7,8 +7,8 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
-                'Adminer' => '/adminer/adminer.php',
-                'AdminerLoginSqlite' => '/adminer/loginSqlite.php',
+                'Adminer' => '/adminer/adminer-4.8.3.php',
+                'AdminerLoginPasswordLess' => '/adminer/login.php',
                 'AdminerPlugin' => '/adminer/plugin.php',
                 'Ausi\\SlugGenerator\\SlugGenerator' => '/sluggenerator/SlugGenerator.php',
                 'Ausi\\SlugGenerator\\SlugOptions' => '/sluggenerator/SlugOptions.php',
@@ -43,6 +43,7 @@ spl_autoload_register(
                 'HTMLPurifier_AttrDef_HTML_Bool' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_AttrDef_HTML_Class' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_AttrDef_HTML_Color' => '/htmlpurifier/HTMLPurifier.standalone.php',
+                'HTMLPurifier_AttrDef_HTML_ContentEditable' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_AttrDef_HTML_FrameTarget' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_AttrDef_HTML_ID' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_AttrDef_HTML_Length' => '/htmlpurifier/HTMLPurifier.standalone.php',
@@ -179,7 +180,6 @@ spl_autoload_register(
                 'HTMLPurifier_Injector_SafeObject' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_Language' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_LanguageFactory' => '/htmlpurifier/HTMLPurifier.standalone.php',
-                'HTMLPurifier_Language_en_x_test' => '/htmlpurifier/standalone/HTMLPurifier/Language/classes/en-x-test.php',
                 'HTMLPurifier_Length' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_Lexer' => '/htmlpurifier/HTMLPurifier.standalone.php',
                 'HTMLPurifier_Lexer_DOMLex' => '/htmlpurifier/HTMLPurifier.standalone.php',
@@ -258,10 +258,9 @@ spl_autoload_register(
                 'MatthiasMullie\\PathConverter\\Converter' => '/minify/pathconv/src/Converter.php',
                 'MatthiasMullie\\PathConverter\\ConverterInterface' => '/minify/pathconv/src/ConverterInterface.php',
                 'MatthiasMullie\\PathConverter\\NoConverter' => '/minify/pathconv/src/NoConverter.php',
-                'Min_Driver' => '/adminer/adminer.php',
-                'Min_PDOStatement' => '/adminer/adminer.php',
-                'Min_Result' => '/adminer/adminer.php',
-                'Min_SQL' => '/adminer/adminer.php',
+                'Min_Driver' => '/adminer/adminer-4.8.3.php',
+                'Min_PDOStatement' => '/adminer/adminer-4.8.3.php',
+                'Min_Result' => '/adminer/adminer-4.8.3.php',
                 'Sustav\\Funkcije' => '/Funkcije.php',
                 'Sustav\\HTTPStatus' => '/HTTPStatus.php',
                 'Sustav\\Model\\Facebook' => '/Facebook.php',
@@ -273,7 +272,7 @@ spl_autoload_register(
                 'Sustav\\Upravljac\\Sesija' => '/Sesija.php',
                 'Sustav\\Upravljac\\Upravljac' => '/Upravljac.php',
                 'Sustav\\Upravljac\\Zahtjev' => '/Zahtjev.php',
-                'TmpFile' => '/adminer/adminer.php'
+                'TmpFile' => '/adminer/adminer-4.8.3.php'
             );
         }
         if (isset($classes[$class])) {
