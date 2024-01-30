@@ -7,9 +7,9 @@
 $imgsrc = $page['media'];
 if ( empty( $page['media'] )) {
     $imgsrc = '/media/placeholder.svg';
-    $str = \Sustav\Funkcije::escapeOutput( $item );
     echo '<option value="/media/placeholder.svg" selected>None</option>';
     foreach ( $medialist as $item ) {
+        $str = \Sustav\Funkcije::escapeOutput( $item );
         echo '<option value="', $str, '">', $str, '</option>';
     }
 } else {
